@@ -1,0 +1,324 @@
+////////////////////////////////////////////
+///// 		NAVIGATION, PRIMARY
+///////////////////////////////////////////////
+
+// BANNER  ------------------------------------------------
+header.navMenu section.banner {
+	background: black;
+	color: $themeWhite;
+	text-transform: uppercase;
+
+	// don't place flexbox in this parent... the one enclosing your target elements are in the .wrapper
+
+	a {
+		display: inline-block;
+		margin:0;
+		padding: 0;
+		color: $themeWhite;
+		font-size: $basefontsize;
+	}
+
+	p {
+		display: inline-block;
+		margin:0;
+		padding:0;
+		// flex: 1 auto;
+
+		// &:nth-of-type(1) {
+		// 	flex: 5 75%;
+		// }
+		// &:nth-of-type(2) {
+		// 	flex: 1 12.5%;
+		// }
+		// &:nth-of-type(3) {
+		// 	flex: 1 6.25%;
+		// }
+		// &:nth-of-type(4) {
+		// 	flex: 1 6.25%;
+		// }
+	}
+
+	.wrapper {
+		// place the flexbox here not in the parent of section.banner
+		//flex box
+		@include flexboxSettings041715a;
+		justify-content: space-around;
+		align-content: space-around;
+		align-items: space-around;
+	}
+
+	// style the containing divs
+	// using divs around the elements actually makes it easier for positioning
+	.wrapper div {
+		display: inline-block;
+		margin:0;
+		padding:0;
+		flex: 1 25%;
+
+		&:nth-of-type(1) {
+			flex: 5 auto;
+		}
+		&:nth-of-type(2) {
+			flex: 1 auto;
+			@include flexboxSettings041715a;
+			justify-content: flex-end;
+			align-content: flex-end;
+		}
+		&:nth-of-type(3) {
+			flex: 1 auto;
+			@include flexboxSettings041715a;
+			justify-content: flex-end;
+			align-content: flex-end;
+
+			img {
+				display: inline-block;
+				margin:0;
+				padding:0;
+				margin-right: 5%;
+				height: 15px;
+				width:15px;
+				// background: $themeYellow;
+			}
+		}
+		&:nth-of-type(4) {
+			flex: 1 auto;
+			@include flexboxSettings041715a;
+			justify-content: flex-start;
+			align-content: flex-start;
+
+			p {
+				line-height: $baselineheight*1.7225;
+				padding-left: 15%;
+			}
+		}
+	}
+
+	// cart count
+	.wrapper span.cartCount {
+		color: $themeYellow;
+		position: relative;
+
+		// font awesome icon
+		// &::before {
+		// 	// position: absolute;
+		// 	@include beforeAfterIconPlace042215a(url('../images/cart.png'));
+		// 	font-size: $basefontsize*0.7;
+
+		// 	// flexbox
+		// 	// apply flexbox to centre the icon
+		// 	// @include flexboxSettings042215a;
+		// }
+		
+		// add a hover state
+	}
+
+	
+}
+// // END BANNER ------------------------------------------------
+
+// SEARCH/LOGO  ------------------------------------------------
+header.navMenu section.search.logo {
+	background: black;
+	color: $themeWhite;
+	position: relative;
+
+	// centre the logo
+	text-align: center;
+
+	@include sectionPadding041515(2%,2%);
+
+	.wrapper div {
+		margin:0;
+		padding:0;
+		position: relative;
+		width: auto;
+
+		// positioning
+		top: 1em;
+
+		// add the icon before
+		&::before {
+			@include beforeAfterIconPlace042215a('\f002');
+			position: absolute;
+			color: $themeWhite2;
+			// background: yellow;
+			top:0;
+			left:0;
+			font-size: $basefontsize;
+			font-weight: 100;
+		}
+	}
+
+	input {
+		position: absolute;
+		font-size: $basefontsize;
+		color: $themeWhite;
+		text-transform: uppercase;
+
+		// testing
+		// border:1px solid $themeWhite;
+
+		// positioning
+		left:0;
+		top:34%;
+		margin: 0 0 0 3%;
+		// padding: 0 3% 0 0;
+		width: 20em;
+
+		//add the icon before
+		// &::before {
+		// 	@include beforeAfterIconPlace042215a('\f002');
+		// 	// position: absolute;
+		// 	color: $themeWhite;
+		// 	background: yellow;
+		// 	margin:0;
+		// }
+	}
+
+	img {
+		display: inline-block;
+		margin:0;
+		padding:0;
+		width: 3.4375em;
+		height: 3.4375em;
+	}
+}
+// // END SEARCH/LOGO ------------------------------------------------
+
+
+
+// NAV MENU  ------------------------------------------------
+header.navMenu nav {
+	background: $themeYellow;
+	color: black;
+
+	.wrapper {
+		// @include flexboxSettings041715a;
+		// justify-content: center;
+		// align-content: center;
+
+		@include sectionPadding041515(1%,1%);
+	}
+
+	ul {
+		@include flexboxSettings041715a;
+		justify-content: center;
+		align-content: center;
+
+		// set width to max
+		width: 100%;
+	}
+
+	li {
+		// flex child
+		flex: 1 auto;
+
+		// align a elements
+		text-align: center;
+	}
+
+	// for styling link a elements see below
+
+	// for the a elements to move they must not be inline unless you're using ul li
+	a {
+		// display: inline-block;
+		// margin:0;
+		// padding:0;
+
+		// // flex child
+		// flex: 1 auto;
+
+		text-transform: uppercase;
+		font-size: $basefontsize*1.1;
+		font-weight: 900;
+		color: black;
+		letter-spacing: 0.1em;
+		@include scalePadding042815a(20%,5%);
+
+		// to allow us to hook the slanted slash
+		position: relative;
+		z-index: 5;
+
+		// we don't want the slash to block the colour of the link text... assing background
+		background: $themeYellow;
+
+		&:hover {
+			background: black;
+			color: $themeYellow;
+
+			// padding needed to be changed for size so it doesn't cover the line as much
+			// @include scalePadding042815a(20%,0.25%);
+		}
+
+		&:hover::before {
+			@include navSlantSlash042815a1(black);
+			// @include beforeAfterIconPlace042215a('/');
+			// position: absolute;
+			// color: black;
+			// font-size: $basefontsize*6;
+			// font-weight: 100;
+			
+			// // had to set the z-index to -ve negative values to get it behind a link background
+			// z-index:-5;
+			// // top: -66%;
+			// top: -0.5em;
+			// left: 26%;
+
+			// @include transformRotate(10deg);
+		}
+
+		// TESTING:  use the following 
+		// &::before {
+		// 	@include navSlantSlash042815a1(black);
+		// 	// @include beforeAfterIconPlace042215a('/');
+		// 	// position: absolute;
+		// 	// color: black;
+		// 	// font-size: $basefontsize*6;
+		// 	// font-weight: 100;
+			
+		// 	// // had to set the z-index to -ve negative values to get it behind a link background
+		// 	// z-index:-5;
+		// 	// // top: -66%;
+		// 	// top: -0.5em;
+		// 	// left: 26%;
+
+		// 	// @include transformRotate(10deg);
+		// }
+	}
+
+	// need to make minor adjustment tweaks for the ::before
+	// a:nth-of-type(2),a:nth-of-type(3),a:nth-of-type(4),a:nth-of-type(5),a:nth-of-type(6) {
+	// 	//
+	// }
+}
+
+// style the link elements
+// for the a elements to move they must not be inline unless you're using ul li
+// header.navMenu nav a {
+// 	// display: inline-block;
+// 	// margin:0;
+// 	// padding:0;
+
+// 	// // flex child
+// 	// flex: 1 auto;
+
+// 	text-transform: uppercase;
+// 	font-size: $basefontsize*1.1;
+// 	font-weight: 900;
+// 	color: black;
+// 	@include scalePadding042815a(20%,5%);
+
+// 	// to allow us to hook the slanted slash
+// 	position: relative;
+
+// 	&:hover {
+// 		background: black;
+// 		color: $themeYellow;
+// 	}
+// }
+
+// // END NAV MENU ------------------------------------------------
+
+
+
+///////////////////////////////////////////////

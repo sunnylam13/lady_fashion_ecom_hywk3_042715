@@ -1,0 +1,139 @@
+////////////////////////////////////////////
+///// 		HERO BLOCK
+///////////////////////////////////////////////
+
+section.heroBlock {
+	background-image: url('http://lorempixel.com/1400/700');
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 70vh;
+	position: relative;
+}
+
+section.heroBlock .imageshader {
+	position: absolute;
+	top:0;
+	bottom:0;
+	right:0;
+	left:0;
+	background: $themeWhite3;
+}
+
+section.heroBlock .wrapper {
+	@include flexboxSettings041715a;
+	justify-content: center;
+	align-content: center;
+}
+
+section.heroBlock .copy {
+	//flex child setting
+	flex: 1 50%;
+
+	//flexbox
+	@include flexboxSettings042215a;
+	justify-content: center;
+	align-content: center;
+	align-items: flex-end;
+	margin:auto;
+	height: 70vh;
+
+	h1 {
+		font-size: $basefontsize*5;
+		text-transform: uppercase;
+		letter-spacing: 0.4em;
+		font-weight: bold;
+	}
+
+	p {
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		font-size: $basefontsize*1.1;
+	}
+
+	h1 + p:nth-of-type(1) {
+		// background: blue;
+		@include sectionMargins041515(3%,7%);
+		padding-left: 40%;
+		text-align: right;
+	}
+
+	// styling the link is done below
+}
+
+section.heroBlock .fillspace {
+	flex: 1 50%;
+	height: 70vh;
+}
+
+// section.heroBlock .copy div {
+// 	background: black;
+// 	text-align: center;
+// 	width: 11.8125em;
+// 	height: 2.4375em;
+
+// 	//flexbox
+// 	@include flexboxSettings041715a;
+
+// 	position: relative;
+// 	z-index: 5;
+
+// 	&::before {
+// 		@include slantSlash042815a1($themeYellow);
+// 	}
+// }
+
+// section.heroBlock .copy a {
+// 	text-transform: uppercase;
+// 	font-size: $basefontsize;
+// 	// background: black;
+// 	background: transparent;
+// 	color: $themeYellow;
+// 	letter-spacing: 0.1em;
+// 	@include scalePadding042815a(10%,2.5%);
+
+// 	position: relative;
+// 	z-index: 5;
+// 	z-index: 10;
+
+// 	// &::before {
+// 	// 	@include slantSlash042815a1($themeYellow);
+// 	// }
+
+// }
+
+section.heroBlock .copy a {
+	//
+}
+
+section.heroBlock .copy div {
+	margin:0;
+	padding: 0;
+
+	background: black;
+	// text-align: center;
+	width: 11.8125em;
+	height: 2.4375em;
+
+	//flexbox
+	@include flexboxSettings042215a;
+	justify-content:center;
+	align-content: center;
+	align-items: center;
+
+	position: relative;
+	z-index: 5;
+
+	p {
+		color: $themeYellow;
+		letter-spacing: 0.1em;
+		background: black;
+		// remove the default margin... went back to style.scss and removed margin-bottom from @mixin baseParagraphStyle
+		margin:0;
+	}
+
+	&::before {
+		@include slantSlash042815a1($themeYellow);
+	}
+}
+
+///////////////////////////////////////////////

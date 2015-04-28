@@ -1,0 +1,44 @@
+////////////////////////////////////////////
+// 		TESTIMONIALS
+/////////////////////////////////////////
+
+//- ===================================
+//- 		MIXINS
+//- ===================================
+
+mixin testimonialEntry1(name,quoteText)
+	section.testimonial
+		blockquote=quoteText
+		cite=name
+
+//- END MIXINS
+
+section.testimonials
+	.wrapper
+		p What does the fox say?
+		h2 Happy Customers
+		+companyLogo1
+
+		//- ===================================
+		//- 		TESTIMONIAL SLIDER
+		//- ===================================
+
+		//- to use any of the sliders like bxSlider or flickity you'll have to insert the entries within a ul li
+		//- you'll have to re-style the slider buttons and remove the previous/next arrows
+
+		ul.slider
+			li
+				+testimonialEntry1('Kyle James','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad quidem repudiandae, sequi ea delectus ut.')
+			li
+				+testimonialEntry1('Mary Jane','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad quidem repudiandae, sequi ea delectus ut.')
+			li
+				+testimonialEntry1('Peter Parker','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad quidem repudiandae, sequi ea delectus ut.')
+
+	//- END HEADING
+
+	
+
+	
+
+
+////////////////////////////////////////////

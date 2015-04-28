@@ -1,0 +1,74 @@
+////////////////////////////////////////////
+// 		FEATURED
+/////////////////////////////////////////
+
+//- ===================================
+//- 		MIXINS
+//- ===================================
+
+mixin selectEntry1(heading,priceVal,imgSrc,altText)
+	section.selectEntry
+		//- image dimensions 51x86px
+		if imgSrc
+			img(src=imgSrc, alt=altText)
+		else
+			img(src="http://lorempixel.com/51/86", alt="Lorem Placeholder")
+		.meta
+			h3=heading
+			p=priceVal
+			div.colourSelect
+				//- clicking on the colour select should switch the image or substitute a different one by changing the src
+				a(href="#").colour1
+				a(href="#").colour2
+
+mixin newInEntry1
+	section.featureEntry
+		.topBar
+			+companyLogo1
+			nav
+				span.fa.fa-angle-left
+				span.fa.fa-angle-right
+		.selections
+			+selectEntry1('Abstract Dooted Dress','$21.5')
+			+selectEntry1('Flair Trap Dress','$22.5')
+			+selectEntry1('Chipon & Floral Dress','$23.5')
+
+mixin featuredEntry1
+	section.featureEntry
+		.topBar
+			+companyLogo1
+			nav
+				span.fa.fa-angle-left
+				span.fa.fa-angle-right
+		.selections
+			+selectEntry1('Teenager Dress','$22.5')
+			+selectEntry1('Warm Dress','$25.5')
+			+selectEntry1('Dotted Mosaic Dress','$21.5')
+
+mixin topPickEntry1
+	section.featureEntry
+		.topBar
+			+companyLogo1
+			nav
+				span.fa.fa-angle-left
+				span.fa.fa-angle-right
+		.selections
+			+selectEntry1('Abstract Dooted Dress','$21.5')
+			+selectEntry1('Flair Trap Dress','$22.5')
+			+selectEntry1('Chipon & Floral Dress','$23.5')
+
+//- END MIXINS
+
+//- each press of the previous/next buttons should display a new div
+//- you could use jQuery to construct a random selection?
+
+section.featurePanel
+	.wrapper
+		section.newIn
+			+newInEntry1
+		section.featured
+			+featuredEntry1
+		section.top
+			+topPickEntry1
+
+////////////////////////////////////////////

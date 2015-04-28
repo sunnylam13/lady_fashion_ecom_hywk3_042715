@@ -1,0 +1,92 @@
+////////////////////////////////////////////
+// 		PRODUCTS DISPLAY
+/////////////////////////////////////////
+
+// display the products like a storefront
+
+//- ===================================
+//- 		MIXINS
+//- ===================================
+
+mixin collectionUnit1(uClass,prodName,priceVal,imgSrc,altText)
+	//- for section.collectionDisplay
+	//- where uClass,prodName,priceVal are strings
+	
+	section(class=uClass).collectionUnit
+		.imageHolder
+			//- image dimension 190x331px
+			if imgSrc
+				img(src=imgSrc, alt=altText)
+			else
+				img(src="http://lorempixel.com/190/331", alt="Placeholder Image")
+			.imgShader1
+				a(href="#") Add to Cart
+		//- Chifon &amp; Floral Dress
+		h2=prodName
+		//- $22.5
+		p=priceVal
+		div.colourSelect
+			//- clicking on the colour select should switch the image or substitute a different one by changing the src
+			a(href="#").colour1
+			a(href="#").colour2
+
+
+//- END MIXINS
+
+section.newArrivals
+	.wrapper
+		p The New Arrivals
+		h2 Trending
+		+companyLogo1
+		img(src="http://lorempixel.com/60/30", alt="Icon")
+		p Define your wardrobe with accessories
+
+		section.wardrobeDisplay
+			//- the images may require a transparent background
+			//- the background colour will have to be set
+			//- little boxes are 211x211px
+			div.sweeter
+				//- dimensions 211x420px
+				h2 Sweeter
+				p Bring our style
+				p $125
+			div.purchase
+				p $99
+				a(href="#") Add to Cart
+			div
+			div
+			div
+			div
+			div.fullOptions
+				//- dimensions 420x420px
+				h2 Full Options
+				p Body and Smiling
+				p $399
+
+section.dressCollection
+	.wrapper
+		p Dress Collection
+
+		//- jQuery required to give function and enlarge the selected
+		//- each selection displays a new set
+		//- when random is clicked write a random function that selects among numbered images each time for that entry image and changes it
+		//- or the random randomly selects a certain number of divs?
+		nav
+			a(href="#") Popular
+			a(href="#") Recent
+			a(href="#") Random
+
+		+companyLogo1
+		
+		section.collectionDisplay
+			+collectionUnit1('chifonFloral','Chifon &amp; Floral Dress','$22.5')
+			+collectionUnit1('camiStrap','Cami Strap Dress','$23.5')
+			+collectionUnit1('flareStrap','Flare Strap Dress','$19.0')
+			+collectionUnit1('flareStrap','Abstract Dooted Dress','$21.5')
+			+collectionUnit1('chifonFloral','Chifon &amp; Floral Dress','$22.5')
+			+collectionUnit1('camiStrap','Cami Strap Dress','$23.5')
+			+collectionUnit1('flareStrap','Flare Strap Dress','$19.0')
+			+collectionUnit1('flareStrap','Abstract Dooted Dress','$21.5')
+
+
+////////////////////////////////////////////

@@ -1,0 +1,27 @@
+html(lang="en")
+	head
+		block title
+		include ./includes/variables.global.041415.1.jade
+		include ./includes/mixins.universal.041415.1.jade
+		include ./includes/mixins.project.041415.1.jade
+		include ./includes/meta.jade
+		include ./includes/links.jade
+		include ./includes/scripts.jade 
+	body
+		include ./includes/googleCode.jade
+		
+		//- client template used: Luxen
+		//- this is a full bleed layout	
+
+		//- TIP:  write the links and includes as comments with the filename then create the file so there's less back and forth
+			
+		block navMenu
+			//- common to nearly all pages
+			include ./includes/nav.042715.1.jade
+			
+		block content
+			//- content varies... fill with varying sections depending on the page
+
+		block footer
+			//- common to nearly all pages
+			include ./includes/footer.042715.1.jade

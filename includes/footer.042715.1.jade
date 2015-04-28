@@ -1,0 +1,100 @@
+////////////////////////////////////////////
+// 		FOOTER
+/////////////////////////////////////////
+
+//- ===================================
+//- 		MIXINS
+//- ===================================
+
+mixin blogHeadlineEntry1(headline,imgSrc,altText)
+	aside.blogHeadline
+		//- image 52x43px
+		if imgSrc
+			img(src=imgSrc, alt=altText)
+		else
+			img(src="http://lorempixel.com/52/43", alt="Lorem Placeholder Image")
+		
+		.meta
+			h4=headline
+			
+			//- this element may need to be absolutely positioned where .meta is position relative
+			//- we may need to child a child selector > on .meta:hover (i.e. .meta:hover > a.readMore)
+			//- the initial state should be display none
+			a(href="http://", target="_blank").readMore Read More
+
+mixin twitterEntry1(headline,tweet,timeElapse)
+	if block
+		block
+	else
+		aside.twitterEntry
+			.text
+				h2=headline
+				p=tweet
+			.time
+				p=timeElapse
+
+
+//- END MIXINS
+
+section.footer
+	.wrapper
+		section.quickLink
+			+companyLogo1
+			//- on :hover you'll need the custom bar to appear and pad/indent the link
+			a(href="#") My Account
+			a(href="#") Contact Us
+			a(href="#") Store Location
+			a(href="#") Size Guide
+			a(href="#") Shipping Info
+		
+		section.recentBlogs
+			+companyLogo1
+			//- when you hover over the item a "Read More" should appear
+			//- enter blog entries
+			+blogHeadlineEntry1('Top 10 Trending Dresses')
+			+blogHeadlineEntry1('The Awesome V-Line')
+			+blogHeadlineEntry1('News About Opening Hours of the Store')
+		
+		section.tags
+			+companyLogo1
+			a(href="#") Dress
+			a(href="#") Lips
+			a(href="#") Dotted
+			a(href="#") Accessories
+			a(href="#") Cami
+			a(href="#") Cross
+			a(href="#") Abstract
+			a(href="#") Babydoll
+			a(href="#") Saleoff
+			a(href="#") Floral
+		
+		section.contactinfo
+			+companyLogo1
+			aside.socialIcons
+				//- the following are pure links <a> with a <span> child
+				//- a(href=fbLink,class='fa-facebook')
+				//- a(href=twitterLink,class='fa-twitter')
+				//- a(href=pinterestLink,class='fa-pinterest')
+				//- a(href=instagramLink,class='fa-instagram')
+				//- a(href=gplusLink,class='fa-google-plus')
+				+iconLink042315a('fa-facebook',fbLink)
+				+iconLink042315a('fa-twitter',twitterLink)
+				+iconLink042315a('fa-pinterest',pinterestLink)
+				+iconLink042315a('fa-instagram',instagramLink)
+				+iconLink042315a('fa-google-plus',gplusLink)
+			aside.twitterFeed
+				+twitterEntry1('@Kyles','Lorem ipsum dolor sit amet, consectetur adipisicing elit.','5h')
+				+twitterEntry1('@James','Lorem ipsum dolor sit amet, consectetur adipisicing elit.','5h')
+
+section.copyright
+	.wrapper
+		//- make the p element a block
+		p Copyright 2015 By Lady Store . All rights reserved
+		nav
+			+linkTemplate042115a('Home Page',homeLink)
+			+linkTemplate042115a('About Us',aboutLink)
+			+linkTemplate042115a('Payment',payLink)
+			+linkTemplate042115a('Shipping',shipLink)
+
+
+////////////////////////////////////////////
