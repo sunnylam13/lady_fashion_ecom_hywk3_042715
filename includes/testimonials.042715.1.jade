@@ -7,17 +7,20 @@
 //- ===================================
 
 mixin testimonialEntry1(name,quoteText)
-	section.testimonial
-		blockquote=quoteText
-		cite=name
+	//- size 539x133px
+	section.testimonialEntry
+		.entryText
+			blockquote=quoteText
+			cite=name
 
 //- END MIXINS
 
 section.testimonials
 	.wrapper
-		p What does the fox say?
+		p.leadIn What does the fox say?
 		h2 Happy Customers
-		+companyLogo1
+		
+		+companyLogo1(companyLogoEnabled)
 
 		//- ===================================
 		//- 		TESTIMONIAL SLIDER
@@ -26,13 +29,23 @@ section.testimonials
 		//- to use any of the sliders like bxSlider or flickity you'll have to insert the entries within a ul li
 		//- you'll have to re-style the slider buttons and remove the previous/next arrows
 
-		ul.slider
+		ul.testimonialList
 			li
 				+testimonialEntry1('Kyle James','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad quidem repudiandae, sequi ea delectus ut.')
 			li
 				+testimonialEntry1('Mary Jane','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad quidem repudiandae, sequi ea delectus ut.')
 			li
 				+testimonialEntry1('Peter Parker','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad quidem repudiandae, sequi ea delectus ut.')
+		
+		//- testimonial slider selector nav
+		//- each is a square button and when pressed it turns from base white to yellow
+		//- I could have used divs however this works as well
+		ul.selectorNav
+			li
+			li
+			li
+
+		//- ===================================
 
 	//- END HEADING
 

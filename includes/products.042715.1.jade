@@ -27,9 +27,29 @@ mixin collectionUnit1(uClass,prodName,priceVal,imgSrc,altText)
 		p=priceVal
 		div.colourSelect
 			//- clicking on the colour select should switch the image or substitute a different one by changing the src
-			a(href="#").colour1
-			a(href="#").colour2
+			a(href="javascript:void(0)").colour1
+			a(href="javascript:void(0)").colour2
 
+mixin collectionUnit2(uClass,prodName,priceVal)
+	//- for section.collectionDisplay
+	//- where uClass,prodName,priceVal are strings
+	
+	//- in this version we will setup the image using background instead of an <img> or <picture> element
+	
+	section(class=uClass).collectionUnit
+		//- image dimension 190x331px
+		.imgHolder
+			.imgShader
+				+addToCartButton1
+		//- Chifon &amp; Floral Dress
+		h3=prodName
+		//- $22.5
+		p.price=priceVal
+		div.colourSelect
+			//- clicking on the colour select should switch the image or substitute a different one by changing the src
+			//- width height = 28x12px
+			a(href="javascript:void(0)").colour1
+			a(href="javascript:void(0)").colour2
 
 //- END MIXINS
 
@@ -38,13 +58,14 @@ section.newArrivals
 		p.introHead The New Arrivals
 		h2 Trending
 
-		//- ===================================
-		//- 		COMPANY LOGO
-		//- ===================================
-		+companyLogo1
-		//- if company logo isn't finished use the image as a placeholder
-		img(src="http://lorempixel.com/60/30", alt="Icon Placeholder")
-		//- END COMPANY LOGO
+		+companyLogo1(companyLogoEnabled)
+		//- //- ===================================
+		//- //- 		COMPANY LOGO
+		//- //- ===================================
+		//- +companyLogo1
+		//- //- if company logo isn't finished use the image as a placeholder
+		//- img(src="http://lorempixel.com/60/30", alt="Icon Placeholder")
+		//- //- END COMPANY LOGO
 		
 		p.subhead Define your wardrobe with accessories
 
@@ -98,32 +119,50 @@ section.dressCollection
 		//- when random is clicked write a random function that selects among numbered images each time for that entry image and changes it
 		//- or the random randomly selects a certain number of divs?
 		nav
-			a(href="#").popular
+			a(href="javascript:void(0)").popular
 				h2 Popular
 			span.divider  / 
-			a(href="#").recent
+			a(href="javascript:void(0)").recent
 				h2 Recent
 			span.divider  / 
-			a(href="#").random
+			a(href="javascript:void(0)").random
 				h2 Random
 
-		//- ===================================
-		//- 		COMPANY LOGO
-		//- ===================================
-		+companyLogo1
-		//- if company logo isn't finished use the image as a placeholder
-		img(src="http://lorempixel.com/60/30", alt="Icon Placeholder")
-		//- END COMPANY LOGO
+		+companyLogo1(companyLogoEnabled)
+		//- //- ===================================
+		//- //- 		COMPANY LOGO
+		//- //- ===================================
+		//- +companyLogo1
+		//- //- if company logo isn't finished use the image as a placeholder
+		//- img(src="http://lorempixel.com/60/30", alt="Icon Placeholder")
+		//- //- END COMPANY LOGO
 		
+		//- ===================================
+		//- 		COLLECTION DISPLAY
+		//- ===================================
+
 		section.collectionDisplay
-			+collectionUnit1('chifonFloral','Chifon &amp; Floral Dress','$22.5')
-			+collectionUnit1('camiStrap','Cami Strap Dress','$23.5')
-			+collectionUnit1('flareStrap','Flare Strap Dress','$19.0')
-			+collectionUnit1('flareStrap','Abstract Dooted Dress','$21.5')
-			+collectionUnit1('chifonFloral','Chifon &amp; Floral Dress','$22.5')
-			+collectionUnit1('camiStrap','Cami Strap Dress','$23.5')
-			+collectionUnit1('flareStrap','Flare Strap Dress','$19.0')
-			+collectionUnit1('flareStrap','Abstract Dooted Dress','$21.5')
+			//- +collectionUnit1('chifonFloral','Chifon & Floral Dress','$22.5')
+			//- +collectionUnit1('camiStrap','Cami Strap Dress','$23.5')
+			//- +collectionUnit1('flareStrap','Flare Strap Dress','$19.0')
+			//- +collectionUnit1('flareStrap','Abstract Dooted Dress','$21.5')
+			//- +collectionUnit1('chifonFloral','Chifon &amp; Floral Dress','$22.5')
+			//- +collectionUnit1('camiStrap','Cami Strap Dress','$23.5')
+			//- +collectionUnit1('flareStrap','Flare Strap Dress','$19.0')
+			//- +collectionUnit1('flareStrap','Abstract Dooted Dress','$21.5')
+
+			+collectionUnit2('chifonFloral','Chifon & Floral Dress','$22.5')
+			+collectionUnit2('camiStrap','Cami Strap Dress','$23.5')
+			+collectionUnit2('abstractDDress','Flare Strap Dress','$19.0')
+			+collectionUnit2('flareStrap','Abstract Dooted Dress','$21.5')
+			+collectionUnit2('chifonFloral','Chifon & Floral Dress','$22.5')
+			+collectionUnit2('camiStrap','Cami Strap Dress','$23.5')
+			+collectionUnit2('flareStrap','Flare Strap Dress','$19.0')
+			+collectionUnit2('abstractDDress','Abstract Dooted Dress','$21.5')
+
+		//- END COLLECTION DISPLAY
+
+		
 
 
 ////////////////////////////////////////////

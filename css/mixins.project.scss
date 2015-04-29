@@ -49,6 +49,28 @@
 	@include transformRotate(10deg);
 }
 
+@mixin slantSlash042915a ($colour) {
+	// PARENT  ------------------------------------------------
+	// to allow us to hook the slanted slash
+	// position: relative;
+	// z-index: 5;
+	// // END PARENT ------------------------------------------------
+	
+	@include beforeAfterIconPlace042215a('/');
+	position: absolute;
+	color: $colour;
+	font-size: $basefontsize*17.3;
+	font-weight: 100;
+	
+	// had to set the z-index to -ve negative values to get it behind a link background
+	z-index:-5;
+	// top: -66%;
+	top: -0.55em;
+	left: 35%;
+
+	@include transformRotate(10deg);
+}
+
 @mixin themeButton1 {
 	margin:0;
 	padding: 0;
@@ -187,5 +209,164 @@
 	}
 }
 
+@mixin marginPaddingReset1 {
+	// reset margin, padding in case
+	margin: 0;
+	padding: 0;
+}
+
+@mixin addToCartShader042915a {
+
+	// html structure
+	// div.addToCartButton
+	// 	a(href='#').button
+	// 		div.button
+	// 			//- the div will hold the before element
+	// 			p.text Add to Cart
+
+	div.imgShader {
+		//flexbox
+		@include flexboxSettings042215a;
+		justify-content: flex-end;
+		align-content: flex-end;
+		align-items: center;
+
+		background: $themeYellow;
+
+		// you need to maximize the width to allow enough space to expand
+		width: 100%;
+		height: auto;
+
+		// positioning
+		position: absolute;
+		top:0;
+		right:0;
+		left:0;
+		bottom:0;
+
+		// default status
+		// before parent:hover
+		// this must come last to override display:flex above
+		display: none;
+
+		a.button {
+			display: block;
+			margin-bottom: 15%;
+		}
+
+		div.button {
+			@include themeButton1;
+			margin-bottom: 10%;
+			width: 8.8125em;
+		}
+
+		// p.price {
+		// 	font-size: $basefontsize*2;
+		// 	margin-bottom: 7%;
+		// 	position: relative;
+
+		// 	span {
+		// 		position: absolute;
+		// 		top:-24%;
+		// 		left:-39%;
+		// 		font-size: $basefontsize*1.3;
+		// 	}
+		// }
+	}	
+}
+
+@mixin addToCartShader042915b {
+
+	// html structure
+	// div.addToCartButton
+	// 	a(href='#').button
+	// 		div.button
+	// 			//- the div will hold the before element
+	// 			p.text Add to Cart
+
+	//flexbox
+	@include flexboxSettings042215a;
+	justify-content: flex-end;
+	align-content: flex-end;
+	align-items: center;
+
+	// background: $themeYellow;
+	background: $themeYellow4;
+
+	// you need to maximize the width to allow enough space to expand
+	width: 100%;
+	height: 20.6875em;
+
+	// positioning
+	position: absolute;
+	top:0;
+	right:0;
+	left:0;
+	bottom:0;
+
+	// default status
+	// before parent:hover
+	// this must come last to override display:flex above
+	display: none;
+
+	a.button {
+		display: block;
+		margin-bottom: 15%;
+	}
+
+	div.button {
+		@include themeButton1;
+		margin-bottom: 10%;
+		width: 8.8125em;
+	}
+}
+
+@mixin colourSelect042915a {
+	// inserted into a div.colourSelect element
+	// a.colour1
+	// a.colour2
+	
+	//flexbox
+	@include flexboxSettings041715a;
+	justify-content: space-around;
+	align-content: space-around;
+
+	// make sure the width is 100% of its parent width
+	width: auto;
+
+	margin-bottom: 10%;
+
+	a.colour1,a.colour2 {
+		//flex child
+		flex: 1 auto;
+		flex: 1 1.75em;
+
+		// TESTING
+		// border: 1px solid blue;
+
+		width: 1.75em;
+		height: 0.75em;
+
+		// the gap between the buttons was .625em... since the margin is on both sides, divide the value in half
+		margin: 0 .3125em 0 .3125em;
+	}
+
+	// div.colourSelect a.colour1 {
+	// 	//
+	// }
+
+	// div.colourSelect a.colour2 {
+	// 	//
+	// }
+
+	// uses the colours for Abstract Dooted Dress
+	a.colour1 {
+		background: $abstractD1;
+	}
+
+	a.colour2 {
+		background: $abstractD2;
+	}
+}
 
 ///////////////////////////////////////////////

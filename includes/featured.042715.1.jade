@@ -10,12 +10,14 @@ mixin selectEntry1(heading,priceVal,imgSrc,altText)
 	section.selectEntry
 		//- image dimensions 51x86px
 		if imgSrc
-			img(src=imgSrc, alt=altText)
+			div.image
+				img(src=imgSrc, alt=altText)
 		else
-			img(src="http://lorempixel.com/51/86", alt="Lorem Placeholder")
+			div.image
+				img(src="http://lorempixel.com/51/86", alt="Lorem Placeholder")
 		.meta
 			h3=heading
-			p=priceVal
+			p.price=priceVal
 			div.colourSelect
 				//- clicking on the colour select should switch the image or substitute a different one by changing the src
 				a(href="#").colour1
@@ -23,8 +25,10 @@ mixin selectEntry1(heading,priceVal,imgSrc,altText)
 
 mixin newInEntry1
 	section.featureEntry
+		h2 New-In
 		.topBar
-			+companyLogo1
+			div.logo
+				+companyLogo1(companyLogoEnabled)
 			nav
 				span.fa.fa-angle-left
 				span.fa.fa-angle-right
@@ -35,8 +39,10 @@ mixin newInEntry1
 
 mixin featuredEntry1
 	section.featureEntry
+		h2 Featured
 		.topBar
-			+companyLogo1
+			div.logo
+				+companyLogo1(companyLogoEnabled)
 			nav
 				span.fa.fa-angle-left
 				span.fa.fa-angle-right
@@ -47,8 +53,10 @@ mixin featuredEntry1
 
 mixin topPickEntry1
 	section.featureEntry
+		h2 Top
 		.topBar
-			+companyLogo1
+			div.logo
+				+companyLogo1(companyLogoEnabled)
 			nav
 				span.fa.fa-angle-left
 				span.fa.fa-angle-right

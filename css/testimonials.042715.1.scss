@@ -1,0 +1,148 @@
+////////////////////////////////////////////
+///// 		TESTIMONIALS
+///////////////////////////////////////////////
+
+section.testimonials {
+	background: black;
+	color: white;
+
+	text-align: center;
+
+	@include sectionPadding041515(3%,4%);
+
+	p, h2 {
+		text-transform: uppercase;
+	}
+
+	p {
+		font-size: $basefontsize*0.8;
+
+		&.leadIn {
+			margin-bottom: 1%;
+		}
+	}
+
+	h2 {
+		font-size: $basefontsize*2;
+		letter-spacing: 0.3em;
+		margin-bottom: 0.5%;
+	}
+
+	blockquote, cite {
+		color: black;
+	}
+
+	blockquote {
+		font-size: $basefontsize*0.9;
+		font-style: italic;
+		letter-spacing: 0.3em;
+	}
+
+	cite {
+		font-size: $basefontsize*0.9;
+		font-style: normal;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		font-weight: bold;
+	}
+
+	.wrapper {
+		//flexbox
+		@include flexboxSettings042215a;
+		// the wrapper is what holds the target elements... don't place the flexbox on section.testimonials
+	}
+
+}
+
+// we want the other testimonials to not appear
+// we will write jQuery to select the other testimonials
+// yet if JS is disabled is there a way to write this such that you can select the other entries using only CSS?
+section.testimonials ul.testimonialList li:nth-of-type(2), section.testimonials ul.testimonialList li:nth-of-type(3) {
+	display: none;
+}
+
+// TESTIMONIAL LIST
+section.testimonials ul.testimonialList {
+	margin-top: 5%;
+	margin-bottom: 3.5%;
+}
+
+// TESTIMONIAL ENTRY
+// located within a ul li element
+section.testimonials section.testimonialEntry {
+	background: $themeYellow;
+	text-align: center;
+
+	//flexbox
+	@include flexboxSettings042215a;
+	justify-content: center;
+
+	//- size 539x133px
+	width: 33.6875em;
+	height: 8.3125em;
+
+	position: relative;
+
+	.entryText {
+		width: 82%;
+
+		position: relative;
+		z-index: 5;
+
+		background: $themeYellow;
+		// background: blue;
+	}
+
+	// &::before {
+	// 	@include slantSlash042915a(black);
+	// }
+
+	.entryText::before {
+		@include slantSlash042915a(black);
+	}
+
+	blockquote {
+		margin-bottom: 3%;
+
+		z-index: 6;
+	}
+}
+
+// TESTIMONIAL SELECTOR NAV
+section.testimonials ul.selectorNav {
+	// TESTING
+	// border: 5px solid yellow;
+	width:100%;
+
+	//flexbox
+	@include flexboxSettings041715a;
+	justify-content: center;
+	align-content: center;
+
+	li {
+		// size 13x7px
+		
+		// TESTING
+		// border: 1px solid yellow;
+
+		width: .8125em;
+		height: .4375em;
+		margin: 0 0.10em 0 0.10em;
+
+		background: white;
+		cursor: pointer;
+
+		@include transitionEffectAllEaseOut(0.4s);
+	}
+
+	li:nth-of-type(1) {
+		background: $themeYellow;
+	}
+
+	li:hover {
+		background: $themeYellow;
+	}
+	
+}
+
+///////////////////////////////////////////////

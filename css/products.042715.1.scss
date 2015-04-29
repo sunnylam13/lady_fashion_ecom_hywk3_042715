@@ -11,7 +11,7 @@ section.newArrivals, section.dressCollection {
 	
 	text-align: center;
 
-	@include sectionPadding041515(5%,5%);
+	// @include sectionPadding041515(5%,5%);
 
 	p.introHead {
 		font-size: $basefontsize*0.9;
@@ -67,9 +67,9 @@ section.newArrivals, section.dressCollection {
 section.newArrivals {
 
 	// @include sectionPadding041515(5%,13%);
-	@include sectionPadding041515(5%,0);
+	@include sectionPadding041515(5%,5%);
 
-	border-bottom: 1px solid blue;
+	// border-bottom: 1px solid blue;
 
 	height: auto;
 	width:auto;
@@ -97,7 +97,8 @@ section.newArrivals {
 		
 		// overflow: hidden;
 
-		@include sectionMargins041515(3.4%,30%);
+		// @include sectionMargins041515(3.4%,0);
+		margin-top: 3.4%;
 
 		@include flexboxSettings041715a;
 
@@ -480,7 +481,8 @@ section.dressCollection {
 	// margin-top: 5%;
 	@include sectionPadding041515(0,5%);
 
-	border-bottom: 1px solid red;
+	// TESTING
+	// border-bottom: 1px solid red;
 
 	// NAV  ------------------------------------------------
 	nav {
@@ -527,6 +529,226 @@ section.dressCollection {
 
 	
 }
+
+
+// COLLECTION DISPLAY  ------------------------------------------------
+section.dressCollection section.collectionDisplay {
+	// flexbox
+	@include flexboxSettings041715a;
+	align-content: space-around;
+}
+// // END COLLECTION DISPLAY ------------------------------------------------
+
+// COLLECTION UNIT OF COLLECTION DISPLAY  ------------------------------------------------
+section.dressCollection section.collectionDisplay section.collectionUnit {
+	@include marginPaddingReset1;
+
+	// flex child
+	// flex: 1 auto;
+	flex: 1 auto;
+	// by using 11.875em we set the minimum width to that value using flexbox
+
+	// you could use padding instead and let the units actually stick up with each other
+	
+	// TESTING
+	// border: 2px dashed red;
+
+	margin: 0 1% 2% 1%;
+	// width: 100%;
+	// width: 11.875em;
+
+	//flexbox
+	@include flexboxSettings042215a;
+	// may not require flexbox for this unit
+	
+
+	h3 {
+		font-size: $basefontsize*0.9;
+		text-transform: uppercase;
+		margin-top: 10%;
+		margin-bottom: 2.5%;
+	}
+
+	p.price {
+		font-size: $basefontsize*1.2;
+		font-weight: bold;
+		margin-bottom: 2.5%;
+	}
+
+
+	// BACKGROUND IMAGES AND SHADERS  ------------------------------------------------
+	.imgHolder {
+		//flex child
+		flex: 1 auto;
+
+		@include marginPaddingReset1;
+		
+		width: 11.875em;
+		height: 20.6875em;
+
+		// for the image shader
+		position: relative;
+
+		// @include addToCartShader042915a;
+	}
+
+	.imgHolder .imgShader {
+		@include marginPaddingReset1;
+
+		// //flexbox
+		// @include flexboxSettings042215a;
+		// justify-content: flex-end;
+		// align-content: flex-end;
+		// align-items: center;
+
+		// background: $themeYellow;
+
+		// // you need to maximize the width to allow enough space to expand
+		// width: 100%;
+		// height: 20.6875em;
+
+		// // positioning
+		// position: absolute;
+		// top:0;
+		// right:0;
+		// left:0;
+		// bottom:0;
+
+		// // default status
+		// // before parent:hover
+		// // this must come last to override display:flex above
+		// display: none;
+
+		// a.button {
+		// 	display: block;
+		// 	margin-bottom: 15%;
+		// }
+
+		// div.button {
+		// 	@include themeButton1;
+		// 	margin-bottom: 10%;
+		// 	width: 8.8125em;
+		// }
+		
+		@include addToCartShader042915b;
+	}
+
+	// INIITIATE HOVER STATE
+	.imgHolder:hover > .imgShader {
+		display:flex;
+	}
+	// // END BACKGROUND IMAGES AND SHADERS ------------------------------------------------
+
+	
+	// COLOUR SELECT MENU  ------------------------------------------------
+	// for later jQuery functionality to add
+	div.colourSelect {
+		//flexbox
+		@include flexboxSettings041715a;
+		justify-content: space-around;
+		align-content: space-around;
+
+		// make sure the width is 100% of its parent width
+		width: auto;
+
+		margin-bottom: 10%;
+
+		a.colour1,a.colour2 {
+			//flex child
+			flex: 1 auto;
+			flex: 1 1.75em;
+
+			// TESTING
+			// border: 1px solid blue;
+
+			width: 1.75em;
+			height: 0.75em;
+
+			// the gap between the buttons was .625em... since the margin is on both sides, divide the value in half
+			margin: 0 .3125em 0 .3125em;
+		}
+	}
+
+	div.colourSelect a.colour1 {
+		//
+	}
+
+	div.colourSelect a.colour2 {
+		//
+	}
+	// // END COLOUR SELECT MENU ------------------------------------------------
+
+
+}
+// // END COLLECTION UNIT OF COLLECTION DISPLAY ------------------------------------------------
+
+// INDIVIDUAL COLLECTION UNIT STYLING ------------------------------------------------
+
+// this covers backgrounds and the colour selector
+
+// Chifon & Floral Dress
+// section.collectionUnit.chifonFloral .imgHolder {
+// 	@include backgroundImage042815a ('../images/models/image1.jpg');
+// }
+
+section.collectionUnit.chifonFloral {
+	.imgHolder {
+		@include backgroundImage042815a ('../images/models/image1.jpg');
+	}
+	div.colourSelect a.colour1 {
+		background: $chifon1;
+	}
+
+	div.colourSelect a.colour2 {
+		background: $chifon2;
+	}
+}
+
+// Cami Strap Dress
+section.collectionUnit.camiStrap {
+	.imgHolder {
+		@include backgroundImage042815a ('../images/models/image2.jpg');
+	}
+	div.colourSelect a.colour1 {
+		background: $cami1;
+	}
+
+	div.colourSelect a.colour2 {
+		background: $cami2;
+	}
+}
+
+// Flare Strap Dress
+section.collectionUnit.flareStrap {
+	.imgHolder {
+		@include backgroundImage042815a ('../images/models/image3.jpg');
+	}
+	div.colourSelect a.colour1 {
+		background: $flare1;
+	}
+
+	div.colourSelect a.colour2 {
+		background: $flare2;
+	}
+}
+
+// Abstract Dooted Dress
+section.collectionUnit.abstractDDress {
+	.imgHolder {
+		@include backgroundImage042815a ('../images/models/image4.jpg');
+	}
+	div.colourSelect a.colour1 {
+		background: $abstractD1;
+	}
+
+	div.colourSelect a.colour2 {
+		background: $abstractD2;
+	}
+}
+
+// // END INDIVIDUAL COLLECTION UNIT STYLING ------------------------------------------------
+
+
 // // END DRESS COLLECTION ------------------------------------------------
 
 ///////////////////////////////////////////////

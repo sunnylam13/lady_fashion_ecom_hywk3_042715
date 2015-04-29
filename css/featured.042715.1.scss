@@ -1,0 +1,170 @@
+////////////////////////////////////////////
+///// 		FEATURED PRODUCTS
+///////////////////////////////////////////////
+
+section.featurePanel {
+	background: $themeGreyAlt1;
+
+	@include sectionPadding041515(5%,2.5%);
+
+	.wrapper {
+		//flexbox
+		@include flexboxSettings041715a;
+		// justify-content: space-between;
+		// align-content: space-between;
+		justify-content: center;
+		align-content: center;
+	}
+
+	section.newIn, section.featured, section.top {
+		// TESTING
+		border: 1px solid orange;
+
+		//flex child
+		flex: 1 auto;
+		// could use flex: 1 33.33%
+		flex: 1 33.33%;
+		// to account for margin
+		flex: 1 31.33%;
+
+		margin: 0 1% 0 1%;
+	}
+}
+
+// FEATURE ENTRY  ------------------------------------------------
+section.featurePanel section.featureEntry {
+
+	// fill the space of the containers
+	// section.newIn, section.featured, section.top
+	width: 100%;
+
+	//flexbox
+	@include flexboxSettings042215a;
+	align-items:flex-start;
+
+	// TESTING
+	border: 2px dashed blue;
+
+	h2 {
+		font-size: $basefontsize*2;
+		font-weight: bold;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		margin-bottom: 0.8%;
+	}
+
+}
+
+section.featurePanel section.featureEntry .topBar {
+	width: 100%;
+
+	//flexbox
+	@include flexboxSettings041715a;
+	justify-content: space-between;
+	align-content: space-between;
+
+	div.logo, nav {
+		//flex child
+		flex: 1 0 auto;
+	}
+
+	nav {
+		//flexbox
+		@include flexboxSettings041715a;
+		justify-content: flex-end;
+		align-content: flex-end;
+	}
+}
+
+// Feature Entry Top Bar Nav
+section.featurePanel section.featureEntry .topBar nav {
+
+	// buttons are size 30x20px
+	span.fa.fa-angle-left, span.fa.fa-angle-right {
+		width: 1.875em;
+		height: 1.25em;
+		color: $featureArrowColour;
+		background: white;
+
+		//flexbox
+		@include flexboxSettings041715a;
+
+		@include transitionEffectAllEaseOut(0.4s);
+
+		&:hover {
+			background: $themeYellow;
+			color: black;
+		}
+	}
+
+	span.fa.fa-angle-left {
+		margin-right: 1.5%;
+	}
+	
+	// span.fa.fa-angle-right {}
+}
+
+// Feature Entry Top Bar Selections
+section.featurePanel section.featureEntry .selections {
+	width: 100%;
+	padding: 7%;
+	background: $themeWhiteAlt1;
+	margin-top: 10%;
+}
+
+// make the 2nd selection entry or section.selectEntry have margin top and bottom
+section.featurePanel section.featureEntry .selections section.selectEntry:nth-of-type(2) {
+	background: blue;
+	@include sectionMargins041515(10%,10%);
+}
+
+// // END FEATURE ENTRY ------------------------------------------------
+
+// SELECTION ENTRY  ------------------------------------------------
+// these are the individual items within each feature entry
+section.featurePanel section.selectEntry {
+
+	width: 100%;
+
+	//flexbox
+	@include flexboxSettings041715a;
+	justify-content: space-between;
+	align-content: space-between;
+
+	// IMAGE  ------------------------------------------------
+	div.image {
+		//flex child
+		flex:1 auto;
+	}
+	// // END IMAGE ------------------------------------------------
+	
+	// META DATA  ------------------------------------------------
+	.meta {
+		//flexbox
+		@include flexboxSettings042215a;
+		align-items:flex-start;
+
+		//flex child
+		flex:2 auto;
+		// width: 100%;
+
+		h3 {
+			font-size: $basefontsize*0.9;
+			text-transform: uppercase;
+		}
+
+		p.price {
+			font-size: $basefontsize*1.2;
+		}
+
+		div.colourSelect {
+			@include colourSelect042915a;
+		}
+
+	}
+	// // END META DATA ------------------------------------------------
+
+}
+// // END SELECTION ENTRY ------------------------------------------------
+
+///////////////////////////////////////////////

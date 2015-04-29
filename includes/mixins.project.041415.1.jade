@@ -5,15 +5,27 @@
 //- These mixins are specific to this project only.
 //- move mixins here only if they are required in other sections of the site
 
-mixin companyLogo1
+mixin companyLogo1(placeHolder)
+	//- dimensions are 60x30px
 	//- you could construct this image using html and css or SVG
 	//- logo goes here
 	//- create a mixin to construct it and insert here
 	//- it is the same size throughout
 	//- NOTE: the CSS styling of the logo in the .footer is different as the slanted slash is made yellow so it's visible agaisnt black background
-	aside.companyLogo
-		.bar
-			.slash
+	//- aside.companyLogo
+	//- 	.bar
+	//- 		.slash
+	
+	//- the mixin will only accept strings... true/false doesn't work
+
+	//- please see the control switch variable in variables.global.jade called var companyLogoEnabled
+
+	if placeHolder
+		img(src="http://lorempixel.com/60/30", alt="Icon Placeholder")
+	else
+		aside.companyLogo
+			.bar
+				.slash
 
 mixin purchaseShader1
 	//- each of the parents must have a position relative
@@ -44,5 +56,12 @@ mixin purchaseShader2(priceVal)
 	div.purchaseShader
 		p=priceVal
 		a(href="#") Add to Cart
+
+mixin addToCartButton1
+	div.addToCartButton
+		a(href='#').button
+			div.button
+				//- the div will hold the before element
+				p.text Add to Cart
 
 //- END MIXINS PROJECT 
