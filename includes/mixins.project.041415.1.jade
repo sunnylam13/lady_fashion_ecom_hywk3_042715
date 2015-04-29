@@ -15,5 +15,34 @@ mixin companyLogo1
 		.bar
 			.slash
 
+mixin purchaseShader1
+	//- each of the parents must have a position relative
+	//- it must be placed within the parent container
+	//- refine this within one of the test divs
+
+	//- div.purchaseShader
+	//- 	p $99
+	//- 	a(href="#") Add to Cart
+
+	//- div.purchaseShader
+	//- 	p.price $99
+	//- 	a(href='#').button
+	//- 		div.button
+	//- 			//- the div will hold the before element
+	//- 			p.text Add to Cart
+
+	div.purchaseShader
+		p.price
+			span $
+			| 99
+		a(href='#').button
+			div.button
+				//- the div will hold the before element
+				p.text Add to Cart
+
+mixin purchaseShader2(priceVal)
+	div.purchaseShader
+		p=priceVal
+		a(href="#") Add to Cart
 
 //- END MIXINS PROJECT 

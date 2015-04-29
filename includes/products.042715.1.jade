@@ -22,7 +22,7 @@ mixin collectionUnit1(uClass,prodName,priceVal,imgSrc,altText)
 			.imgShader1
 				a(href="#") Add to Cart
 		//- Chifon &amp; Floral Dress
-		h2=prodName
+		h3=prodName
 		//- $22.5
 		p=priceVal
 		div.colourSelect
@@ -35,48 +35,85 @@ mixin collectionUnit1(uClass,prodName,priceVal,imgSrc,altText)
 
 section.newArrivals
 	.wrapper
-		p The New Arrivals
+		p.introHead The New Arrivals
 		h2 Trending
+
+		//- ===================================
+		//- 		COMPANY LOGO
+		//- ===================================
 		+companyLogo1
-		img(src="http://lorempixel.com/60/30", alt="Icon")
-		p Define your wardrobe with accessories
+		//- if company logo isn't finished use the image as a placeholder
+		img(src="http://lorempixel.com/60/30", alt="Icon Placeholder")
+		//- END COMPANY LOGO
+		
+		p.subhead Define your wardrobe with accessories
 
 		section.wardrobeDisplay
 			//- the images may require a transparent background
 			//- the background colour will have to be set
 			//- little boxes are 211x211px
-			div.sweeter
-				//- dimensions 211x420px
-				h2 Sweeter
-				p Bring our style
-				p $125
-			div.purchase
-				p $99
-				a(href="#") Add to Cart
-			div
-			div
-			div
-			div
-			div.fullOptions
-				//- dimensions 420x420px
-				h2 Full Options
-				p Body and Smiling
-				p $399
+			div.left
+				div.top
+					div.left
+						//- dimensions 211x420px
+						h3 Sweater
+						p.copy Bring our style
+						p.price $125
+						+purchaseShader1
+					div.right
+						div.top
+							+purchaseShader1
+						div.bottom
+							+purchaseShader1
+				div.bottom
+					div.left
+						+purchaseShader1
+					div.right
+						+purchaseShader1
+			div.right
+				div.top
+					div.left
+						+purchaseShader1
+					div.right
+						+purchaseShader1
+				div.bottom
+					div.left
+						//- dimensions 420x420px
+						div.top
+						div.bottom
+							div.copy
+								h3 Full Options
+								p.copy Body and Smiling
+								p.price $399
+							+purchaseShader1
+					div.right
+						+purchaseShader1
 
 section.dressCollection
 	.wrapper
-		p Dress Collection
+		p.introHead Dress Collection
 
 		//- jQuery required to give function and enlarge the selected
 		//- each selection displays a new set
 		//- when random is clicked write a random function that selects among numbered images each time for that entry image and changes it
 		//- or the random randomly selects a certain number of divs?
 		nav
-			a(href="#") Popular
-			a(href="#") Recent
-			a(href="#") Random
+			a(href="#").popular
+				h2 Popular
+			span.divider  / 
+			a(href="#").recent
+				h2 Recent
+			span.divider  / 
+			a(href="#").random
+				h2 Random
 
+		//- ===================================
+		//- 		COMPANY LOGO
+		//- ===================================
 		+companyLogo1
+		//- if company logo isn't finished use the image as a placeholder
+		img(src="http://lorempixel.com/60/30", alt="Icon Placeholder")
+		//- END COMPANY LOGO
 		
 		section.collectionDisplay
 			+collectionUnit1('chifonFloral','Chifon &amp; Floral Dress','$22.5')
