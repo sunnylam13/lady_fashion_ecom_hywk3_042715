@@ -103,10 +103,6 @@
 }
 
 @mixin purchaseShader042815a1 {
-	// html structure
-	// div.purchaseShader
-	// 	p $99
-	// 	a(href="#") Add to Cart
 	
 	// html structure
 	// div.purchaseShader
@@ -115,18 +111,6 @@
 	// 		div
 	// 			//- the div will hold the before element
 	// 			p Add to Cart
-
-	// div.purchaseShader {
-	// 	//flexbox
-	// 	@include flexboxSettings042215a;
-	// 	justify-content: flex-end;
-	// 	align-content: flex-end;
-	// 	align-items: center;
-
-	// 	a {
-	// 		margin-bottom: 10%;
-	// 	}
-	// }
 
 	div.purchaseShader {
 		//flexbox
@@ -162,6 +146,23 @@
 			@include themeButton1;
 			margin-bottom: 10%;
 			width: 8.8125em;
+
+			// @include transitionEffectAllEaseOut(0.1s);
+
+			&:hover {
+				background: white;
+				color: black;
+			}
+
+			&:hover > p {
+				background: white;
+				color: black;
+				font-weight: bold;
+			}
+
+			&:hover > div.button::before {
+				color: black;
+			}
 		}
 
 		p.price {
@@ -318,6 +319,19 @@
 		@include themeButton1;
 		margin-bottom: 10%;
 		width: 8.8125em;
+
+		// @include transitionEffectAllEaseOut(0.1s);
+
+		&:hover {
+			color: black;
+			background: white;
+		}
+
+		&:hover > p {
+			color: black;
+			background: white;
+			font-weight: bold;
+		}
 	}
 }
 
@@ -368,6 +382,26 @@
 
 	a.colour2 {
 		background: $abstractD2;
+	}
+}
+
+@mixin pulsingBorder ($colour) {
+	@-webkit-keyframes pulseBorder {
+		0% {
+			border: 1px solid $colour;
+		}
+		25% {
+			border: 3px solid $colour;
+		}
+		50% {
+			border: 5px solid $colour;
+		}
+		75% {
+			border: 7px solid $colour;
+		}
+		100% {
+			border: 10px solid $colour;
+		}
 	}
 }
 

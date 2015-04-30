@@ -45,20 +45,6 @@ section.newArrivals, section.dressCollection {
 		font-size: $basefontsize;
 		text-transform: uppercase;
 	}
-
-	div.purchaseShader {
-		// this is the shader box that appears on hover over the element in question
-	}
-
-	// section.newArrivals {
-	// 	.left {
-	// 		background: blue;
-	// 	}
-	// 	.right {
-	// 		background: red;
-	// 	}
-	// }
-	
 }
 
 
@@ -69,6 +55,7 @@ section.newArrivals {
 	// @include sectionPadding041515(5%,13%);
 	@include sectionPadding041515(5%,5%);
 
+	// TESTING
 	// border-bottom: 1px solid blue;
 
 	height: auto;
@@ -92,9 +79,7 @@ section.newArrivals {
 		// height: auto;
 		
 		// TESTING
-		
 		// border: 1px solid purple;
-		
 		// overflow: hidden;
 
 		// @include sectionMargins041515(3.4%,0);
@@ -186,15 +171,11 @@ section.newArrivals {
 
 			padding: 5%;
 
-			// background-image: url(../images/);
+			@include transitionEffectAllEaseOut(0.4s);
 			
 			// border: 3px dotted skyblue;
 
 			// BACKGROUND  ------------------------------------------------
-			// background-image: url('../images/products/image4.jpg');
-			// background-repeat: no-repeat;
-			// background-size: cover;
-			// background-position: center;
 			@include backgroundImage042815a('../images/products/image4.jpg');
 			// // END BACKGROUND ------------------------------------------------
 
@@ -202,6 +183,7 @@ section.newArrivals {
 			// 	display: flex;
 			// }
 
+			// enable hover to show the purchase shader and Add to Cart button
 			@include purchaseShaderDisplay042815a;
 
 		}
@@ -246,10 +228,9 @@ section.newArrivals {
 				border: none;
 				@include backgroundImage042815a('../images/products/image1.jpg');
 
-				// &:hover > div.purchaseShader {
-				// 	display: flex;
-				// }
+				@include transitionEffectAllEaseOut(0.4s);
 
+				// enable hover to show the purchase shader and Add to Cart button
 				@include purchaseShaderDisplay042815a;
 			}
 
@@ -257,6 +238,9 @@ section.newArrivals {
 			div.bottom {
 				@include backgroundImage042815a('../images/products/image3.jpg');
 
+				@include transitionEffectAllEaseOut(0.4s);
+
+				// enable hover to show the purchase shader and Add to Cart button
 				@include purchaseShaderDisplay042815a;
 			}
 		}
@@ -281,6 +265,9 @@ section.newArrivals {
 
 		// LEFT BOTTOM BOTH
 		div.bottom div.left, div.bottom div.right {
+			@include transitionEffectAllEaseOut(0.4s);
+
+			// enable hover to show the purchase shader and Add to Cart button
 			@include purchaseShaderDisplay042815a;
 		}
 
@@ -349,6 +336,9 @@ section.newArrivals {
 
 		// RIGHT TOP BOTH
 		div.top div.left, div.top div.right {
+			@include transitionEffectAllEaseOut(0.4s);
+
+			// enable hover to show the purchase shader and Add to Cart button
 			@include purchaseShaderDisplay042815a;
 		}
 
@@ -434,9 +424,13 @@ section.newArrivals {
 
 		// RIGHT BOTTOM LEFT BOTTOM
 		div.bottom div.left .bottom {
+			@include transitionEffectAllEaseOut(0.4s);
+
+			//flexbox
 			@include flexboxSettings042215a;
 			justify-content: flex-start;
 
+			// enable hover to show the purchase shader and Add to Cart button
 			@include purchaseShaderDisplay042815a;
 		}
 
@@ -461,11 +455,16 @@ section.newArrivals {
 
 			height: 26.5em;
 			// height:auto;
+			// height auto never works
 
+			@include transitionEffectAllEaseOut(0.4s);
+
+			// TESTING
 			// border: 3px dotted red;
 
 			@include backgroundImage042815a('../images/models/image11.jpg');
 
+			// enable hover to show the purchase shader and Add to Cart button
 			@include purchaseShaderDisplay042815a;
 		}
 		// // END RIGHT BOTTOM ------------------------------------------------
@@ -588,48 +587,10 @@ section.dressCollection section.collectionDisplay section.collectionUnit {
 
 		// for the image shader
 		position: relative;
-
-		// @include addToCartShader042915a;
 	}
 
 	.imgHolder .imgShader {
-		@include marginPaddingReset1;
-
-		// //flexbox
-		// @include flexboxSettings042215a;
-		// justify-content: flex-end;
-		// align-content: flex-end;
-		// align-items: center;
-
-		// background: $themeYellow;
-
-		// // you need to maximize the width to allow enough space to expand
-		// width: 100%;
-		// height: 20.6875em;
-
-		// // positioning
-		// position: absolute;
-		// top:0;
-		// right:0;
-		// left:0;
-		// bottom:0;
-
-		// // default status
-		// // before parent:hover
-		// // this must come last to override display:flex above
-		// display: none;
-
-		// a.button {
-		// 	display: block;
-		// 	margin-bottom: 15%;
-		// }
-
-		// div.button {
-		// 	@include themeButton1;
-		// 	margin-bottom: 10%;
-		// 	width: 8.8125em;
-		// }
-		
+		@include marginPaddingReset1;	
 		@include addToCartShader042915b;
 	}
 

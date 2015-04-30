@@ -20,7 +20,7 @@ section.newsletter {
 	}
 
 	// TESTING
-	border-bottom: 2px solid red;
+	// border-bottom: 2px solid red;
 
 	p.leadIn {
 		margin-bottom: 1%;
@@ -90,6 +90,12 @@ section.newsletter form input[type='email'] {
 	// you can't insert a ::before for an input?
 	// for the FA icon
 	// position: relative;
+	
+	&:focus {
+		// @include pulsingBorder($themeYellow);
+		border: 2px solid $themeYellow;
+		// animation: pulsingBorder 5s linearinfinite;
+	}
 }
 
 ///////////////////////////////////////////////

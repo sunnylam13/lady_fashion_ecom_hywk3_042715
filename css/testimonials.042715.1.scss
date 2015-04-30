@@ -91,6 +91,9 @@ section.testimonials section.testimonialEntry {
 
 		background: $themeYellow;
 		// background: blue;
+		
+		//flexbox
+		// @include flexboxSettings042215a;
 	}
 
 	// &::before {
@@ -99,13 +102,52 @@ section.testimonials section.testimonialEntry {
 
 	.entryText::before {
 		@include slantSlash042915a(black);
+		// top:-0.50em;
+		// top:-0.6em;
+		top:-0.45em;
 	}
+
+	// div {
+	// 	margin:0;
+	// 	padding:0;
+	// 	margin-bottom: 3%;
+
+	// 	// WARNING:  don't forget to set the background of this element so you can see it above the line!
+	// 	background: $themeYellow;
+
+	// 	@include sectionPadding041515(5%,5%);
+	// }
+
+	//- NOTE:  the best way to get the right background setup to blot out the slash behind it is to make cite a child of blockquote and apply a margin top to cite
 
 	blockquote {
-		margin-bottom: 3%;
+		// margin-bottom: 3%;
 
-		z-index: 6;
+		// z-index: 6;
+		// position: relative;
+
+		// WARNING:  don't forget to set the background of this element so you can see it above the line!
+		background: $themeYellow;
+		padding-top: 7%;
 	}
+
+	cite {
+		margin-top: 3%;
+		display: block;
+		// WARNING:  don't forget to set the background of this element so you can see it above the line!
+		background: $themeYellow;
+		// used the padding left so that the cite element would be long enough to cut through the slanted slash
+		padding: 0 20% 0 20%;
+	}
+
+	// blockquote::before {
+	// 	@include slantSlash042915a(black);
+	// 	// had to set the z-index to -ve negative values to get it behind a link background
+	// 	z-index:-5;
+	// 	// top: -66%;
+	// 	top: -0.55em;
+	// 	left: 35%;
+	// }
 }
 
 // TESTIMONIAL SELECTOR NAV

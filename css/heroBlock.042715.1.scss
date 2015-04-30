@@ -4,6 +4,7 @@
 
 section.heroBlock {
 	background-image: url('http://lorempixel.com/1400/700');
+	background-image: url('../images/hero/image2.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 70vh;
@@ -130,6 +131,12 @@ section.heroBlock .copy div {
 		background: white;
 	}
 
+	&:hover > p {
+		background: white;
+		color: black;
+		font-weight: bold;
+	}
+
 	p {
 		color: $themeYellow;
 		letter-spacing: 0.1em;
@@ -139,11 +146,12 @@ section.heroBlock .copy div {
 
 		@include transitionEffectAllEaseOut(0.4s);
 
-		&:hover {
-			background: white;
-			color: black;
-			font-weight: bold;
-		}
+		// instead of setting this hover on p, using advanced selectors so that it appears when hovering over the div in section.heroBlock .copy div
+		// &:hover {
+		// 	background: white;
+		// 	color: black;
+		// 	font-weight: bold;
+		// }
 	}
 
 	&::before {
