@@ -242,6 +242,7 @@ header.navMenu nav {
 		// we don't want the slash to block the colour of the link text... assing background
 		background: $themeYellow;
 
+		@include transitionEffectAllEaseOut(0.4s);
 		&:hover {
 			background: black;
 			color: $themeYellow;

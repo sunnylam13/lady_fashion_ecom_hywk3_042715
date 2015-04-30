@@ -42,6 +42,7 @@ section.heroBlock .copy {
 		text-transform: uppercase;
 		letter-spacing: 0.4em;
 		font-weight: bold;
+		margin-right: -0.4em;
 	}
 
 	p {
@@ -123,16 +124,31 @@ section.heroBlock .copy div {
 	position: relative;
 	z-index: 5;
 
+	@include transitionEffectAllEaseOut(0.4s);
+
+	&:hover {
+		background: white;
+	}
+
 	p {
 		color: $themeYellow;
 		letter-spacing: 0.1em;
 		background: black;
 		// remove the default margin... went back to style.scss and removed margin-bottom from @mixin baseParagraphStyle
 		margin:0;
+
+		@include transitionEffectAllEaseOut(0.4s);
+
+		&:hover {
+			background: white;
+			color: black;
+			font-weight: bold;
+		}
 	}
 
 	&::before {
 		@include slantSlash042815a1($themeYellow);
+
 	}
 }
 

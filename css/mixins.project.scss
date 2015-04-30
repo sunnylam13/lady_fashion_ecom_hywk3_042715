@@ -348,7 +348,9 @@
 		height: 0.75em;
 
 		// the gap between the buttons was .625em... since the margin is on both sides, divide the value in half
-		margin: 0 .3125em 0 .3125em;
+		// margin: 0 .3125em 0 .3125em;
+		// want it flush against the left side
+		margin: 0 .625em 0 0;
 	}
 
 	// div.colourSelect a.colour1 {

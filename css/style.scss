@@ -32,6 +32,7 @@
 	line-height: $baselineheight*1.66;
 	// margin-bottom: 20px;
 	font-size: $basefontsize;
+	font-family: $basefontfamily;
 }
 
 ////////////////////////////////////////////
@@ -47,7 +48,6 @@ body {
 	
 	// custom add
 	letter-spacing: 0.1em;
-	font-family: $basefontfamily;
 }
 
 .wrapper {

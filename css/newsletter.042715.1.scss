@@ -1,0 +1,95 @@
+////////////////////////////////////////////
+///// 		NEWSLETTER
+///////////////////////////////////////////////
+
+section.newsletter {
+	@include marginPaddingReset1;
+	background: white;
+	@include sectionPadding041515(3%,3%);
+
+	text-align: center;
+
+	width: 100%;
+
+	// again I should have put the flexbox on .wrapper and not section.newsletter
+	.wrapper {
+		//flexbox
+		@include flexboxSettings042215a;
+		justify-content: center;
+		align-content:center;
+	}
+
+	// TESTING
+	border-bottom: 2px solid red;
+
+	p.leadIn {
+		margin-bottom: 1%;
+		font-size: $basefontsize;
+		text-transform: uppercase;
+	}
+
+	h2 {
+		margin-bottom: 1.25%;
+		text-transform: uppercase;
+		letter-spacing: 0.3em;
+		font-size: $basefontsize*2;
+	}
+}
+
+section.newsletter form {
+	@include marginPaddingReset1;
+	text-align: center;
+	width: 100%;
+
+	// for the FA icon
+	position: relative;
+
+	span:nth-of-type(1) {
+		// for the FA icon
+		position: relative;
+		width: auto;
+		height: auto;
+		// colour:blue;
+
+		&::before {
+			position: absolute;
+			@include beforeAfterIconPlace042215a('\f1d9');
+			color: darken($themeWhite,40%);
+			font-size: $basefontsize*1.1;
+			text-transform: uppercase;
+			top: 41%;
+			left: 8%;
+		}
+	}
+
+	// &::before {
+	// 	position: absolute;
+	// 	@include beforeAfterIconPlace042215a('\f1d9');
+	// 	color: blue;
+	// 	font-size: $basefontsize*1.1;
+	// 	text-transform: uppercase;
+	// }
+}
+
+section.newsletter form input[type='email'] {
+	background: black;
+	margin-top: 4%;
+	text-align: center;
+	font-size: $basefontsize;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: white;
+	letter-spacing: 0.1em;
+
+	// size 459x55px
+	// width: 28.6875em;
+	height: 3.4375em;
+	
+	width: 50%;
+
+	// you can't insert a ::before for an input?
+	// for the FA icon
+	// position: relative;
+}
+
+///////////////////////////////////////////////

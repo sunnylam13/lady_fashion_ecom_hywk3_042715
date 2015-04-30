@@ -12,13 +12,14 @@ section.featurePanel {
 		@include flexboxSettings041715a;
 		// justify-content: space-between;
 		// align-content: space-between;
+		// using space-between set the boxes too far apart
 		justify-content: center;
 		align-content: center;
 	}
 
 	section.newIn, section.featured, section.top {
 		// TESTING
-		border: 1px solid orange;
+		// border: 1px solid orange;
 
 		//flex child
 		flex: 1 auto;
@@ -43,7 +44,7 @@ section.featurePanel section.featureEntry {
 	align-items:flex-start;
 
 	// TESTING
-	border: 2px dashed blue;
+	// border: 2px dashed blue;
 
 	h2 {
 		font-size: $basefontsize*2;
@@ -110,12 +111,22 @@ section.featurePanel section.featureEntry .selections {
 	padding: 7%;
 	background: $themeWhiteAlt1;
 	margin-top: 10%;
+
+	//flexbox
+	// @include flexboxSettings042215a;
+	// justify-content: space-around;
+	// align-content: space-around;
 }
 
 // make the 2nd selection entry or section.selectEntry have margin top and bottom
 section.featurePanel section.featureEntry .selections section.selectEntry:nth-of-type(2) {
-	background: blue;
+	// background: blue;
 	@include sectionMargins041515(10%,10%);
+
+	// GLITCH:  the div on all of the 2nd elements were always larger than the 1st and 3rd requiring custom CSS to fix
+	div.image {
+		width: 2.328125em;
+	}
 }
 
 // // END FEATURE ENTRY ------------------------------------------------
@@ -130,6 +141,9 @@ section.featurePanel section.selectEntry {
 	@include flexboxSettings041715a;
 	justify-content: space-between;
 	align-content: space-between;
+	// center still seems to work better?
+	// justify-content: center;
+	// align-content: center;
 
 	// IMAGE  ------------------------------------------------
 	div.image {
