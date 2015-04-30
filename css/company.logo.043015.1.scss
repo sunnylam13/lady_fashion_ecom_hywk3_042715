@@ -1,0 +1,48 @@
+////////////////////////////////////////////
+///// 		COMPANY LOGO
+///////////////////////////////////////////////
+
+// with jade mixin companyLogo1
+// when not using the default image placeholder
+
+aside.companyLogo {
+	@include marginPaddingReset1;
+
+	// converted to inline-block so flexbox would center it
+	display: inline-block;
+
+	// this is to center any inline elements within
+	text-align: center;
+}
+
+// the yellow bar
+aside.companyLogo .bar {
+	background: $themeYellow;
+	width: 3.75em;
+	height: .9375em;
+
+	position: relative;
+	z-index:5;
+}
+
+// the slanted slash
+// attempt:  div with border rotating
+aside.companyLogo .slash {
+	border: 1px solid black;
+	width: 45%;
+	@include transformRotate(-64deg);
+
+	position: absolute;
+	top: 48%;
+	left: 26%;
+	// set z-index to -5 to put it behind .bar and .extraShader... you still need .extraShader (if you comment .extraShader out the line appears)
+	z-index: -5;
+}
+
+aside.companyLogo .extraShader {
+	width: 100%;
+	height: 100%;
+	background: $themeYellow;
+} 
+
+///////////////////////////////////////////////

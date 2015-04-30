@@ -83,6 +83,22 @@ section.testimonials section.testimonialEntry {
 
 	position: relative;
 
+	// SLASH  ------------------------------------------------
+	// this modifies the div.slash that's been inserted into various mixin templates
+	// the parent element must contain a div.slash BEFORE the element that will cut through it
+	.slash {
+		border: 1px solid black;
+		width: 37%;
+		@include transformRotate(-64deg);
+
+		position: absolute;
+		top: 48%;
+		left: 22%;
+		// set z-index to -5 to put it behind .bar and .extraShader... you still need .extraShader (if you comment .extraShader out the line appears)
+		z-index: -5;
+	}
+	// // END SLASH ------------------------------------------------
+
 	.entryText {
 		width: 82%;
 
@@ -100,12 +116,13 @@ section.testimonials section.testimonialEntry {
 	// 	@include slantSlash042915a(black);
 	// }
 
-	.entryText::before {
-		@include slantSlash042915a(black);
-		// top:-0.50em;
-		// top:-0.6em;
-		top:-0.45em;
-	}
+	// this version is too thick since you can only use a character like / or |
+	// .entryText::before {
+	// 	@include slantSlash042915a(black);
+	// 	// top:-0.50em;
+	// 	// top:-0.6em;
+	// 	top:-0.45em;
+	// }
 
 	// div {
 	// 	margin:0;

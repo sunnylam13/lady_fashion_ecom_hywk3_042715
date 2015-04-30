@@ -42,6 +42,7 @@ section.newArrivals, section.dressCollection {
 	}
 
 	p.subhead {
+		margin-top: 3%;
 		font-size: $basefontsize;
 		text-transform: uppercase;
 	}
@@ -83,7 +84,7 @@ section.newArrivals {
 		// overflow: hidden;
 
 		// @include sectionMargins041515(3.4%,0);
-		margin-top: 3.4%;
+		margin-top: 5%;
 
 		@include flexboxSettings041715a;
 
@@ -535,6 +536,8 @@ section.dressCollection section.collectionDisplay {
 	// flexbox
 	@include flexboxSettings041715a;
 	align-content: space-around;
+
+	margin-top: 6%;
 }
 // // END COLLECTION DISPLAY ------------------------------------------------
 

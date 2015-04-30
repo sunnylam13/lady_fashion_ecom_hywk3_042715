@@ -89,17 +89,36 @@
 	position: relative;
 	z-index: 5;
 
+	// SLASH  ------------------------------------------------
+	// this modifies the div.slash that's been inserted into various mixin templates
+	// the parent element must contain a div.slash BEFORE 
+	.slash {
+		border: 1px solid $themeYellow;
+		width: 31%;
+		@include transformRotate(-64deg);
+
+		position: absolute;
+		top: 48%;
+		left: 34%;
+		// set z-index to -5 to put it behind .bar and .extraShader... you still need .extraShader (if you comment .extraShader out the line appears)
+		z-index: -5;
+	}
+	// // END SLASH ------------------------------------------------
+
 	p {
 		color: $themeYellow;
 		letter-spacing: 0.1em;
+
+		// KEY POINT:  you give p a background to cut through the slash
 		background: black;
 		// remove the default margin... went back to style.scss and removed margin-bottom from @mixin baseParagraphStyle
 		margin:0;
 	}
 
-	&::before {
-		@include slantSlash042815a1($themeYellow);
-	}
+	// this is the less accurate ::before technique where the slash is too thick
+	// &::before {
+	// 	@include slantSlash042815a1($themeYellow);
+	// }
 }
 
 @mixin purchaseShader042815a1 {
@@ -143,6 +162,7 @@
 		}
 
 		div.button {
+			// refer to @mixin themeButton1
 			@include themeButton1;
 			margin-bottom: 10%;
 			width: 8.8125em;

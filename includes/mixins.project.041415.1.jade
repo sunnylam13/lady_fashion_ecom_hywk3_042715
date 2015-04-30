@@ -20,38 +20,88 @@ mixin companyLogo1(placeHolder)
 
 	//- please see the control switch variable in variables.global.jade called var companyLogoEnabled
 
+	//- if placeHolder
+	//- 	aside.companyLogo
+	//- 		img(src="http://lorempixel.com/60/30", alt="Icon Placeholder")
+	//- else
+	//- 	aside.companyLogo
+	//- 		.bar
+	//- 			.slash
+
+	//- it seems by default that if the placeHolder is true, then that statement keeps occurring... I had to reverse it so that the company logo appeared instead
+	//- if placeHolder
+	//- 	aside.companyLogo
+	//- 		.bar
+	//- 			.slash
+	//- else
+	//- 	aside.companyLogo
+	//- 		img(src="http://lorempixel.com/60/30", alt="Icon Placeholder")
+
 	if placeHolder
-		aside.companyLogo
-			img(src="http://lorempixel.com/60/30", alt="Icon Placeholder")
-	else
 		aside.companyLogo
 			.bar
 				.slash
+				//- place this shader after .slash so that it will naturally cover the .slash without using z-index which is tough to use
+				.extraShader
+	else
+		aside.companyLogo
+			img(src="http://lorempixel.com/60/30", alt="Icon Placeholder")
 
 mixin purchaseShader1
 	//- each of the parents must have a position relative
 	//- it must be placed within the parent container
 	//- refine this within one of the test divs
+	
+	//- if block
+	//- 	block
+	//- else
+	//- 	div.purchaseShader
+	//- 		p.price
+	//- 			span $
+	//- 			| 99
+	//- 		a(href='#').button
+	//- 			div.button					
+	//- 				//- the div will hold the before element
+	//- 				p.text Add to Cart
 
-	div.purchaseShader
-		p.price
-			span $
-			| 99
-		a(href='#').button
-			div.button
-				//- the div will hold the before element
-				p.text Add to Cart
+	if block
+		block
+	else
+		div.purchaseShader
+			p.price
+				span $
+				| 99
+			a(href='#').button
+				div.button
+					//- for the slanted slash
+					div.slash				
+					//- the div will hold the before element
+					p.text Add to Cart
 
 mixin purchaseShader2(priceVal)
-	div.purchaseShader
-		p=priceVal
-		a(href="#") Add to Cart
+	if block
+		block
+	else
+		div.purchaseShader
+			p=priceVal
+			a(href="#") Add to Cart
 
 mixin addToCartButton1
-	div.addToCartButton
-		a(href='#').button
-			div.button
-				//- the div will hold the before element
-				p.text Add to Cart
+	if block
+		block
+	else
+		//- div.addToCartButton
+		//- 	a(href='#').button
+		//- 		div.button
+		//- 			//- the div will hold the before element
+		//- 			p.text Add to Cart
+
+		div.addToCartButton
+			a(href='#').button
+				div.button
+					//- for the slanted slash
+					div.slash
+					//- the div will hold the before element
+					p.text Add to Cart
 
 //- END MIXINS PROJECT 

@@ -10,8 +10,10 @@ mixin testimonialEntry1(name,quoteText)
 	//- size 539x133px
 	section.testimonialEntry
 		.entryText
+			// for the slanted slash
+			div.slash
 			//- div
-			//- the best way to get the right background setup to blot out the slash behind it is to make cite a child of blockquote and apply a margin top to cite
+			// the best way to get the right background setup to blot out the slash behind it is to make cite a child of blockquote and apply a margin top to cite
 			blockquote=quoteText
 				cite=name
 
