@@ -5,6 +5,10 @@
 //- These mixins are specific to this project only.
 //- move mixins here only if they are required in other sections of the site
 
+//- ===================================
+//- 		COMPANY LOGO
+//- ===================================
+
 mixin companyLogo1(placeHolder)
 	//- dimensions are 60x30px
 	//- you could construct this image using html and css or SVG
@@ -12,31 +16,7 @@ mixin companyLogo1(placeHolder)
 	//- create a mixin to construct it and insert here
 	//- it is the same size throughout
 	//- NOTE: the CSS styling of the logo in the .footer is different as the slanted slash is made yellow so it's visible agaisnt black background
-	//- aside.companyLogo
-	//- 	.bar
-	//- 		.slash
 	
-	//- the mixin will only accept strings... true/false doesn't work
-
-	//- please see the control switch variable in variables.global.jade called var companyLogoEnabled
-
-	//- if placeHolder
-	//- 	aside.companyLogo
-	//- 		img(src="http://lorempixel.com/60/30", alt="Icon Placeholder")
-	//- else
-	//- 	aside.companyLogo
-	//- 		.bar
-	//- 			.slash
-
-	//- it seems by default that if the placeHolder is true, then that statement keeps occurring... I had to reverse it so that the company logo appeared instead
-	//- if placeHolder
-	//- 	aside.companyLogo
-	//- 		.bar
-	//- 			.slash
-	//- else
-	//- 	aside.companyLogo
-	//- 		img(src="http://lorempixel.com/60/30", alt="Icon Placeholder")
-
 	if placeHolder
 		aside.companyLogo
 			.bar
@@ -46,6 +26,57 @@ mixin companyLogo1(placeHolder)
 	else
 		aside.companyLogo
 			img(src="http://lorempixel.com/60/30", alt="Icon Placeholder")
+
+//- END COMPANY LOGO
+
+
+
+//- ===================================
+//- 		PRODUCTS - NEW ARRIVALS, DRESS COLLECTION
+//- ===================================
+
+mixin collectionUnit1(uClass,prodName,priceVal,imgSrc,altText)
+	//- for section.collectionDisplay
+	//- where uClass,prodName,priceVal are strings
+	
+	section(class=uClass).collectionUnit
+		.imageHolder
+			//- image dimension 190x331px
+			if imgSrc
+				img(src=imgSrc, alt=altText)
+			else
+				img(src="http://lorempixel.com/190/331", alt="Placeholder Image")
+			.imgShader1
+				a(href="#") Add to Cart
+		//- Chifon &amp; Floral Dress
+		h3=prodName
+		//- $22.5
+		p=priceVal
+		div.colourSelect
+			//- clicking on the colour select should switch the image or substitute a different one by changing the src
+			a(href="javascript:void(0)").colour1
+			a(href="javascript:void(0)").colour2
+
+mixin collectionUnit2(uClass,prodName,priceVal)
+	//- for section.collectionDisplay
+	//- where uClass,prodName,priceVal are strings
+	
+	//- in this version we will setup the image using background instead of an <img> or <picture> element
+	
+	section(class=uClass).collectionUnit
+		//- image dimension 190x331px
+		.imgHolder
+			.imgShader
+				+addToCartButton1
+		//- Chifon &amp; Floral Dress
+		h3=prodName
+		//- $22.5
+		p.price=priceVal
+		div.colourSelect
+			//- clicking on the colour select should switch the image or substitute a different one by changing the src
+			//- width height = 28x12px
+			a(href="javascript:void(0)").colour1
+			a(href="javascript:void(0)").colour2
 
 mixin purchaseShader1
 	//- each of the parents must have a position relative
@@ -103,5 +134,100 @@ mixin addToCartButton1
 					div.slash
 					//- the div will hold the before element
 					p.text Add to Cart
+
+//- END PRODUCTS - NEW ARRIVALS, DRESS COLLECTION
+
+
+//- ===================================
+//- 		TESTIMONIALS
+//- ===================================
+
+mixin testimonialEntry1(name,quoteText)
+	//- size 539x133px
+	section.testimonialEntry
+		.entryText
+			// for the slanted slash
+			div.slash
+			//- div
+			// the best way to get the right background setup to blot out the slash behind it is to make cite a child of blockquote and apply a margin top to cite
+			blockquote=quoteText
+				cite=name
+
+//- END TESTIMONIALS
+
+
+//- ===================================
+//- 		FEATURED ITEMS
+//- ===================================
+
+mixin selectEntry1(heading,priceVal,imgSrc,altText)
+	section.selectEntry
+		//- image dimensions 51x86px
+		if imgSrc
+			div.image
+				img(src=imgSrc, alt=altText)
+		else
+			div.image
+				img(src="http://lorempixel.com/51/86", alt="Lorem Placeholder")
+		.meta
+			h3=heading
+			p.price=priceVal
+			div.colourSelect
+				//- clicking on the colour select should switch the image or substitute a different one by changing the src
+				a(href="#").colour1
+				a(href="#").colour2
+
+mixin newInEntry1
+	// NEW IN ENTRY PRODUCT  ------------------------------------------------
+	section.featureEntry
+		h2 New-In
+		.topBar
+			div.logo
+				+companyLogo1(companyLogoEnabled)
+			nav
+				span.fa.fa-angle-left
+				span.fa.fa-angle-right
+		.selections
+			+selectEntry1('Abstract Dooted Dress','$21.5')
+			+selectEntry1('Flair Trap Dress','$22.5')
+			+selectEntry1('Chipon & Floral Dress','$23.5')
+	// END NEW IN ENTRY PRODUCT ------------------------------------------------
+
+
+mixin featuredEntry1
+	// FEATURED ENTRY PRODUCT  ------------------------------------------------
+	section.featureEntry
+		h2 Featured
+		.topBar
+			div.logo
+				+companyLogo1(companyLogoEnabled)
+			nav
+				span.fa.fa-angle-left
+				span.fa.fa-angle-right
+		.selections
+			+selectEntry1('Teenager Dress','$22.5')
+			+selectEntry1('Warm Dress','$25.5')
+			+selectEntry1('Dotted Mosaic Dress','$21.5')
+	// END FEATURED ENTRY PRODUCT ------------------------------------------------
+
+mixin topPickEntry1
+	// TOP PICK ENTRY PRODUCT  ------------------------------------------------
+	section.featureEntry
+		h2 Top
+		.topBar
+			div.logo
+				+companyLogo1(companyLogoEnabled)
+			nav
+				span.fa.fa-angle-left
+				span.fa.fa-angle-right
+		.selections
+			+selectEntry1('Abstract Dooted Dress','$21.5')
+			+selectEntry1('Flair Trap Dress','$22.5')
+			+selectEntry1('Chipon & Floral Dress','$23.5')
+	// END TOP PICK ENTRY PRODUCT ------------------------------------------------
+	
+
+//- END FEATURED ITEMS
+
 
 //- END MIXINS PROJECT 

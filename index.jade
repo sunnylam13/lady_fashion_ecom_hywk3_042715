@@ -15,11 +15,291 @@
 
 //- END README FOR INDEX.JADE
 
+//- ===================================
+//- 		EXTEND FROM MASTER TEMPLATE
+//- ===================================
+
+//- for use if multiple web pages are added later on or as practice for a larger size
+
 extends index.layout.030215.1.jade
 
+//- END EXTEND FROM MASTER TEMPLATE
+
+
+
+//- ===================================
+//- 		PRIMARY NAVIGATION MENU
+//- ===================================
+
+//- the primary navigation menu is located in the index.layout.jade file in its own partial
+
+//- END PRIMARY NAVIGATION MENU
+
 block content
-	include ./includes/heroBlock.042715.1.jade
-	include ./includes/products.042715.1.jade
-	include ./includes/testimonials.042715.1.jade
-	include ./includes/featured.042715.1.jade
-	include ./includes/newsletter.042715.1.jade
+	//- include ./includes/heroBlock.042715.1.jade
+	//- include ./includes/products.042715.1.jade
+	//- include ./includes/testimonials.042715.1.jade
+	//- include ./includes/featured.042715.1.jade
+	//- include ./includes/newsletter.042715.1.jade
+	
+	////////////////////////////////////////////
+	// 		HERO BLOCK
+	/////////////////////////////////////////
+
+	section.heroBlock.heroBlock042715
+		//- use a background image
+		// IMAGE SHADER  ------------------------------------------------
+		// the image shader is used for placeholder images and prevents the image from obscuring the text
+		.imageshader
+			//- this is for lightening the background cover
+		// END IMAGE SHADER ------------------------------------------------
+		
+		.wrapper
+
+			// COPY TEXT  ------------------------------------------------
+			.copy
+				h1 Lady
+				p Rethink your swim wear and take it to the street
+				
+				//- div
+				//- 	//- set the background to transparent so the parent div will provide the background
+				//- 	a(href=viewLookBookLink) View the Lookbook
+				
+
+				//- this is a case where you wrap the div and the p in the link and style the div
+				a(href=viewLookBookLink)
+					div
+						div.slash
+						//- the div will hold the before element
+						p View the Lookbook
+						//- div.slash
+			// END COPY TEXT ------------------------------------------------
+			
+			// FILL SPACE  ------------------------------------------------
+			// this div is used to fill space and force the .copy text to be aligned around the vertical axis at the 50% mark
+			.fillspace
+			// END FILL SPACE ------------------------------------------------
+			
+
+	////////////////////////////////////////////
+
+	////////////////////////////////////////////
+	// 		PRODUCTS DISPLAY
+	/////////////////////////////////////////
+
+	// display the products like a storefront
+
+	// NEW ARRIVALS SECTION  ------------------------------------------------
+	// this is the New Arrivals section of the page
+	section.newArrivals
+		.wrapper
+			p.introHead The New Arrivals
+			h2 Trending
+
+			+companyLogo1(companyLogoEnabled)
+			
+			p.subhead Define your wardrobe with accessories
+
+			// WARDROBE DISPLAY SECTION
+			section.wardrobeDisplay
+				//- the images may require a transparent background
+				//- the background colour will have to be set
+				//- little boxes are 211x211px
+				
+				// LEFT  ------------------------------------------------
+				div.left
+					// LEFT TOP  ------------------------------------------------
+					div.top
+						// LEFT TOP LEFT  ------------------------------------------------
+						div.left
+							//- dimensions 211x420px
+							h3 Sweater
+							p.copy Bring our style
+							p.price $125
+							+purchaseShader1
+						// END LEFT TOP LEFT ------------------------------------------------
+						
+						// LEFT TOP RIGHT  ------------------------------------------------
+						div.right
+							div.top
+								+purchaseShader1
+							div.bottom
+								+purchaseShader1
+						// END LEFT TOP RIGHT ------------------------------------------------
+						
+					// END LEFT TOP ------------------------------------------------
+					
+					// LEFT BOTTOM  ------------------------------------------------
+					div.bottom
+						div.left
+							+purchaseShader1
+						div.right
+							+purchaseShader1
+					// END LEFT BOTTOM ------------------------------------------------
+					
+				// END LEFT ------------------------------------------------
+				
+				
+				// RIGHT  ------------------------------------------------
+				div.right
+					// RIGHT TOP  ------------------------------------------------
+					div.top
+						div.left
+							+purchaseShader1
+						div.right
+							+purchaseShader1
+					// END RIGHT TOP ------------------------------------------------
+					
+					// RIGHT BOTTOM  ------------------------------------------------
+					div.bottom
+						div.left
+							//- dimensions 420x420px
+							div.top
+							div.bottom
+								div.copy
+									h3 Full Options
+									p.copy Body and Smiling
+									p.price $399
+								+purchaseShader1
+						div.right
+							+purchaseShader1
+					// END RIGHT BOTTOM ------------------------------------------------
+					
+				// END RIGHT ------------------------------------------------
+				
+	// END NEW ARRIVALS SECTION ------------------------------------------------
+
+
+	// DRESS COLLECTION SECTION  ------------------------------------------------
+	// this is the Dress Collection section of the page
+	section.dressCollection
+		.wrapper
+			p.introHead Dress Collection
+
+			//- jQuery required to give function and enlarge the selected
+			//- each selection displays a new set
+			//- when random is clicked write a random function that selects among numbered images each time for that entry image and changes it
+			//- or the random randomly selects a certain number of divs?
+			nav
+				a(href="javascript:void(0)").popular
+					h2 Popular
+				span.divider  / 
+				a(href="javascript:void(0)").recent
+					h2 Recent
+				span.divider  / 
+				a(href="javascript:void(0)").random
+					h2 Random
+
+			+companyLogo1(companyLogoEnabled)
+			
+			// COLLECTION DISPLAY SECTION
+
+			//- ===================================
+			//- 		COLLECTION DISPLAY
+			//- ===================================
+
+			section.collectionDisplay
+				+collectionUnit2('chifonFloral','Chifon & Floral Dress','$22.5')
+				+collectionUnit2('camiStrap','Cami Strap Dress','$23.5')
+				+collectionUnit2('abstractDDress','Flare Strap Dress','$19.0')
+				+collectionUnit2('flareStrap','Abstract Dooted Dress','$21.5')
+				+collectionUnit2('chifonFloral','Chifon & Floral Dress','$22.5')
+				+collectionUnit2('camiStrap','Cami Strap Dress','$23.5')
+				+collectionUnit2('flareStrap','Flare Strap Dress','$19.0')
+				+collectionUnit2('abstractDDress','Abstract Dooted Dress','$21.5')
+
+			//- END COLLECTION DISPLAY
+	// END DRESS COLLECTION SECTION ------------------------------------------------
+	////////////////////////////////////////////
+
+	////////////////////////////////////////////
+	// 		TESTIMONIALS
+	/////////////////////////////////////////
+
+	section.testimonials
+		.wrapper
+			p.leadIn What does the fox say?
+			h2 Happy Customers
+			
+			+companyLogo1(companyLogoEnabled)
+
+			//- ===================================
+			//- 		TESTIMONIAL SLIDER
+			//- ===================================
+
+			//- to use any of the sliders like bxSlider or flickity you'll have to insert the entries within a ul li
+			//- you'll have to re-style the slider buttons and remove the previous/next arrows
+
+			// TESTIMONIALS  ------------------------------------------------
+			// use either a jQuery slider plugin or custom code it
+			ul.testimonialList
+				li
+					+testimonialEntry1('Kyle James','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad quidem repudiandae, sequi ea delectus ut.')
+				li
+					+testimonialEntry1('Mary Jane','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad quidem repudiandae, sequi ea delectus ut.')
+				li
+					+testimonialEntry1('Peter Parker','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad quidem repudiandae, sequi ea delectus ut.')
+			// END TESTIMONIALS ------------------------------------------------
+			
+			
+			// TESTIMONIAL SELECTOR NAV  ------------------------------------------------
+			//- testimonial slider selector nav
+			//- each is a square button and when pressed it turns from base white to yellow
+			//- I could have used divs however this works as well
+			ul.selectorNav
+				li
+				li
+				li
+			// END TESTIMONIAL SELECTOR NAV ------------------------------------------------
+			
+
+			//- ===================================
+
+		//- END HEADING
+
+	////////////////////////////////////////////
+
+	////////////////////////////////////////////
+	// 		FEATURED ITEMS
+	/////////////////////////////////////////
+
+	//- each press of the previous/next buttons should display a new div
+	//- you could use jQuery to construct a random selection?
+
+	section.featurePanel
+		.wrapper
+			section.newIn
+				+newInEntry1
+			section.featured
+				+featuredEntry1
+			section.top
+				+topPickEntry1
+
+	////////////////////////////////////////////
+
+	////////////////////////////////////////////
+	// 		NEWSLETTER
+	/////////////////////////////////////////
+
+	section.newsletter
+		.wrapper
+			p.leadIn Get latest news and coupons from lady
+			h2 Subscribe
+			+companyLogo1(companyLogoEnabled)
+			
+			// FORM  ------------------------------------------------
+			form(id="newsletter1", method="", action="")
+				span
+					//- a FA icon of a paper airplane must be placed ::before the input and/or absolutely positioned
+					input(type='email', name='email', placeholder='Your Email Address')
+			// END FORM ------------------------------------------------
+
+	////////////////////////////////////////////
+
+//- ===================================
+//- 		FOOTER
+//- ===================================
+
+//- the footer is located in the index.layout.jade file in its own partial
+
+//- END FOOTER

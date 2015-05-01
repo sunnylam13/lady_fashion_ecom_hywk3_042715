@@ -1,0 +1,1610 @@
+////////////////////////////////////////////
+///// 		INDEX.HTML/INDEX.JADE
+///////////////////////////////////////////////
+
+// I'm now going to create an scss file for each page
+// as projects scale I'll use the partial method for constructing various pages using repeated sections... where I need to pull in different versions of headers for example
+
+
+//- ===================================
+//- ===================================
+
+////////////////////////////////////////////
+///// 		HERO BLOCK
+///////////////////////////////////////////////
+
+section.heroBlock {
+	// background-image: url('http://lorempixel.com/1400/700');
+	background-image: url('../images/hero/image2.jpg');
+	// you don't have to use background-size: contain if you're using a big enough image
+	background-size: cover;
+	// background-size: contain;
+	background-repeat: no-repeat;
+	height: 70vh;
+	position: relative;
+
+	@include desktopR {
+		// issue is the original background image doesn't have enough height to match
+		background-image: url('http://lorempixel.com/1400/700');
+	}
+}
+
+// IMAGE SHADER  ------------------------------------------------
+// this is used to make the background image darker or lighter so text in front can be seen
+section.heroBlock .imageshader {
+	position: absolute;
+	top:0;
+	bottom:0;
+	right:0;
+	left:0;
+	background: $themeWhite3;
+}
+// // END IMAGE SHADER ------------------------------------------------
+
+
+
+section.heroBlock .wrapper {
+	@include flexboxSettings041715a;
+	justify-content: center;
+	align-content: center;
+}
+
+// COPY  ------------------------------------------------
+// this is the copy above and in front of the cover image
+
+section.heroBlock .copy {
+	//flex child setting
+	flex: 1 50%;
+
+	//flexbox
+	@include flexboxSettings042215a;
+	justify-content: center;
+	align-content: center;
+	align-items: flex-end;
+	margin:auto;
+	height: 70vh;
+
+	h1 {
+		font-size: $basefontsize*5;
+		text-transform: uppercase;
+		letter-spacing: 0.4em;
+		font-weight: bold;
+		margin-right: -0.4em;
+
+		@include phoneR {
+			font-size: $basefontsize*4;
+		}
+	}
+
+	p {
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		font-size: $basefontsize*1.1;
+	}
+
+	h1 + p:nth-of-type(1) {
+		// background: blue;
+		@include sectionMargins041515(3%,7%);
+		padding-left: 40%;
+		text-align: right;
+
+		@include phoneR {
+			padding-left: 0;
+		}
+	}
+
+	// styling the link is done below
+}
+
+section.heroBlock .fillspace {
+	flex: 1 50%;
+	height: 70vh;
+}
+
+////////////////////////////////////////////
+///// 		BUTTON
+///////////////////////////////////////////////
+
+section.heroBlock .copy div {
+	margin:0;
+	padding: 0;
+
+	background: black;
+	// text-align: center;
+	width: 11.8125em;
+	height: 2.4375em;
+
+	//flexbox
+	@include flexboxSettings042215a;
+	justify-content:center;
+	align-content: center;
+	align-items: center;
+
+	position: relative;
+	z-index: 5;
+
+	@include transitionEffectAllEaseOut(0.4s);
+
+
+	@include tabletR {
+		width: 9.8125em;
+		height: 2.2375em;
+	}
+
+
+	&:hover {
+		background: white;
+	}
+
+	// activate the hover state for p
+	&:hover > p {
+		background: white;
+		color: black;
+		font-weight: bold;
+	}
+
+	// activate the hover state for the slanted slash AND p when hovering over the div button
+	&:hover > div.slash {
+		// you don't change the colour, you change border colour!
+		// color: black;
+		border: 1px solid black;
+	}
+
+	// SLANTED SLASH  ------------------------------------------------
+	div.slash {
+		@include marginPaddingReset1;
+		
+		// DEFAULT
+		// comment out to disable and style easily
+		// display: none;
+
+		border: 1px solid $themeYellow;
+		background: none;
+		width: 24%;
+		height:0;
+		@include transformRotate(-64deg);
+
+		position: absolute;
+		top: 48%;
+		left: 39%;
+		// set z-index to -5 to put it behind .bar and .extraShader... you still need .extraShader (if you comment .extraShader out the line appears)
+		z-index: -5;
+	}
+
+	// // END SLANTED SLASH ------------------------------------------------
+
+	p {
+		color: $themeYellow;
+		letter-spacing: 0.1em;
+
+		// you need a background to block out the slanted slash behind it and create a bridge effect
+		background: black;
+		// remove the default margin... went back to style.scss and removed margin-bottom from @mixin baseParagraphStyle
+		margin:0;
+
+		@include transitionEffectAllEaseOut(0.4s);
+
+		// instead of setting this hover on p, using advanced selectors so that it appears when hovering over the div in section.heroBlock .copy div
+		// &:hover {
+		// 	background: white;
+		// 	color: black;
+		// 	font-weight: bold;
+		// }
+	}
+
+	// this is the older version use of slanted slash that was too thick
+	// &::before {
+	// 	@include slantSlash042815a1($themeYellow);
+
+	// }
+}
+
+///////////////////////////////////////////////
+
+// // END COPY ------------------------------------------------
+
+///////////////////////////////////////////////
+
+//- ===================================
+//- ===================================
+// END HERO BLOCK
+
+
+//- ===================================
+//- ===================================
+
+////////////////////////////////////////////
+///// 		PRODUCTS
+///////////////////////////////////////////////
+
+section.newArrivals, section.dressCollection {
+	background: $productColourBack;
+
+	// applying a flexbox screws up the wardrobeDisplay
+	// @include flexboxSettings042215a;
+	// may need to use text-align center instead
+	
+	text-align: center;
+
+	// @include sectionPadding041515(5%,5%);
+
+	p.introHead {
+		font-size: $basefontsize*0.9;
+		text-transform: uppercase;
+		font-weight: bold;
+		letter-spacing: 0.2em;
+		margin-bottom: 1.5%;
+	}
+
+	h2 {
+		font-size: $basefontsize*2;
+		text-transform: uppercase;
+		font-weight: 900;
+		letter-spacing: 0.25em;
+		margin-bottom: 1%;
+
+		@include iphone6Minus320R {
+			margin-bottom: 3%;
+		}
+	}
+
+	aside.companyLogo {
+		// copy any padding and margin from the img placeholder
+	}
+
+	img {
+		margin-bottom: 3%;
+	}
+
+	p {
+		text-transform: uppercase;
+	}
+
+	p.subhead {
+		margin-top: 3%;
+		font-size: $basefontsize;
+		text-transform: uppercase;
+	}
+}
+
+
+
+// NEW ARRIVALS  ------------------------------------------------
+section.newArrivals {
+
+	// @include sectionPadding041515(5%,13%);
+	@include sectionPadding041515(5%,5%);
+
+	// TESTING
+	// border-bottom: 1px solid blue;
+
+	height: auto;
+	width:auto;
+
+	div.left, div.right {
+		position: relative;
+	}
+
+	@include desktopR {
+		// margin-top: -10%;
+	}
+
+	
+	// WARDROBE DISPLAY  ------------------------------------------------
+	// please note that heights must be set for the divs to exist and expand, otherwise everything collapses in on itself
+
+	section.wardrobeDisplay {
+		// apply margin, padding reset
+		margin: 0;
+		padding: 0;
+
+		width: 100%;
+		// height: 80vh;
+		// height: auto;
+		
+		// TESTING
+		// border: 1px solid purple;
+		// overflow: hidden;
+
+		// @include sectionMargins041515(3.4%,0);
+		margin-top: 5%;
+
+		@include flexboxSettings041715a;
+
+		@include purchaseShader042815a1;
+
+		// TESTING
+		// div {
+		// 	// width: 209px;
+		// 	// height: 212px;
+		// 	// width: 13.0625em;
+		// 	// height: 13.25em;
+		// 	// border: 1px solid red;
+		// 	@include productDivDimensions042815a1;
+		// }
+		
+		h3 {
+			font-size: $basefontsize*1.3;
+			text-transform: uppercase;
+			font-weight: 900;
+			letter-spacing: 0.2em;
+			margin-bottom: 7%;
+		}
+
+		p.copy {
+			font-size: $basefontsize*0.9;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
+			margin-bottom: 5%;
+		}
+
+		p.price {
+			font-size: $basefontsize*1.3;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
+		}
+
+		// .top div.left, .top div.right {
+		// 	@include iphone6Minus320R {
+		// 		//flex child
+		// 		flex: 1 100%;
+		// 	}
+		// }
+	}
+	// // END WARDROBE DISPLAY ------------------------------------------------
+
+	// LEFT - section.wardrobeDisplay  ------------------------------------------------
+	section.wardrobeDisplay div.left {
+		// apply margin, padding reset
+		margin: 0;
+		padding: 0;
+
+		// flex child
+		flex: 1 50%;
+		// margin: auto;
+		
+		// you need to alter the flex-basis from 50% to 100% which forces that section to expand to fill
+		
+		@include phoneR {
+			flex: 1 100%;
+		}
+
+		// LEFT TOP  ------------------------------------------------
+		div.top {
+			// apply margin, padding reset
+			margin: 0;
+			padding: 0;
+
+			//flexbox
+			@include flexboxSettings041715a;
+			width: 100%;
+
+			// border: 1px solid orange;
+
+			div.left,div.right {
+				margin:0;
+				padding:0;
+			}
+		}
+
+		// LEFT TOP LEFT
+		div.top div.left {
+			// apply margin, padding reset
+			margin: 0;
+			padding: 0;
+
+			// flex child
+			flex: 1 50%;
+			// margin: auto;
+
+			// @include iphone6Minus320R {
+			// 	//flex child
+			// 	flex: 1 100%;
+			// }
+
+
+			//flexbox
+			@include flexboxSettings042215a;
+			justify-content: flex-start;
+			align-content: flex-start;
+			align-items: flex-start;
+			
+			width: 13.0625em;
+			height: 26.5em;
+
+			padding: 5%;
+
+			@include transitionEffectAllEaseOut(0.4s);
+			
+			// border: 3px dotted skyblue;
+
+			// BACKGROUND  ------------------------------------------------
+			@include backgroundImage042815a('../images/products/image4.jpg');
+			// // END BACKGROUND ------------------------------------------------
+
+			// &:hover > div.purchaseShader {
+			// 	display: flex;
+			// }
+
+			// enable hover to show the purchase shader and Add to Cart button
+			@include purchaseShaderDisplay042815a;
+
+		}
+
+		// LEFT TOP RIGHT
+		div.top div.right {
+			// apply margin, padding reset
+			margin: 0;
+			padding: 0;
+
+			// flex child
+			flex: 1 50%;
+			// margin: auto;
+			
+			//flexbox
+			@include flexboxSettings042215a;
+
+			// div {
+			// 	//flex child
+			// 	// flex: 1 auto;
+			// 	width: 100%;
+			// 	position: relative;
+			// 	height: auto;
+			// }
+
+			// border: 3px dashed black;
+
+			// LEFT TOP RIGHT BOTH
+			div.top, div.bottom {
+				//flex child
+				// flex: 1 auto;
+				width: 100%;
+				position: relative;
+				// height: auto;
+				// background: blue;
+				height: 13.25em;
+				// @include productDivDimensions042815a2(blue);
+			}
+
+			// LEFT TOP RIGHT TOP
+			div.top {
+				border: none;
+				@include backgroundImage042815a('../images/products/image1.jpg');
+
+				@include transitionEffectAllEaseOut(0.4s);
+
+				// @include iphone6Minus320R {
+				// 	height: 40%;
+				// }
+
+
+				// enable hover to show the purchase shader and Add to Cart button
+				@include purchaseShaderDisplay042815a;
+			}
+
+			// LEFT TOP RIGHT BOTTOM
+			div.bottom {
+				@include backgroundImage042815a('../images/products/image3.jpg');
+
+				@include transitionEffectAllEaseOut(0.4s);
+
+				// @include iphone6Minus320R {
+				// 	height: 40%;
+				// }
+
+
+				// enable hover to show the purchase shader and Add to Cart button
+				@include purchaseShaderDisplay042815a;
+			}
+		}
+		// // END LEFT TOP ------------------------------------------------
+		
+
+		// LEFT BOTTOM  ------------------------------------------------
+		div.bottom {
+			// apply margin, padding reset
+			margin: 0;
+			padding: 0;
+
+			//flexbox
+			@include flexboxSettings041715a;
+			width: 100%;
+
+			// border: 3px solid darkgreen;
+
+			width: 100%;
+			height: 13.25em;
+		}
+
+		// LEFT BOTTOM BOTH
+		div.bottom div.left, div.bottom div.right {
+			@include transitionEffectAllEaseOut(0.4s);
+
+			// enable hover to show the purchase shader and Add to Cart button
+			@include purchaseShaderDisplay042815a;
+		}
+
+		// LEFT BOTTOM LEFT
+		div.bottom div.left {
+			// apply margin, padding reset
+			margin: 0;
+			padding: 0;
+
+			// flex child
+			flex: 1 50%;
+			// margin: auto;
+
+			// @include iphone6Minus320R {
+			// 	//flex child
+			// 	flex: 1 100%;
+			// 	// height: 40%;
+			// }
+
+
+			width: 50%;
+			height: 13.25em;
+			// border: 3px groove violet;
+
+			@include backgroundImage042815a('../images/products/image6.jpg');
+		}
+
+		// LEFT BOTTOM RIGHT
+		div.bottom div.right {
+			// apply margin, padding reset
+			margin: 0;
+			padding: 0;
+
+			// flex child
+			flex: 1 50%;
+			// margin: auto;
+			
+			@include iphone6Minus320R {
+				// height: 40%;
+			}
+
+
+			width: 50%;
+			height: 13.25em;
+			// border: 3px outset crimson;
+			
+			@include backgroundImage042815a('../images/products/image7.jpg');
+
+		}
+		// // END LEFT BOTTOM ------------------------------------------------
+
+	}
+	// // END LEFT - section.wardrobeDisplay ------------------------------------------------
+	
+	// RIGHT - section.wardrobeDisplay  ------------------------------------------------
+	section.wardrobeDisplay div.right {
+		// apply margin, padding reset
+		margin: 0;
+		padding: 0;
+
+		// flex child
+		flex: 1 50%;
+		margin: auto;
+
+		// you need to alter the flex-basis from 50% to 100% which forces that section to expand to fill
+		@include phoneR {
+			flex: 1 100%;
+		}
+
+		// RIGHT TOP  ------------------------------------------------
+		div.top {
+			// apply margin, padding reset
+			margin: 0;
+			padding: 0;
+
+			//flexbox
+			@include flexboxSettings041715a;
+			width: 100%;
+
+			height: 13.25em;
+			// border: 3px dashed brown;
+		}
+
+		// RIGHT TOP BOTH
+		div.top div.left, div.top div.right {
+			@include transitionEffectAllEaseOut(0.4s);
+
+			// enable hover to show the purchase shader and Add to Cart button
+			@include purchaseShaderDisplay042815a;
+		}
+
+		// RIGHT TOP LEFT
+		div.top div.left {
+			// apply margin, padding reset
+			margin: 0;
+			padding: 0;
+
+			// flex child
+			flex: 1 50%;
+			// margin: auto;
+
+			// @include iphone6Minus320R {
+			// 	//flex child
+			// 	flex: 1 100%;
+			// }
+
+
+			// border: 1px double aqua;
+			height: 13.25em;
+
+			@include backgroundImage042815a('../images/products/image5.jpg');
+		}
+
+		// RIGHT TOP RIGHT
+		div.top div.right {
+			// apply margin, padding reset
+			margin: 0;
+			padding: 0;
+
+			// flex child
+			flex: 1 50%;
+			// margin: auto;
+
+			// border: 1px ridge blue;
+			height: 13.25em;
+
+			@include backgroundImage042815a('../images/products/image2.jpg');
+		}
+		// // END RIGHT TOP ------------------------------------------------
+		
+
+		// RIGHT BOTTOM  ------------------------------------------------
+		div.bottom {
+			// apply margin, padding reset
+			margin: 0;
+			padding: 0;
+
+			width: 100%;
+			height: 26.5em;
+			// height:auto;
+
+			// border: 6px solid lightgrey;
+
+			//flexbox
+			@include flexboxSettings041715a;
+		}
+
+		// RIGHT BOTTOM LEFT
+		div.bottom div.left {
+			// apply margin, padding reset
+			margin: 0;
+			padding: 0;
+
+			//flex child
+			flex: 1 auto;
+			// should set to 50%
+			flex: 1 50%;
+			// margin: auto;
+
+			// width: 100%;
+			height: 26.5em;
+			// height:auto;
+
+			// border: 3px dashed forestgreen;
+
+			//flexbox
+			@include flexboxSettings042215a;
+			// justify-content:flex-end;
+		}
+
+		// RIGHT BOTTOM LEFT BOTH
+		div.bottom div.left .top, div.bottom div.left .bottom {
+			width: 100%;
+			height: 13.25em;
+			// border: 1px dotted blue;
+		}
+
+		// RIGHT BOTTOM LEFT BOTTOM
+		div.bottom div.left .bottom {
+			@include transitionEffectAllEaseOut(0.4s);
+
+			//flexbox
+			@include flexboxSettings042215a;
+			justify-content: flex-start;
+
+			// enable hover to show the purchase shader and Add to Cart button
+			@include purchaseShaderDisplay042815a;
+		}
+
+		// RIGHT BOTTOM LEFT COPY
+		div.bottom div.left div.copy {
+			text-align: left;
+			// margin-bottom: 5%;
+			margin-top: 10%;
+
+			@include phoneR {
+				margin-left: 10%;
+			}
+		}
+
+		// RIGHT BOTTOM RIGHT
+		div.bottom div.right {
+			// apply margin, padding reset
+			margin: 0;
+			padding: 0;
+
+			//flex child
+			flex: 1 auto;
+			// should set to 50%
+			flex: 1 50%;
+			// margin: auto;
+
+			height: 26.5em;
+			// height:auto;
+			// height auto never works
+
+			@include transitionEffectAllEaseOut(0.4s);
+
+			// TESTING
+			// border: 3px dotted red;
+
+			@include backgroundImage042815a('../images/models/image11.jpg');
+
+			// enable hover to show the purchase shader and Add to Cart button
+			@include purchaseShaderDisplay042815a;
+		}
+		// // END RIGHT BOTTOM ------------------------------------------------
+		
+	}
+	// // END RIGHT - section.wardrobeDisplay ------------------------------------------------
+}
+// // END NEW ARRIVALS ------------------------------------------------
+
+
+// DRESS COLLECTION  ------------------------------------------------
+section.dressCollection {
+	// margin-top: 5%;
+	@include sectionPadding041515(0,5%);
+
+	// TESTING
+	// border-bottom: 1px solid red;
+
+	// NAV  ------------------------------------------------
+	nav {
+		width: 100%;
+		margin-bottom: 1%;
+	}
+
+	span.divider {
+		display: inline-block;
+		margin:0;
+		padding:0;
+		font-size: $basefontsize*1.2;
+		margin-left: 1%;
+		margin-right: 1.5%;
+	} 
+
+	nav a {
+		display: inline-block;
+		margin:0;
+		padding:0;
+		color: black;
+		&:visited {
+			color: black;
+		}
+		&:link {
+			color: black;
+		}
+
+	}
+
+	// since it's your h2 that's styled (and appears) don't place a font size property on the a
+	nav a.popular h2 {
+		font-size: $basefontsize*1.2;
+	}
+
+	nav a.popular h2 {
+		// font-size: $basefontsize;
+	}
+
+	nav a.random h2 {
+		font-size: $basefontsize*1.2;
+	}
+	// // END NAV ------------------------------------------------
+
+	
+}
+
+
+// COLLECTION DISPLAY  ------------------------------------------------
+section.dressCollection section.collectionDisplay {
+	// flexbox
+	@include flexboxSettings041715a;
+	align-content: space-around;
+
+	margin-top: 6%;
+}
+// // END COLLECTION DISPLAY ------------------------------------------------
+
+// COLLECTION UNIT OF COLLECTION DISPLAY  ------------------------------------------------
+section.dressCollection section.collectionDisplay section.collectionUnit {
+	@include marginPaddingReset1;
+
+	// flex child
+	// flex: 1 auto;
+	flex: 1 auto;
+	// by using 11.875em we set the minimum width to that value using flexbox
+
+	// you could use padding instead and let the units actually stick up with each other
+	
+	// TESTING
+	// border: 2px dashed red;
+
+	margin: 0 1% 2% 1%;
+	// width: 100%;
+	// width: 11.875em;
+
+	//flexbox
+	@include flexboxSettings042215a;
+	// may not require flexbox for this unit
+	
+
+	h3 {
+		font-size: $basefontsize*0.9;
+		text-transform: uppercase;
+		margin-top: 10%;
+		margin-bottom: 2.5%;
+	}
+
+	p.price {
+		font-size: $basefontsize*1.2;
+		font-weight: bold;
+		margin-bottom: 2.5%;
+	}
+
+
+	// BACKGROUND IMAGES AND SHADERS  ------------------------------------------------
+	.imgHolder {
+		//flex child
+		flex: 1 auto;
+
+		@include marginPaddingReset1;
+		
+		width: 11.875em;
+		height: 20.6875em;
+
+		// for the image shader
+		position: relative;
+	}
+
+	.imgHolder .imgShader {
+		@include marginPaddingReset1;	
+		@include addToCartShader042915b;
+	}
+
+	// INIITIATE HOVER STATE
+	.imgHolder:hover > .imgShader {
+		display:flex;
+	}
+	// // END BACKGROUND IMAGES AND SHADERS ------------------------------------------------
+
+	
+	// COLOUR SELECT MENU  ------------------------------------------------
+	// for later jQuery functionality to add
+	div.colourSelect {
+		//flexbox
+		@include flexboxSettings041715a;
+		justify-content: space-around;
+		align-content: space-around;
+
+		// make sure the width is 100% of its parent width
+		width: auto;
+
+		margin-bottom: 10%;
+
+		a.colour1,a.colour2 {
+			//flex child
+			flex: 1 auto;
+			flex: 1 1.75em;
+
+			// TESTING
+			// border: 1px solid blue;
+
+			width: 1.75em;
+			height: 0.75em;
+
+			// the gap between the buttons was .625em... since the margin is on both sides, divide the value in half
+			margin: 0 .3125em 0 .3125em;
+		}
+	}
+
+	div.colourSelect a.colour1 {
+		//
+	}
+
+	div.colourSelect a.colour2 {
+		//
+	}
+	// // END COLOUR SELECT MENU ------------------------------------------------
+
+
+}
+// // END COLLECTION UNIT OF COLLECTION DISPLAY ------------------------------------------------
+
+// INDIVIDUAL COLLECTION UNIT STYLING ------------------------------------------------
+
+// this covers backgrounds and the colour selector
+
+// Chifon & Floral Dress
+// section.collectionUnit.chifonFloral .imgHolder {
+// 	@include backgroundImage042815a ('../images/models/image1.jpg');
+// }
+
+section.collectionUnit.chifonFloral {
+	.imgHolder {
+		@include backgroundImage042815a ('../images/models/image1.jpg');
+	}
+	div.colourSelect a.colour1 {
+		background: $chifon1;
+	}
+
+	div.colourSelect a.colour2 {
+		background: $chifon2;
+	}
+}
+
+// Cami Strap Dress
+section.collectionUnit.camiStrap {
+	.imgHolder {
+		@include backgroundImage042815a ('../images/models/image2.jpg');
+	}
+	div.colourSelect a.colour1 {
+		background: $cami1;
+	}
+
+	div.colourSelect a.colour2 {
+		background: $cami2;
+	}
+}
+
+// Flare Strap Dress
+section.collectionUnit.flareStrap {
+	.imgHolder {
+		@include backgroundImage042815a ('../images/models/image3.jpg');
+	}
+	div.colourSelect a.colour1 {
+		background: $flare1;
+	}
+
+	div.colourSelect a.colour2 {
+		background: $flare2;
+	}
+}
+
+// Abstract Dooted Dress
+section.collectionUnit.abstractDDress {
+	.imgHolder {
+		@include backgroundImage042815a ('../images/models/image4.jpg');
+	}
+	div.colourSelect a.colour1 {
+		background: $abstractD1;
+	}
+
+	div.colourSelect a.colour2 {
+		background: $abstractD2;
+	}
+}
+
+// // END INDIVIDUAL COLLECTION UNIT STYLING ------------------------------------------------
+
+
+// // END DRESS COLLECTION ------------------------------------------------
+
+///////////////////////////////////////////////
+
+//- ===================================
+//- ===================================
+//- END PRODUCTS SECTION
+
+
+
+////////////////////////////////////////////
+///// 		TESTIMONIALS
+///////////////////////////////////////////////
+
+section.testimonials {
+	background: black;
+	color: white;
+
+	text-align: center;
+
+	@include sectionPadding041515(3%,4%);
+
+	p, h2 {
+		text-transform: uppercase;
+	}
+
+	p {
+		font-size: $basefontsize*0.8;
+
+		&.leadIn {
+			margin-bottom: 1%;
+		}
+	}
+
+	h2 {
+		font-size: $basefontsize*2;
+		letter-spacing: 0.3em;
+		margin-bottom: 2%;
+
+		@include desktopR {
+			margin-bottom: 3%;
+		}
+	}
+
+	blockquote, cite {
+		color: black;
+	}
+
+	blockquote {
+		font-size: $basefontsize*0.9;
+		font-style: italic;
+		letter-spacing: 0.3em;
+	}
+
+	cite {
+		font-size: $basefontsize*0.9;
+		font-style: normal;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		font-weight: bold;
+	}
+
+	.wrapper {
+		//flexbox
+		@include flexboxSettings042215a;
+		// the wrapper is what holds the target elements... don't place the flexbox on section.testimonials
+	}
+
+}
+
+// we want the other testimonials to not appear
+// we will write jQuery to select the other testimonials
+// yet if JS is disabled is there a way to write this such that you can select the other entries using only CSS?
+section.testimonials ul.testimonialList li:nth-of-type(2), section.testimonials ul.testimonialList li:nth-of-type(3) {
+	display: none;
+}
+
+// CHANGE THE COLOUR OF THE SLASH TO BE YELLOW
+section.testimonials aside.companyLogo .slash {
+	@include companyLogoSlashStyle1($themeYellow);
+}
+
+// TESTIMONIAL LIST
+section.testimonials ul.testimonialList {
+	margin-top: 5%;
+	margin-bottom: 3.5%;
+}
+
+////////////////////////////////////////////
+// TESTIMONIAL ENTRY
+// located within a ul li element
+section.testimonials section.testimonialEntry {
+	background: $themeYellow;
+	text-align: center;
+
+	//flexbox
+	@include flexboxSettings042215a;
+	justify-content: center;
+
+	//- size 539x133px
+	width: 33.6875em;
+	height: 8.3125em;
+
+	position: relative;
+
+	@include iphone6Plus414R {
+		width: 23.6875em;
+	}
+
+	@include iphone6Plus375R {
+		width: 21.6875em;
+	}
+
+	@include iphone6Minus320R {
+		width: 17.6875em;
+	}
+
+	// SLASH  ------------------------------------------------
+	// this modifies the div.slash that's been inserted into various mixin templates
+	// the parent element must contain a div.slash BEFORE the element that will cut through it
+	.slash {
+		border: 1px solid black;
+		width: 37%;
+		@include transformRotate(-64deg);
+
+		position: absolute;
+		top: 48%;
+		left: 22%;
+		// set z-index to -5 to put it behind .bar and .extraShader... you still need .extraShader (if you comment .extraShader out the line appears)
+		z-index: -5;
+
+		@include iphone6Plus414R {
+			width: 54%;
+			left: 9%;
+		}
+
+		@include iphone6Plus375R {
+			width: 54%;
+			left: 7%;
+		}
+
+		@include iphone6Minus320R {
+			width: 65%;
+			left:-1%;
+		}
+	}
+	// // END SLASH ------------------------------------------------
+
+	.entryText {
+		width: 82%;
+
+		position: relative;
+		z-index: 5;
+
+		background: $themeYellow;
+		// background: blue;
+		
+		//flexbox
+		// @include flexboxSettings042215a;
+	}
+
+	// &::before {
+	// 	@include slantSlash042915a(black);
+	// }
+
+	// this version is too thick since you can only use a character like / or |
+	// .entryText::before {
+	// 	@include slantSlash042915a(black);
+	// 	// top:-0.50em;
+	// 	// top:-0.6em;
+	// 	top:-0.45em;
+	// }
+
+	// div {
+	// 	margin:0;
+	// 	padding:0;
+	// 	margin-bottom: 3%;
+
+	// 	// WARNING:  don't forget to set the background of this element so you can see it above the line!
+	// 	background: $themeYellow;
+
+	// 	@include sectionPadding041515(5%,5%);
+	// }
+
+	//- NOTE:  the best way to get the right background setup to blot out the slash behind it is to make cite a child of blockquote and apply a margin top to cite
+
+	blockquote {
+		// margin-bottom: 3%;
+
+		// z-index: 6;
+		// position: relative;
+
+		// WARNING:  don't forget to set the background of this element so you can see it above the line!
+		background: $themeYellow;
+		padding-top: 7%;
+	}
+
+	cite {
+		margin-top: 3%;
+		display: block;
+		// WARNING:  don't forget to set the background of this element so you can see it above the line!
+		background: $themeYellow;
+		// used the padding left so that the cite element would be long enough to cut through the slanted slash
+		padding: 0 20% 0 20%;
+	}
+
+	// blockquote::before {
+	// 	@include slantSlash042915a(black);
+	// 	// had to set the z-index to -ve negative values to get it behind a link background
+	// 	z-index:-5;
+	// 	// top: -66%;
+	// 	top: -0.55em;
+	// 	left: 35%;
+	// }
+}
+
+////////////////////////////////////////////
+
+// TESTIMONIAL SELECTOR NAV
+section.testimonials ul.selectorNav {
+	// TESTING
+	// border: 5px solid yellow;
+	width:100%;
+
+	//flexbox
+	@include flexboxSettings041715a;
+	justify-content: center;
+	align-content: center;
+
+	li {
+		// size 13x7px
+		
+		// TESTING
+		// border: 1px solid yellow;
+
+		width: .8125em;
+		height: .4375em;
+		margin: 0 0.10em 0 0.10em;
+
+		background: white;
+		cursor: pointer;
+
+		@include transitionEffectAllEaseOut(0.4s);
+	}
+
+	li:nth-of-type(1) {
+		background: $themeYellow;
+	}
+
+	li:hover {
+		background: $themeYellow;
+	}
+	
+}
+
+////////////////////////////////////////////
+
+///////////////////////////////////////////////
+
+//- ===================================
+////- ===================================
+/// - END TESTIMONIALS
+
+
+
+//- ===================================
+//- 		FEATURED PRODUCTS
+//- ===================================
+
+////////////////////////////////////////////
+///// 		FEATURED PRODUCTS
+///////////////////////////////////////////////
+
+section.featurePanel {
+	background: $themeGreyAlt1;
+
+	@include sectionPadding041515(5%,2.5%);
+
+	.wrapper {
+		//flexbox
+		@include flexboxSettings041715a;
+		// justify-content: space-between;
+		// align-content: space-between;
+		// using space-between set the boxes too far apart
+		justify-content: center;
+		align-content: center;
+		align-items: flex-start;
+	}
+
+	section.newIn, section.featured, section.top {
+		// TESTING
+		// border: 1px solid orange;
+
+		//flex child
+		flex: 1 auto;
+		// could use flex: 1 33.33%
+		flex: 1 33.33%;
+		// to account for margin
+		flex: 1 31.33%;
+
+		margin: 0 1% 0 1%;
+
+		@include iphone6Minus568R {
+			flex: 1 100%;
+			margin-bottom: 5%;
+		}
+
+		@include phoneR {
+			flex: 1 100%;
+			margin-bottom: 5%;
+		}
+	}
+}
+
+// FEATURE ENTRY  ------------------------------------------------
+section.featurePanel section.featureEntry {
+
+	// fill the space of the containers
+	// section.newIn, section.featured, section.top
+	width: 100%;
+
+	//flexbox
+	@include flexboxSettings042215a;
+	align-items:flex-start;
+
+	// TESTING
+	// border: 2px dashed blue;
+
+	h2 {
+		font-size: $basefontsize*2;
+		font-weight: bold;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		margin-bottom: 2%;
+	}
+
+}
+
+section.featurePanel section.featureEntry .topBar {
+	width: 100%;
+
+	//flexbox
+	@include flexboxSettings041715a;
+	justify-content: space-between;
+	align-content: space-between;
+
+	div.logo, nav {
+		//flex child
+		flex: 1 0 auto;
+	}
+
+	nav {
+		//flexbox
+		@include flexboxSettings041715a;
+		justify-content: flex-end;
+		align-content: flex-end;
+	}
+}
+
+// Feature Entry Top Bar Nav
+section.featurePanel section.featureEntry .topBar nav {
+
+	// buttons are size 30x20px
+	span.fa.fa-angle-left, span.fa.fa-angle-right {
+		width: 1.875em;
+		height: 1.25em;
+		color: $featureArrowColour;
+		background: white;
+
+		//flexbox
+		@include flexboxSettings041715a;
+
+		@include transitionEffectAllEaseOut(0.4s);
+
+		&:hover {
+			background: $themeYellow;
+			color: black;
+		}
+	}
+
+	span.fa.fa-angle-left {
+		margin-right: 1.5%;
+	}
+	
+	// span.fa.fa-angle-right {}
+}
+
+// Feature Entry Top Bar Selections
+section.featurePanel section.featureEntry .selections {
+	width: 100%;
+	padding: 7%;
+	background: $themeWhiteAlt1;
+	margin-top: 10%;
+
+	//flexbox
+	// @include flexboxSettings042215a;
+	// justify-content: space-around;
+	// align-content: space-around;
+}
+
+// make the 2nd selection entry or section.selectEntry have margin top and bottom
+section.featurePanel section.featureEntry .selections section.selectEntry:nth-of-type(2) {
+	// background: blue;
+	@include sectionMargins041515(10%,10%);
+
+	// GLITCH:  the div on all of the 2nd elements were always larger than the 1st and 3rd requiring custom CSS to fix
+	div.image {
+		width: 2.328125em;
+	}
+}
+
+// // END FEATURE ENTRY ------------------------------------------------
+
+// SELECTION ENTRY  ------------------------------------------------
+// these are the individual items within each feature entry
+section.featurePanel section.selectEntry {
+
+	width: 100%;
+
+	//flexbox
+	@include flexboxSettings041715a;
+	justify-content: space-between;
+	align-content: space-between;
+	// center still seems to work better?
+	// justify-content: center;
+	// align-content: center;
+
+	// IMAGE  ------------------------------------------------
+	div.image {
+		//flex child
+		// flex:1 auto;
+		flex:1 33.333333333%;
+		// using flex: 1 auto causes the div.meta to shift onto the next line which isn't what I want
+		
+		@include iphone6Minus568R {
+			flex:1 50%;
+		}
+	}
+	// // END IMAGE ------------------------------------------------
+	
+	// META DATA  ------------------------------------------------
+	.meta {
+		//flexbox
+		@include flexboxSettings042215a;
+		align-items:flex-start;
+
+		//flex child
+		// flex:2 auto;
+		flex:2 66.666666667%;	
+		// using flex: 1 auto causes the div.meta to shift onto the next line which isn't what I want
+		// width: 100%;
+
+		@include iphone6Plus667R {
+			// simply shrinking this one's flex-basis is enough to clear things up
+			flex: 2 47.666667%;
+		}
+
+		@include iphone6Minus568R {
+			flex:1 50%;
+		}
+
+		h3 {
+			font-size: $basefontsize*0.9;
+			text-transform: uppercase;
+		}
+
+		p.price {
+			font-size: $basefontsize*1.2;
+		}
+
+		div.colourSelect {
+			@include colourSelect042915a;
+		}
+
+	}
+	// // END META DATA ------------------------------------------------
+
+}
+// // END SELECTION ENTRY ------------------------------------------------
+
+///////////////////////////////////////////////
+
+//- END FEATURED PRODUCTS
+
+
+
+
+//- ===================================
+//- 		NEWSLETTER
+//- ===================================
+
+////////////////////////////////////////////
+///// 		NEWSLETTER
+///////////////////////////////////////////////
+
+section.newsletter {
+	@include marginPaddingReset1;
+	background: white;
+	@include sectionPadding041515(3%,3%);
+
+	text-align: center;
+
+	width: 100%;
+
+	@include iphone6Minus320R {
+		@include sectionPadding041515(6%,6%);
+	}
+
+	// again I should have put the flexbox on .wrapper and not section.newsletter
+	.wrapper {
+		//flexbox
+		@include flexboxSettings042215a;
+		justify-content: center;
+		align-content:center;
+	}
+
+	// TESTING
+	// border-bottom: 2px solid red;
+
+	p.leadIn {
+		margin-bottom: 1%;
+		font-size: $basefontsize;
+		text-transform: uppercase;
+	}
+
+	h2 {
+		margin-bottom: 1.25%;
+		text-transform: uppercase;
+		letter-spacing: 0.3em;
+		font-size: $basefontsize*2;
+	}
+}
+
+// FORM  ------------------------------------------------
+section.newsletter form {
+	@include marginPaddingReset1;
+	text-align: center;
+	width: 100%;
+
+	// for the FA icon
+	position: relative;
+
+	span:nth-of-type(1) {
+		// for the FA icon
+		position: relative;
+		width: auto;
+		height: auto;
+		// colour:blue;
+
+		&::before {
+			position: absolute;
+			@include beforeAfterIconPlace042215a('\f1d9');
+			color: darken($themeWhite,40%);
+			font-size: $basefontsize*1.1;
+			text-transform: uppercase;
+			top: 41%;
+			left: 8%;
+		}
+	}
+
+	// &::before {
+	// 	position: absolute;
+	// 	@include beforeAfterIconPlace042215a('\f1d9');
+	// 	color: blue;
+	// 	font-size: $basefontsize*1.1;
+	// 	text-transform: uppercase;
+	// }
+}
+
+// Input
+section.newsletter form input[type='email'] {
+	background: black;
+	margin-top: 4%;
+	text-align: center;
+	font-size: $basefontsize;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: white;
+	letter-spacing: 0.1em;
+
+	// size 459x55px
+	// width: 28.6875em;
+	height: 3.4375em;
+	
+	width: 50%;
+
+	// you can't insert a ::before for an input?
+	// for the FA icon
+	// position: relative;
+	
+	@include ipadAir1024R {
+		width: 75%;
+	}
+
+	@include phoneR {
+		width: 95%;
+	}
+
+	&:focus {
+		// @include pulsingBorder($themeYellow);
+		border: 2px solid $themeYellow;
+		// animation: pulsingBorder 5s linearinfinite;
+	}
+}
+// // END FORM ------------------------------------------------
+
+
+///////////////////////////////////////////////
+
+//- END NEWSLETTER
+
+
+
+
+
+///////////////////////////////////////////////
