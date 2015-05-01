@@ -52,7 +52,7 @@ section.testimonials {
 
 	.wrapper {
 		//flexbox
-		@include flexboxSettings042215a;
+		@include flexboxColumn1;
 		// the wrapper is what holds the target elements... don't place the flexbox on section.testimonials
 	}
 
@@ -84,7 +84,7 @@ section.testimonials section.testimonialEntry {
 	text-align: center;
 
 	//flexbox
-	@include flexboxSettings042215a;
+	@include flexboxColumn1;
 	justify-content: center;
 
 	//- size 539x133px
@@ -146,16 +146,16 @@ section.testimonials section.testimonialEntry {
 		// background: blue;
 		
 		//flexbox
-		// @include flexboxSettings042215a;
+		// @include flexboxColumn1;
 	}
 
 	// &::before {
-	// 	@include slantSlash042915a(black);
+	// 	@include slantSlash2(black);
 	// }
 
 	// this version is too thick since you can only use a character like / or |
 	// .entryText::before {
-	// 	@include slantSlash042915a(black);
+	// 	@include slantSlash2(black);
 	// 	// top:-0.50em;
 	// 	// top:-0.6em;
 	// 	top:-0.45em;
@@ -195,7 +195,7 @@ section.testimonials section.testimonialEntry {
 	}
 
 	// blockquote::before {
-	// 	@include slantSlash042915a(black);
+	// 	@include slantSlash2(black);
 	// 	// had to set the z-index to -ve negative values to get it behind a link background
 	// 	z-index:-5;
 	// 	// top: -66%;
@@ -213,7 +213,7 @@ section.testimonials ul.selectorNav {
 	width:100%;
 
 	//flexbox
-	@include flexboxSettings041715a;
+	@include flexboxRow1;
 	justify-content: center;
 	align-content: center;
 

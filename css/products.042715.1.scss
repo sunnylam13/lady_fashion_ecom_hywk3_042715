@@ -6,7 +6,7 @@ section.newArrivals, section.dressCollection {
 	background: $productColourBack;
 
 	// applying a flexbox screws up the wardrobeDisplay
-	// @include flexboxSettings042215a;
+	// @include flexboxColumn1;
 	// may need to use text-align center instead
 	
 	text-align: center;
@@ -94,9 +94,9 @@ section.newArrivals {
 		// @include sectionMargins041515(3.4%,0);
 		margin-top: 5%;
 
-		@include flexboxSettings041715a;
+		@include flexboxRow1;
 
-		@include purchaseShader042815a1;
+		@include purchaseShader1;
 
 		// TESTING
 		// div {
@@ -105,7 +105,7 @@ section.newArrivals {
 		// 	// width: 13.0625em;
 		// 	// height: 13.25em;
 		// 	// border: 1px solid red;
-		// 	@include productDivDimensions042815a1;
+		// 	@include productDivDimensions1;
 		// }
 		
 		h3 {
@@ -161,7 +161,7 @@ section.newArrivals {
 			padding: 0;
 
 			//flexbox
-			@include flexboxSettings041715a;
+			@include flexboxRow1;
 			width: 100%;
 
 			// border: 1px solid orange;
@@ -189,7 +189,7 @@ section.newArrivals {
 
 
 			//flexbox
-			@include flexboxSettings042215a;
+			@include flexboxColumn1;
 			justify-content: flex-start;
 			align-content: flex-start;
 			align-items: flex-start;
@@ -204,7 +204,7 @@ section.newArrivals {
 			// border: 3px dotted skyblue;
 
 			// BACKGROUND  ------------------------------------------------
-			@include backgroundImage042815a('../images/products/image4.jpg');
+			@include backgroundImage1('../images/products/image4.jpg');
 			// // END BACKGROUND ------------------------------------------------
 
 			// &:hover > div.purchaseShader {
@@ -212,7 +212,7 @@ section.newArrivals {
 			// }
 
 			// enable hover to show the purchase shader and Add to Cart button
-			@include purchaseShaderDisplay042815a;
+			@include purchaseShaderDisplay1;
 
 		}
 
@@ -227,7 +227,7 @@ section.newArrivals {
 			// margin: auto;
 			
 			//flexbox
-			@include flexboxSettings042215a;
+			@include flexboxColumn1;
 
 			// div {
 			// 	//flex child
@@ -248,13 +248,13 @@ section.newArrivals {
 				// height: auto;
 				// background: blue;
 				height: 13.25em;
-				// @include productDivDimensions042815a2(blue);
+				// @include productDivDimensions2(blue);
 			}
 
 			// LEFT TOP RIGHT TOP
 			div.top {
 				border: none;
-				@include backgroundImage042815a('../images/products/image1.jpg');
+				@include backgroundImage1('../images/products/image1.jpg');
 
 				@include transitionEffectAllEaseOut(0.4s);
 
@@ -264,12 +264,12 @@ section.newArrivals {
 
 
 				// enable hover to show the purchase shader and Add to Cart button
-				@include purchaseShaderDisplay042815a;
+				@include purchaseShaderDisplay1;
 			}
 
 			// LEFT TOP RIGHT BOTTOM
 			div.bottom {
-				@include backgroundImage042815a('../images/products/image3.jpg');
+				@include backgroundImage1('../images/products/image3.jpg');
 
 				@include transitionEffectAllEaseOut(0.4s);
 
@@ -279,7 +279,7 @@ section.newArrivals {
 
 
 				// enable hover to show the purchase shader and Add to Cart button
-				@include purchaseShaderDisplay042815a;
+				@include purchaseShaderDisplay1;
 			}
 		}
 		// // END LEFT TOP ------------------------------------------------
@@ -292,7 +292,7 @@ section.newArrivals {
 			padding: 0;
 
 			//flexbox
-			@include flexboxSettings041715a;
+			@include flexboxRow1;
 			width: 100%;
 
 			// border: 3px solid darkgreen;
@@ -306,7 +306,7 @@ section.newArrivals {
 			@include transitionEffectAllEaseOut(0.4s);
 
 			// enable hover to show the purchase shader and Add to Cart button
-			@include purchaseShaderDisplay042815a;
+			@include purchaseShaderDisplay1;
 		}
 
 		// LEFT BOTTOM LEFT
@@ -330,7 +330,7 @@ section.newArrivals {
 			height: 13.25em;
 			// border: 3px groove violet;
 
-			@include backgroundImage042815a('../images/products/image6.jpg');
+			@include backgroundImage1('../images/products/image6.jpg');
 		}
 
 		// LEFT BOTTOM RIGHT
@@ -352,7 +352,7 @@ section.newArrivals {
 			height: 13.25em;
 			// border: 3px outset crimson;
 			
-			@include backgroundImage042815a('../images/products/image7.jpg');
+			@include backgroundImage1('../images/products/image7.jpg');
 
 		}
 		// // END LEFT BOTTOM ------------------------------------------------
@@ -382,7 +382,7 @@ section.newArrivals {
 			padding: 0;
 
 			//flexbox
-			@include flexboxSettings041715a;
+			@include flexboxRow1;
 			width: 100%;
 
 			height: 13.25em;
@@ -394,7 +394,7 @@ section.newArrivals {
 			@include transitionEffectAllEaseOut(0.4s);
 
 			// enable hover to show the purchase shader and Add to Cart button
-			@include purchaseShaderDisplay042815a;
+			@include purchaseShaderDisplay1;
 		}
 
 		// RIGHT TOP LEFT
@@ -416,7 +416,7 @@ section.newArrivals {
 			// border: 1px double aqua;
 			height: 13.25em;
 
-			@include backgroundImage042815a('../images/products/image5.jpg');
+			@include backgroundImage1('../images/products/image5.jpg');
 		}
 
 		// RIGHT TOP RIGHT
@@ -432,7 +432,7 @@ section.newArrivals {
 			// border: 1px ridge blue;
 			height: 13.25em;
 
-			@include backgroundImage042815a('../images/products/image2.jpg');
+			@include backgroundImage1('../images/products/image2.jpg');
 		}
 		// // END RIGHT TOP ------------------------------------------------
 		
@@ -450,7 +450,7 @@ section.newArrivals {
 			// border: 6px solid lightgrey;
 
 			//flexbox
-			@include flexboxSettings041715a;
+			@include flexboxRow1;
 		}
 
 		// RIGHT BOTTOM LEFT
@@ -472,7 +472,7 @@ section.newArrivals {
 			// border: 3px dashed forestgreen;
 
 			//flexbox
-			@include flexboxSettings042215a;
+			@include flexboxColumn1;
 			// justify-content:flex-end;
 		}
 
@@ -488,11 +488,11 @@ section.newArrivals {
 			@include transitionEffectAllEaseOut(0.4s);
 
 			//flexbox
-			@include flexboxSettings042215a;
+			@include flexboxColumn1;
 			justify-content: flex-start;
 
 			// enable hover to show the purchase shader and Add to Cart button
-			@include purchaseShaderDisplay042815a;
+			@include purchaseShaderDisplay1;
 		}
 
 		// RIGHT BOTTOM LEFT COPY
@@ -527,10 +527,10 @@ section.newArrivals {
 			// TESTING
 			// border: 3px dotted red;
 
-			@include backgroundImage042815a('../images/models/image11.jpg');
+			@include backgroundImage1('../images/models/image11.jpg');
 
 			// enable hover to show the purchase shader and Add to Cart button
-			@include purchaseShaderDisplay042815a;
+			@include purchaseShaderDisplay1;
 		}
 		// // END RIGHT BOTTOM ------------------------------------------------
 		
@@ -598,7 +598,7 @@ section.dressCollection {
 // COLLECTION DISPLAY  ------------------------------------------------
 section.dressCollection section.collectionDisplay {
 	// flexbox
-	@include flexboxSettings041715a;
+	@include flexboxRow1;
 	align-content: space-around;
 
 	margin-top: 6%;
@@ -624,7 +624,7 @@ section.dressCollection section.collectionDisplay section.collectionUnit {
 	// width: 11.875em;
 
 	//flexbox
-	@include flexboxSettings042215a;
+	@include flexboxColumn1;
 	// may not require flexbox for this unit
 	
 
@@ -658,7 +658,7 @@ section.dressCollection section.collectionDisplay section.collectionUnit {
 
 	.imgHolder .imgShader {
 		@include marginPaddingReset1;	
-		@include addToCartShader042915b;
+		@include addToCartShader2;
 	}
 
 	// INIITIATE HOVER STATE
@@ -672,7 +672,7 @@ section.dressCollection section.collectionDisplay section.collectionUnit {
 	// for later jQuery functionality to add
 	div.colourSelect {
 		//flexbox
-		@include flexboxSettings041715a;
+		@include flexboxRow1;
 		justify-content: space-around;
 		align-content: space-around;
 
@@ -716,12 +716,12 @@ section.dressCollection section.collectionDisplay section.collectionUnit {
 
 // Chifon & Floral Dress
 // section.collectionUnit.chifonFloral .imgHolder {
-// 	@include backgroundImage042815a ('../images/models/image1.jpg');
+// 	@include backgroundImage1 ('../images/models/image1.jpg');
 // }
 
 section.collectionUnit.chifonFloral {
 	.imgHolder {
-		@include backgroundImage042815a ('../images/models/image1.jpg');
+		@include backgroundImage1 ('../images/models/image1.jpg');
 	}
 	div.colourSelect a.colour1 {
 		background: $chifon1;
@@ -735,7 +735,7 @@ section.collectionUnit.chifonFloral {
 // Cami Strap Dress
 section.collectionUnit.camiStrap {
 	.imgHolder {
-		@include backgroundImage042815a ('../images/models/image2.jpg');
+		@include backgroundImage1 ('../images/models/image2.jpg');
 	}
 	div.colourSelect a.colour1 {
 		background: $cami1;
@@ -749,7 +749,7 @@ section.collectionUnit.camiStrap {
 // Flare Strap Dress
 section.collectionUnit.flareStrap {
 	.imgHolder {
-		@include backgroundImage042815a ('../images/models/image3.jpg');
+		@include backgroundImage1 ('../images/models/image3.jpg');
 	}
 	div.colourSelect a.colour1 {
 		background: $flare1;
@@ -763,7 +763,7 @@ section.collectionUnit.flareStrap {
 // Abstract Dooted Dress
 section.collectionUnit.abstractDDress {
 	.imgHolder {
-		@include backgroundImage042815a ('../images/models/image4.jpg');
+		@include backgroundImage1 ('../images/models/image4.jpg');
 	}
 	div.colourSelect a.colour1 {
 		background: $abstractD1;

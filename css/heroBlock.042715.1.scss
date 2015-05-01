@@ -33,7 +33,7 @@ section.heroBlock .imageshader {
 
 
 section.heroBlock .wrapper {
-	@include flexboxSettings041715a;
+	@include flexboxRow1;
 	justify-content: center;
 	align-content: center;
 }
@@ -46,7 +46,7 @@ section.heroBlock .copy {
 	flex: 1 50%;
 
 	//flexbox
-	@include flexboxSettings042215a;
+	@include flexboxColumn1;
 	justify-content: center;
 	align-content: center;
 	align-items: flex-end;
@@ -104,7 +104,7 @@ section.heroBlock .copy div {
 	height: 2.4375em;
 
 	//flexbox
-	@include flexboxSettings042215a;
+	@include flexboxColumn1;
 	justify-content:center;
 	align-content: center;
 	align-items: center;
@@ -183,7 +183,7 @@ section.heroBlock .copy div {
 
 	// this is the older version use of slanted slash that was too thick
 	// &::before {
-	// 	@include slantSlash042815a1($themeYellow);
+	// 	@include slantSlash1($themeYellow);
 
 	// }
 }

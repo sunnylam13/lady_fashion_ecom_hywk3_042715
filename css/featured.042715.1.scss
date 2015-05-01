@@ -9,7 +9,7 @@ section.featurePanel {
 
 	.wrapper {
 		//flexbox
-		@include flexboxSettings041715a;
+		@include flexboxRow1;
 		// justify-content: space-between;
 		// align-content: space-between;
 		// using space-between set the boxes too far apart
@@ -51,7 +51,7 @@ section.featurePanel section.featureEntry {
 	width: 100%;
 
 	//flexbox
-	@include flexboxSettings042215a;
+	@include flexboxColumn1;
 	align-items:flex-start;
 
 	// TESTING
@@ -71,7 +71,7 @@ section.featurePanel section.featureEntry .topBar {
 	width: 100%;
 
 	//flexbox
-	@include flexboxSettings041715a;
+	@include flexboxRow1;
 	justify-content: space-between;
 	align-content: space-between;
 
@@ -82,7 +82,7 @@ section.featurePanel section.featureEntry .topBar {
 
 	nav {
 		//flexbox
-		@include flexboxSettings041715a;
+		@include flexboxRow1;
 		justify-content: flex-end;
 		align-content: flex-end;
 	}
@@ -99,7 +99,7 @@ section.featurePanel section.featureEntry .topBar nav {
 		background: white;
 
 		//flexbox
-		@include flexboxSettings041715a;
+		@include flexboxRow1;
 
 		@include transitionEffectAllEaseOut(0.4s);
 
@@ -124,7 +124,7 @@ section.featurePanel section.featureEntry .selections {
 	margin-top: 10%;
 
 	//flexbox
-	// @include flexboxSettings042215a;
+	// @include flexboxColumn1;
 	// justify-content: space-around;
 	// align-content: space-around;
 }
@@ -149,7 +149,7 @@ section.featurePanel section.selectEntry {
 	width: 100%;
 
 	//flexbox
-	@include flexboxSettings041715a;
+	@include flexboxRow1;
 	justify-content: space-between;
 	align-content: space-between;
 	// center still seems to work better?
@@ -172,7 +172,7 @@ section.featurePanel section.selectEntry {
 	// META DATA  ------------------------------------------------
 	.meta {
 		//flexbox
-		@include flexboxSettings042215a;
+		@include flexboxColumn1;
 		align-items:flex-start;
 
 		//flex child
@@ -200,7 +200,7 @@ section.featurePanel section.selectEntry {
 		}
 
 		div.colourSelect {
-			@include colourSelect042915a;
+			@include colourSelect1;
 		}
 
 	}

@@ -44,7 +44,7 @@ section.heroBlock .imageshader {
 
 
 section.heroBlock .wrapper {
-	@include flexboxSettings041715a;
+	@include flexboxRow1;
 	justify-content: center;
 	align-content: center;
 }
@@ -57,7 +57,7 @@ section.heroBlock .copy {
 	flex: 1 50%;
 
 	//flexbox
-	@include flexboxSettings042215a;
+	@include flexboxColumn1;
 	justify-content: center;
 	align-content: center;
 	align-items: flex-end;
@@ -115,7 +115,7 @@ section.heroBlock .copy div {
 	height: 2.4375em;
 
 	//flexbox
-	@include flexboxSettings042215a;
+	@include flexboxColumn1;
 	justify-content:center;
 	align-content: center;
 	align-items: center;
@@ -194,7 +194,7 @@ section.heroBlock .copy div {
 
 	// this is the older version use of slanted slash that was too thick
 	// &::before {
-	// 	@include slantSlash042815a1($themeYellow);
+	// 	@include slantSlash1($themeYellow);
 
 	// }
 }
@@ -221,7 +221,7 @@ section.newArrivals, section.dressCollection {
 	background: $productColourBack;
 
 	// applying a flexbox screws up the wardrobeDisplay
-	// @include flexboxSettings042215a;
+	// @include flexboxColumn1;
 	// may need to use text-align center instead
 	
 	text-align: center;
@@ -309,9 +309,9 @@ section.newArrivals {
 		// @include sectionMargins041515(3.4%,0);
 		margin-top: 5%;
 
-		@include flexboxSettings041715a;
+		@include flexboxRow1;
 
-		@include purchaseShader042815a1;
+		@include purchaseShader1;
 
 		// TESTING
 		// div {
@@ -320,7 +320,7 @@ section.newArrivals {
 		// 	// width: 13.0625em;
 		// 	// height: 13.25em;
 		// 	// border: 1px solid red;
-		// 	@include productDivDimensions042815a1;
+		// 	@include productDivDimensions1;
 		// }
 		
 		h3 {
@@ -376,7 +376,7 @@ section.newArrivals {
 			padding: 0;
 
 			//flexbox
-			@include flexboxSettings041715a;
+			@include flexboxRow1;
 			width: 100%;
 
 			// border: 1px solid orange;
@@ -404,7 +404,7 @@ section.newArrivals {
 
 
 			//flexbox
-			@include flexboxSettings042215a;
+			@include flexboxColumn1;
 			justify-content: flex-start;
 			align-content: flex-start;
 			align-items: flex-start;
@@ -419,7 +419,7 @@ section.newArrivals {
 			// border: 3px dotted skyblue;
 
 			// BACKGROUND  ------------------------------------------------
-			@include backgroundImage042815a('../images/products/image4.jpg');
+			@include backgroundImage1('../images/products/image4.jpg');
 			// // END BACKGROUND ------------------------------------------------
 
 			// &:hover > div.purchaseShader {
@@ -427,7 +427,7 @@ section.newArrivals {
 			// }
 
 			// enable hover to show the purchase shader and Add to Cart button
-			@include purchaseShaderDisplay042815a;
+			@include purchaseShaderDisplay1;
 
 		}
 
@@ -442,7 +442,7 @@ section.newArrivals {
 			// margin: auto;
 			
 			//flexbox
-			@include flexboxSettings042215a;
+			@include flexboxColumn1;
 
 			// div {
 			// 	//flex child
@@ -463,13 +463,13 @@ section.newArrivals {
 				// height: auto;
 				// background: blue;
 				height: 13.25em;
-				// @include productDivDimensions042815a2(blue);
+				// @include productDivDimensions2(blue);
 			}
 
 			// LEFT TOP RIGHT TOP
 			div.top {
 				border: none;
-				@include backgroundImage042815a('../images/products/image1.jpg');
+				@include backgroundImage1('../images/products/image1.jpg');
 
 				@include transitionEffectAllEaseOut(0.4s);
 
@@ -479,12 +479,12 @@ section.newArrivals {
 
 
 				// enable hover to show the purchase shader and Add to Cart button
-				@include purchaseShaderDisplay042815a;
+				@include purchaseShaderDisplay1;
 			}
 
 			// LEFT TOP RIGHT BOTTOM
 			div.bottom {
-				@include backgroundImage042815a('../images/products/image3.jpg');
+				@include backgroundImage1('../images/products/image3.jpg');
 
 				@include transitionEffectAllEaseOut(0.4s);
 
@@ -494,7 +494,7 @@ section.newArrivals {
 
 
 				// enable hover to show the purchase shader and Add to Cart button
-				@include purchaseShaderDisplay042815a;
+				@include purchaseShaderDisplay1;
 			}
 		}
 		// // END LEFT TOP ------------------------------------------------
@@ -507,7 +507,7 @@ section.newArrivals {
 			padding: 0;
 
 			//flexbox
-			@include flexboxSettings041715a;
+			@include flexboxRow1;
 			width: 100%;
 
 			// border: 3px solid darkgreen;
@@ -521,7 +521,7 @@ section.newArrivals {
 			@include transitionEffectAllEaseOut(0.4s);
 
 			// enable hover to show the purchase shader and Add to Cart button
-			@include purchaseShaderDisplay042815a;
+			@include purchaseShaderDisplay1;
 		}
 
 		// LEFT BOTTOM LEFT
@@ -545,7 +545,7 @@ section.newArrivals {
 			height: 13.25em;
 			// border: 3px groove violet;
 
-			@include backgroundImage042815a('../images/products/image6.jpg');
+			@include backgroundImage1('../images/products/image6.jpg');
 		}
 
 		// LEFT BOTTOM RIGHT
@@ -567,7 +567,7 @@ section.newArrivals {
 			height: 13.25em;
 			// border: 3px outset crimson;
 			
-			@include backgroundImage042815a('../images/products/image7.jpg');
+			@include backgroundImage1('../images/products/image7.jpg');
 
 		}
 		// // END LEFT BOTTOM ------------------------------------------------
@@ -597,7 +597,7 @@ section.newArrivals {
 			padding: 0;
 
 			//flexbox
-			@include flexboxSettings041715a;
+			@include flexboxRow1;
 			width: 100%;
 
 			height: 13.25em;
@@ -609,7 +609,7 @@ section.newArrivals {
 			@include transitionEffectAllEaseOut(0.4s);
 
 			// enable hover to show the purchase shader and Add to Cart button
-			@include purchaseShaderDisplay042815a;
+			@include purchaseShaderDisplay1;
 		}
 
 		// RIGHT TOP LEFT
@@ -631,7 +631,7 @@ section.newArrivals {
 			// border: 1px double aqua;
 			height: 13.25em;
 
-			@include backgroundImage042815a('../images/products/image5.jpg');
+			@include backgroundImage1('../images/products/image5.jpg');
 		}
 
 		// RIGHT TOP RIGHT
@@ -647,7 +647,7 @@ section.newArrivals {
 			// border: 1px ridge blue;
 			height: 13.25em;
 
-			@include backgroundImage042815a('../images/products/image2.jpg');
+			@include backgroundImage1('../images/products/image2.jpg');
 		}
 		// // END RIGHT TOP ------------------------------------------------
 		
@@ -665,7 +665,7 @@ section.newArrivals {
 			// border: 6px solid lightgrey;
 
 			//flexbox
-			@include flexboxSettings041715a;
+			@include flexboxRow1;
 		}
 
 		// RIGHT BOTTOM LEFT
@@ -687,7 +687,7 @@ section.newArrivals {
 			// border: 3px dashed forestgreen;
 
 			//flexbox
-			@include flexboxSettings042215a;
+			@include flexboxColumn1;
 			// justify-content:flex-end;
 		}
 
@@ -703,11 +703,11 @@ section.newArrivals {
 			@include transitionEffectAllEaseOut(0.4s);
 
 			//flexbox
-			@include flexboxSettings042215a;
+			@include flexboxColumn1;
 			justify-content: flex-start;
 
 			// enable hover to show the purchase shader and Add to Cart button
-			@include purchaseShaderDisplay042815a;
+			@include purchaseShaderDisplay1;
 		}
 
 		// RIGHT BOTTOM LEFT COPY
@@ -742,10 +742,10 @@ section.newArrivals {
 			// TESTING
 			// border: 3px dotted red;
 
-			@include backgroundImage042815a('../images/models/image11.jpg');
+			@include backgroundImage1('../images/models/image11.jpg');
 
 			// enable hover to show the purchase shader and Add to Cart button
-			@include purchaseShaderDisplay042815a;
+			@include purchaseShaderDisplay1;
 		}
 		// // END RIGHT BOTTOM ------------------------------------------------
 		
@@ -813,7 +813,7 @@ section.dressCollection {
 // COLLECTION DISPLAY  ------------------------------------------------
 section.dressCollection section.collectionDisplay {
 	// flexbox
-	@include flexboxSettings041715a;
+	@include flexboxRow1;
 	align-content: space-around;
 
 	margin-top: 6%;
@@ -839,7 +839,7 @@ section.dressCollection section.collectionDisplay section.collectionUnit {
 	// width: 11.875em;
 
 	//flexbox
-	@include flexboxSettings042215a;
+	@include flexboxColumn1;
 	// may not require flexbox for this unit
 	
 
@@ -873,7 +873,7 @@ section.dressCollection section.collectionDisplay section.collectionUnit {
 
 	.imgHolder .imgShader {
 		@include marginPaddingReset1;	
-		@include addToCartShader042915b;
+		@include addToCartShader2;
 	}
 
 	// INIITIATE HOVER STATE
@@ -887,7 +887,7 @@ section.dressCollection section.collectionDisplay section.collectionUnit {
 	// for later jQuery functionality to add
 	div.colourSelect {
 		//flexbox
-		@include flexboxSettings041715a;
+		@include flexboxRow1;
 		justify-content: space-around;
 		align-content: space-around;
 
@@ -931,12 +931,12 @@ section.dressCollection section.collectionDisplay section.collectionUnit {
 
 // Chifon & Floral Dress
 // section.collectionUnit.chifonFloral .imgHolder {
-// 	@include backgroundImage042815a ('../images/models/image1.jpg');
+// 	@include backgroundImage1 ('../images/models/image1.jpg');
 // }
 
 section.collectionUnit.chifonFloral {
 	.imgHolder {
-		@include backgroundImage042815a ('../images/models/image1.jpg');
+		@include backgroundImage1 ('../images/models/image1.jpg');
 	}
 	div.colourSelect a.colour1 {
 		background: $chifon1;
@@ -950,7 +950,7 @@ section.collectionUnit.chifonFloral {
 // Cami Strap Dress
 section.collectionUnit.camiStrap {
 	.imgHolder {
-		@include backgroundImage042815a ('../images/models/image2.jpg');
+		@include backgroundImage1 ('../images/models/image2.jpg');
 	}
 	div.colourSelect a.colour1 {
 		background: $cami1;
@@ -964,7 +964,7 @@ section.collectionUnit.camiStrap {
 // Flare Strap Dress
 section.collectionUnit.flareStrap {
 	.imgHolder {
-		@include backgroundImage042815a ('../images/models/image3.jpg');
+		@include backgroundImage1 ('../images/models/image3.jpg');
 	}
 	div.colourSelect a.colour1 {
 		background: $flare1;
@@ -978,7 +978,7 @@ section.collectionUnit.flareStrap {
 // Abstract Dooted Dress
 section.collectionUnit.abstractDDress {
 	.imgHolder {
-		@include backgroundImage042815a ('../images/models/image4.jpg');
+		@include backgroundImage1 ('../images/models/image4.jpg');
 	}
 	div.colourSelect a.colour1 {
 		background: $abstractD1;
@@ -1056,7 +1056,7 @@ section.testimonials {
 
 	.wrapper {
 		//flexbox
-		@include flexboxSettings042215a;
+		@include flexboxColumn1;
 		// the wrapper is what holds the target elements... don't place the flexbox on section.testimonials
 	}
 
@@ -1088,7 +1088,7 @@ section.testimonials section.testimonialEntry {
 	text-align: center;
 
 	//flexbox
-	@include flexboxSettings042215a;
+	@include flexboxColumn1;
 	justify-content: center;
 
 	//- size 539x133px
@@ -1150,16 +1150,16 @@ section.testimonials section.testimonialEntry {
 		// background: blue;
 		
 		//flexbox
-		// @include flexboxSettings042215a;
+		// @include flexboxColumn1;
 	}
 
 	// &::before {
-	// 	@include slantSlash042915a(black);
+	// 	@include slantSlash2(black);
 	// }
 
 	// this version is too thick since you can only use a character like / or |
 	// .entryText::before {
-	// 	@include slantSlash042915a(black);
+	// 	@include slantSlash2(black);
 	// 	// top:-0.50em;
 	// 	// top:-0.6em;
 	// 	top:-0.45em;
@@ -1199,7 +1199,7 @@ section.testimonials section.testimonialEntry {
 	}
 
 	// blockquote::before {
-	// 	@include slantSlash042915a(black);
+	// 	@include slantSlash2(black);
 	// 	// had to set the z-index to -ve negative values to get it behind a link background
 	// 	z-index:-5;
 	// 	// top: -66%;
@@ -1217,7 +1217,7 @@ section.testimonials ul.selectorNav {
 	width:100%;
 
 	//flexbox
-	@include flexboxSettings041715a;
+	@include flexboxRow1;
 	justify-content: center;
 	align-content: center;
 
@@ -1272,7 +1272,7 @@ section.featurePanel {
 
 	.wrapper {
 		//flexbox
-		@include flexboxSettings041715a;
+		@include flexboxRow1;
 		// justify-content: space-between;
 		// align-content: space-between;
 		// using space-between set the boxes too far apart
@@ -1314,7 +1314,7 @@ section.featurePanel section.featureEntry {
 	width: 100%;
 
 	//flexbox
-	@include flexboxSettings042215a;
+	@include flexboxColumn1;
 	align-items:flex-start;
 
 	// TESTING
@@ -1334,7 +1334,7 @@ section.featurePanel section.featureEntry .topBar {
 	width: 100%;
 
 	//flexbox
-	@include flexboxSettings041715a;
+	@include flexboxRow1;
 	justify-content: space-between;
 	align-content: space-between;
 
@@ -1345,7 +1345,7 @@ section.featurePanel section.featureEntry .topBar {
 
 	nav {
 		//flexbox
-		@include flexboxSettings041715a;
+		@include flexboxRow1;
 		justify-content: flex-end;
 		align-content: flex-end;
 	}
@@ -1362,7 +1362,7 @@ section.featurePanel section.featureEntry .topBar nav {
 		background: white;
 
 		//flexbox
-		@include flexboxSettings041715a;
+		@include flexboxRow1;
 
 		@include transitionEffectAllEaseOut(0.4s);
 
@@ -1387,7 +1387,7 @@ section.featurePanel section.featureEntry .selections {
 	margin-top: 10%;
 
 	//flexbox
-	// @include flexboxSettings042215a;
+	// @include flexboxColumn1;
 	// justify-content: space-around;
 	// align-content: space-around;
 }
@@ -1412,7 +1412,7 @@ section.featurePanel section.selectEntry {
 	width: 100%;
 
 	//flexbox
-	@include flexboxSettings041715a;
+	@include flexboxRow1;
 	justify-content: space-between;
 	align-content: space-between;
 	// center still seems to work better?
@@ -1435,7 +1435,7 @@ section.featurePanel section.selectEntry {
 	// META DATA  ------------------------------------------------
 	.meta {
 		//flexbox
-		@include flexboxSettings042215a;
+		@include flexboxColumn1;
 		align-items:flex-start;
 
 		//flex child
@@ -1463,7 +1463,7 @@ section.featurePanel section.selectEntry {
 		}
 
 		div.colourSelect {
-			@include colourSelect042915a;
+			@include colourSelect1;
 		}
 
 	}
@@ -1503,7 +1503,7 @@ section.newsletter {
 	// again I should have put the flexbox on .wrapper and not section.newsletter
 	.wrapper {
 		//flexbox
-		@include flexboxSettings042215a;
+		@include flexboxColumn1;
 		justify-content: center;
 		align-content:center;
 	}
@@ -1591,9 +1591,9 @@ section.newsletter form input[type='email'] {
 	}
 
 	&:focus {
-		// @include pulsingBorder($themeYellow);
+		// @include pulsingBorder1($themeYellow);
 		border: 2px solid $themeYellow;
-		// animation: pulsingBorder 5s linearinfinite;
+		// animation: pulsingBorder1 5s linearinfinite;
 	}
 }
 // // END FORM ------------------------------------------------

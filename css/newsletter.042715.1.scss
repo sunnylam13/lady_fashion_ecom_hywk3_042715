@@ -18,7 +18,7 @@ section.newsletter {
 	// again I should have put the flexbox on .wrapper and not section.newsletter
 	.wrapper {
 		//flexbox
-		@include flexboxSettings042215a;
+		@include flexboxColumn1;
 		justify-content: center;
 		align-content:center;
 	}
@@ -106,9 +106,9 @@ section.newsletter form input[type='email'] {
 	}
 
 	&:focus {
-		// @include pulsingBorder($themeYellow);
+		// @include pulsingBorder1($themeYellow);
 		border: 2px solid $themeYellow;
-		// animation: pulsingBorder 5s linearinfinite;
+		// animation: pulsingBorder1 5s linearinfinite;
 	}
 }
 // // END FORM ------------------------------------------------

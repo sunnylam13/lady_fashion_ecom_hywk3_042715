@@ -66,7 +66,7 @@
 	border: $thick $state $colour;
 }
 
-@mixin flexboxSettings041715a {
+@mixin flexboxRow1 {
 	// ROW
 	// this is used within a parent without the class .flexbox... the actual class name used will vary
 	display: flex;
@@ -76,7 +76,7 @@
 	align-items: center;
 }
 
-@mixin flexboxSettings042215a {
+@mixin flexboxColumn1 {
 	// COLUMN
 	// this is used within a parent without the class .flexbox... the actual class name used will vary
 	display: flex;
