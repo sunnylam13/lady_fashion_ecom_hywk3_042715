@@ -50,8 +50,14 @@ mixin banner2
 
 
 header.navMenu.nav042715
+	// BANNER STRIP AT THE TOP  ------------------------------------------------
+	// this is the section above the logo segment and includes the shopping cart
 	+banner1
 	//- +banner2
+	// END BANNER STRIP AT THE TOP ------------------------------------------------
+	
+	// SEARCH & LOGO SEGMENT  ------------------------------------------------
+	// this section contains the site search field and the logo
 	section.search.logo
 		.wrapper
 			div
@@ -60,6 +66,10 @@ header.navMenu.nav042715
 				input(placeholder='Search Something').search
 			//- dimensions 55x55px
 			img(src="./images/logo.png", alt="Logo")
+	// END SEARCH & LOGO SEGMENT ------------------------------------------------
+	
+	// NAVIGATION MENU  ------------------------------------------------
+	// this is the actual html for the navigation menu
 	nav
 		.wrapper		
 			ul
@@ -95,5 +105,7 @@ header.navMenu.nav042715
 					li
 						a(href=thisWeekLink) This Week
 							div.slash
+	// END NAVIGATION MENU ------------------------------------------------
+	
 
 ////////////////////////////////////////////

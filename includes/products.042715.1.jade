@@ -53,6 +53,8 @@ mixin collectionUnit2(uClass,prodName,priceVal)
 
 //- END MIXINS
 
+// NEW ARRIVALS SECTION  ------------------------------------------------
+// this is the New Arrivals section of the page
 section.newArrivals
 	.wrapper
 		p.introHead The New Arrivals
@@ -62,34 +64,57 @@ section.newArrivals
 		
 		p.subhead Define your wardrobe with accessories
 
+		// WARDROBE DISPLAY SECTION
 		section.wardrobeDisplay
 			//- the images may require a transparent background
 			//- the background colour will have to be set
 			//- little boxes are 211x211px
+			
+			// LEFT  ------------------------------------------------
 			div.left
+				// LEFT TOP  ------------------------------------------------
 				div.top
+					// LEFT TOP LEFT  ------------------------------------------------
 					div.left
 						//- dimensions 211x420px
 						h3 Sweater
 						p.copy Bring our style
 						p.price $125
 						+purchaseShader1
+					// END LEFT TOP LEFT ------------------------------------------------
+					
+					// LEFT TOP RIGHT  ------------------------------------------------
 					div.right
 						div.top
 							+purchaseShader1
 						div.bottom
 							+purchaseShader1
+					// END LEFT TOP RIGHT ------------------------------------------------
+					
+				// END LEFT TOP ------------------------------------------------
+				
+				// LEFT BOTTOM  ------------------------------------------------
 				div.bottom
 					div.left
 						+purchaseShader1
 					div.right
 						+purchaseShader1
+				// END LEFT BOTTOM ------------------------------------------------
+				
+			// END LEFT ------------------------------------------------
+			
+			
+			// RIGHT  ------------------------------------------------
 			div.right
+				// RIGHT TOP  ------------------------------------------------
 				div.top
 					div.left
 						+purchaseShader1
 					div.right
 						+purchaseShader1
+				// END RIGHT TOP ------------------------------------------------
+				
+				// RIGHT BOTTOM  ------------------------------------------------
 				div.bottom
 					div.left
 						//- dimensions 420x420px
@@ -102,7 +127,15 @@ section.newArrivals
 							+purchaseShader1
 					div.right
 						+purchaseShader1
+				// END RIGHT BOTTOM ------------------------------------------------
+				
+			// END RIGHT ------------------------------------------------
+			
+// END NEW ARRIVALS SECTION ------------------------------------------------
 
+
+// DRESS COLLECTION SECTION  ------------------------------------------------
+// this is the Dress Collection section of the page
 section.dressCollection
 	.wrapper
 		p.introHead Dress Collection
@@ -122,28 +155,14 @@ section.dressCollection
 				h2 Random
 
 		+companyLogo1(companyLogoEnabled)
-		//- //- ===================================
-		//- //- 		COMPANY LOGO
-		//- //- ===================================
-		//- +companyLogo1
-		//- //- if company logo isn't finished use the image as a placeholder
-		//- img(src="http://lorempixel.com/60/30", alt="Icon Placeholder")
-		//- //- END COMPANY LOGO
 		
+		// COLLECTION DISPLAY SECTION
+
 		//- ===================================
 		//- 		COLLECTION DISPLAY
 		//- ===================================
 
 		section.collectionDisplay
-			//- +collectionUnit1('chifonFloral','Chifon & Floral Dress','$22.5')
-			//- +collectionUnit1('camiStrap','Cami Strap Dress','$23.5')
-			//- +collectionUnit1('flareStrap','Flare Strap Dress','$19.0')
-			//- +collectionUnit1('flareStrap','Abstract Dooted Dress','$21.5')
-			//- +collectionUnit1('chifonFloral','Chifon &amp; Floral Dress','$22.5')
-			//- +collectionUnit1('camiStrap','Cami Strap Dress','$23.5')
-			//- +collectionUnit1('flareStrap','Flare Strap Dress','$19.0')
-			//- +collectionUnit1('flareStrap','Abstract Dooted Dress','$21.5')
-
 			+collectionUnit2('chifonFloral','Chifon & Floral Dress','$22.5')
 			+collectionUnit2('camiStrap','Cami Strap Dress','$23.5')
 			+collectionUnit2('abstractDDress','Flare Strap Dress','$19.0')
@@ -154,8 +173,5 @@ section.dressCollection
 			+collectionUnit2('abstractDDress','Abstract Dooted Dress','$21.5')
 
 		//- END COLLECTION DISPLAY
-
-		
-
-
+// END DRESS COLLECTION SECTION ------------------------------------------------
 ////////////////////////////////////////////

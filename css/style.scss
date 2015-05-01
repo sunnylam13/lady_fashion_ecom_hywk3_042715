@@ -85,6 +85,10 @@ p {
 	@include baseParagraphStyle;
 }
 
+
+// various partials are imported below and represent different portions or sections of various pages...
+// if this is a multiple page site, some partials are re-used
+
 ////////////////////////////////////////////
 ///// 		COMPANY LOGO
 ///////////////////////////////////////////////
@@ -141,7 +145,6 @@ p {
 @import 'newsletter.042715.1';
 
 ///////////////////////////////////////////////
-
 
 ////////////////////////////////////////////
 ///// 		FOOTER
