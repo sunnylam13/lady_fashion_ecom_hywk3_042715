@@ -5,6 +5,26 @@
 //- These mixins are specific to this project only.
 //- move mixins here only if they are required in other sections of the site
 
+
+//- ===================================
+//- 		SLIDE OUT SHOPPING CART
+//- ===================================
+
+//- the slide out shopping cart should appear when the user scrolls down to the products and disappear once it leaves the product section
+
+mixin slideOutShoppingCart1
+	aside.slideOutShoppingCart
+		span.fa.fa-shopping-cart
+			//- slanted slash... to follow site style
+			div.slash
+				//- where the div.slash is used to create the slash that goes behind the icon... you'll need to give the font-awesome icon a background to obscure it?
+			//- use to display the number of cart items
+			//- the number should only appear when Javascript inserts it... any numbers below are test numbers
+			span.shopCartCount 0
+
+//- END SLIDE OUT SHOPPING CART
+
+
 //- ===================================
 //- 		COMPANY LOGO
 //- ===================================

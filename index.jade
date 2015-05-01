@@ -43,6 +43,22 @@ block content
 	//- include ./includes/featured.042715.1.jade
 	//- include ./includes/newsletter.042715.1.jade
 	
+	// SLIDE OUT SHOPPING CART  ------------------------------------------------
+	////////////////////////////////////////////
+	// 		SLIDE OUT SHOPPING CART
+	//////////////////////////////////////////
+	
+	// see mixins.project.jade for the html markup in Jade
+	// the body will need to be set to position relative
+	
+	// DISPLAY STATUS
+	// where display: none is default and it is revealed using jQuery Waypoints
+	// display: none;
+	
+	+slideOutShoppingCart1
+	////////////////////////////////////////////
+	// END SLIDE OUT SHOPPING CART ------------------------------------------------
+
 	////////////////////////////////////////////
 	// 		HERO BLOCK
 	/////////////////////////////////////////
@@ -112,7 +128,7 @@ block content
 					// LEFT TOP  ------------------------------------------------
 					div.top
 						// LEFT TOP LEFT  ------------------------------------------------
-						div.left
+						div.left.wardrobeDrag
 							//- dimensions 211x420px
 							h3 Sweater
 							p.copy Bring our style
@@ -122,9 +138,9 @@ block content
 						
 						// LEFT TOP RIGHT  ------------------------------------------------
 						div.right
-							div.top
+							div.top.wardrobeDrag
 								+purchaseShader1
-							div.bottom
+							div.bottom.wardrobeDrag
 								+purchaseShader1
 						// END LEFT TOP RIGHT ------------------------------------------------
 						
@@ -132,9 +148,9 @@ block content
 					
 					// LEFT BOTTOM  ------------------------------------------------
 					div.bottom
-						div.left
+						div.left.wardrobeDrag
 							+purchaseShader1
-						div.right
+						div.right.wardrobeDrag
 							+purchaseShader1
 					// END LEFT BOTTOM ------------------------------------------------
 					
@@ -145,15 +161,15 @@ block content
 				div.right
 					// RIGHT TOP  ------------------------------------------------
 					div.top
-						div.left
+						div.left.wardrobeDrag
 							+purchaseShader1
-						div.right
+						div.right.wardrobeDrag
 							+purchaseShader1
 					// END RIGHT TOP ------------------------------------------------
 					
 					// RIGHT BOTTOM  ------------------------------------------------
-					div.bottom
-						div.left
+					div.bottom.wardrobeDrag
+						div.left.wardrobeDrag
 							//- dimensions 420x420px
 							div.top
 							div.bottom
@@ -162,7 +178,7 @@ block content
 									p.copy Body and Smiling
 									p.price $399
 								+purchaseShader1
-						div.right
+						div.right.wardrobeDrag
 							+purchaseShader1
 					// END RIGHT BOTTOM ------------------------------------------------
 					

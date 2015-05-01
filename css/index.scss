@@ -312,16 +312,6 @@ section.newArrivals {
 		@include flexboxRow1;
 
 		@include purchaseShader1;
-
-		// TESTING
-		// div {
-		// 	// width: 209px;
-		// 	// height: 212px;
-		// 	// width: 13.0625em;
-		// 	// height: 13.25em;
-		// 	// border: 1px solid red;
-		// 	@include productDivDimensions1;
-		// }
 		
 		h3 {
 			font-size: $basefontsize*1.3;
@@ -343,13 +333,6 @@ section.newArrivals {
 			text-transform: uppercase;
 			letter-spacing: 0.1em;
 		}
-
-		// .top div.left, .top div.right {
-		// 	@include iphone6Minus320R {
-		// 		//flex child
-		// 		flex: 1 100%;
-		// 	}
-		// }
 	}
 	// // END WARDROBE DISPLAY ------------------------------------------------
 
