@@ -154,20 +154,12 @@ mixin purchaseShader1
 			p.price
 				span $
 				| 99
-			a(href='#').button
+			a(href='javascript:void(0)').button
 				div.button
 					//- for the slanted slash
 					div.slash				
 					//- the div will hold the before element
 					p.text Add to Cart
-
-mixin purchaseShader2(priceVal)
-	if block
-		block
-	else
-		div.purchaseShader
-			p=priceVal
-			a(href="#") Add to Cart
 
 mixin addToCartButton1
 	if block
@@ -180,7 +172,7 @@ mixin addToCartButton1
 		//- 			p.text Add to Cart
 
 		div.addToCartButton
-			a(href='#').button
+			a(href='javascript:void(0)').button
 				div.button
 					//- for the slanted slash
 					div.slash

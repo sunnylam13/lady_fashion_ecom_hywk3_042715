@@ -61,29 +61,42 @@ function disableSlideOutShoppingCart () {
 function makeProductsDrag2 () {
 	// this function uses jQuery UI and TweenMax to allow drag and drop of products onto the shopping cart
 	
+	// DRAGGABLES
 	// Friday, May 1, 2015 3:16 PM:  using div.wardrobeDrag fails to work on the outermost div.right... there must be a reason
 
 	// set TimelineMax instance
 	var tm = new TimelineMax({repeat:-1});
 
 	var animateSections1 = [
-		'div.wardrobeDrag',
-		'div.specialDressDrag',
-		'section.collectionUnit'
+		'.wardrobeDrag',
+		'.specialDressDrag',
+		'.collectionUnit'
 	];
+
+	// var animateSections1 = [
+	// 	'div.wardrobeDrag',
+	// 	'div.specialDressDrag',
+	// 	'section.collectionUnit'
+	// ];
 
 	for (var i = 0; i < animateSections1.length; i++) {
 		$(animateSections1[i]).draggable({
 			helper: 'clone',
 			opacity: 0.7,
 			start: function (event,ui) {
-				// don't forget to pass event, ui as args or you get undefined
-				// ui.helper.css('border', '1px solid #FBF200');
-				TweenMax.to(ui.helper,1,{
-					border:'3px solid #FBF200',
-					// width:'100%',
-					zIndex:500
-				});
+				// don't forget to pass event, ui as args or you get undefined				
+				if (animateSections1[i]='div.specialDressDrag') {
+					TweenMax.to(ui.helper,1,{
+						border:'3px solid #FBF200',
+						width:'14.375em',
+						zIndex:500
+					});
+				} else {
+					TweenMax.to(ui.helper,1,{
+						border:'3px solid #FBF200',
+						zIndex:500
+					});
+				}
 			},
 			revert: function(droppable) {
 				if (droppable === false) {
@@ -100,85 +113,7 @@ function makeProductsDrag2 () {
 		});
 	}
 
-	// $('div.wardrobeDrag').draggable({
-	// 	helper: 'clone',
-	// 	opacity: 0.7,
-	// 	start: function (event,ui) {
-	// 		// don't forget to pass event, ui as args or you get undefined
-	// 		// ui.helper.css('border', '1px solid #FBF200');
-	// 		TweenMax.to(ui.helper,1,{
-	// 			border:'3px solid #FBF200',
-	// 			width:'100%',
-	// 			zIndex:500
-	// 		});
-	// 	},
-	// 	revert: function(droppable) {
-	// 		if (droppable === false) {
-	// 			// Drop was rejected, tween back to original position.
-	// 			TweenMax.to(this, 0.4, {
-	// 				left:0, 
-	// 				top:0,
-	// 				border:'none',
-	// 				zIndex:0
-	// 			});
-	// 		}
-	// 		return false;
-	// 	}
-	// });
-
-
-	// $('div.wardrobeDrag').draggable({
-	// 	helper: 'clone',
-	// 	opacity: 0.7,
-	// 	start: function (event,ui) {
-	// 		// don't forget to pass event, ui as args or you get undefined
-	// 		// ui.helper.css('border', '1px solid #FBF200');
-	// 		TweenMax.to(ui.helper,1,{
-	// 			border:'3px solid #FBF200',
-	// 			width:'100%',
-	// 			zIndex:500
-	// 		});
-	// 	},
-	// 	revert: function(droppable) {
-	// 		if (droppable === false) {
-	// 			// Drop was rejected, tween back to original position.
-	// 			TweenMax.to(this, 0.4, {
-	// 				left:0, 
-	// 				top:0,
-	// 				border:'none',
-	// 				zIndex:0
-	// 			});
-	// 		}
-	// 		return false;
-	// 	}
-	// });
-
-
-	// $('section.collectionUnit').draggable({
-	// 	helper: 'clone',
-	// 	opacity: 0.7,
-	// 	start: function (event,ui) {
-	// 		// don't forget to pass event, ui as args or you get undefined
-	// 		// ui.helper.css('border', '1px solid #FBF200');
-	// 		TweenMax.to(ui.helper,1,{
-	// 			border:'3px solid #FBF200',
-	// 			zIndex:500
-	// 		});
-	// 	},
-	// 	revert: function(droppable) {
-	// 		if (droppable === false) {
-	// 			// Drop was rejected, tween back to original position.
-	// 			TweenMax.to(this, 0.4, {
-	// 				left:0, 
-	// 				top:0,
-	// 				border:'none',
-	// 				zIndex:0
-	// 			});
-	// 		}
-	// 		return false;
-	// 	}
-	// });
-
+	// DROPPABLES
 	$('aside.slideOutShoppingCart').droppable({
 		tolerance: 'touch',
 		over: function (event,ui) {
@@ -195,6 +130,7 @@ function makeProductsDrag2 () {
 			});
 			tm.play();
 			tm.kill();
+
 		},
 		drop: function(event, ui) {
 			var x = $(this).position().left;
