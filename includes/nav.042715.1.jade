@@ -4,51 +4,6 @@
 
 // this is the side wide primary navigation menu
 
-//- ===================================
-//- 		MIXINS
-//- ===================================
-
-mixin banner1
-	section.banner
-		.wrapper
-			div
-				p Free Shipping Over $50
-			div
-				//- p Login / Sign Up
-				a(href="#") Login
-					| / 
-					a(href="#") Sign Up
-			div
-				//- what if I place the image inline instead for greater control
-				img(src="./images/cart.png", alt="cart")
-				//- p 1 Items
-				a(href="#")
-					span.cartCount 1 
-					| Items
-			div
-				p $35
-
-mixin banner2
-	//- this verson allows us to use flex: 1 for proportional spacing
-	section.banner
-		.wrapper
-			p Free Shipping Over $50
-			//- p Login / Sign Up
-			a(href="#") Login
-					| / 
-					a(href="#") Sign Up
-			//- what if I place the image inline instead for greater control
-			img(src="./images/cart.png", alt="cart")
-			//- p 1 Items
-			a(href="#")
-				span.cartCount 1 
-				| Items
-			p $35
-
-
-//- END MIXINS
-
-
 header.navMenu.nav042715
 	// BANNER STRIP AT THE TOP  ------------------------------------------------
 	// this is the section above the logo segment and includes the shopping cart

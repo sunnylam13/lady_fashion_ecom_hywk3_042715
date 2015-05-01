@@ -2,41 +2,6 @@
 // 		FOOTER
 /////////////////////////////////////////
 
-//- ===================================
-//- 		MIXINS
-//- ===================================
-
-mixin blogHeadlineEntry1(headline,imgSrc,altText)
-	aside.blogHeadline
-		div.image
-			//- image 52x43px
-			if imgSrc
-				img(src=imgSrc, alt=altText)
-			else
-				img(src="http://lorempixel.com/52/43", alt="Lorem Placeholder Image")
-		
-		.meta
-			h4=headline
-			
-			//- this element may need to be absolutely positioned where .meta is position relative
-			//- we may need to child a child selector > on .meta:hover (i.e. .meta:hover > a.readMore)
-			//- the initial state should be display none
-			a(href="http://", target="_blank").readMore Read More
-
-mixin twitterEntry1(headline,tweet,timeElapse)
-	if block
-		block
-	else
-		aside.twitterEntry
-			.text
-				h2=headline
-				p=tweet
-			.time
-				p=timeElapse
-
-
-//- END MIXINS
-
 section.footer
 	.wrapper
 

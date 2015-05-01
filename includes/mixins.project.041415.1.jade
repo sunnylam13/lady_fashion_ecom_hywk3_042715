@@ -30,6 +30,50 @@ mixin companyLogo1(placeHolder)
 //- END COMPANY LOGO
 
 
+//- ===================================
+//- 		PRIMARY NAVIGATION MENU
+//- ===================================
+
+mixin banner1
+	section.banner
+		.wrapper
+			div
+				p Free Shipping Over $50
+			div
+				//- p Login / Sign Up
+				a(href="#") Login
+					| / 
+					a(href="#") Sign Up
+			div
+				//- what if I place the image inline instead for greater control
+				img(src="./images/cart.png", alt="cart")
+				//- p 1 Items
+				a(href="#")
+					span.cartCount 1 
+					| Items
+			div
+				p $35
+
+mixin banner2
+	//- this verson allows us to use flex: 1 for proportional spacing
+	section.banner
+		.wrapper
+			p Free Shipping Over $50
+			//- p Login / Sign Up
+			a(href="#") Login
+					| / 
+					a(href="#") Sign Up
+			//- what if I place the image inline instead for greater control
+			img(src="./images/cart.png", alt="cart")
+			//- p 1 Items
+			a(href="#")
+				span.cartCount 1 
+				| Items
+			p $35
+
+
+//- END PRIMARY NAVIGATION MENU
+
 
 //- ===================================
 //- 		PRODUCTS - NEW ARRIVALS, DRESS COLLECTION
@@ -83,18 +127,6 @@ mixin purchaseShader1
 	//- it must be placed within the parent container
 	//- refine this within one of the test divs
 	
-	//- if block
-	//- 	block
-	//- else
-	//- 	div.purchaseShader
-	//- 		p.price
-	//- 			span $
-	//- 			| 99
-	//- 		a(href='#').button
-	//- 			div.button					
-	//- 				//- the div will hold the before element
-	//- 				p.text Add to Cart
-
 	if block
 		block
 	else
@@ -228,6 +260,47 @@ mixin topPickEntry1
 	
 
 //- END FEATURED ITEMS
+
+
+
+
+//- ===================================
+//- 		FOOTER
+//- ===================================
+
+mixin blogHeadlineEntry1(headline,imgSrc,altText)
+	aside.blogHeadline
+		div.image
+			//- image 52x43px
+			if imgSrc
+				img(src=imgSrc, alt=altText)
+			else
+				img(src="http://lorempixel.com/52/43", alt="Lorem Placeholder Image")
+		
+		.meta
+			h4=headline
+			
+			//- this element may need to be absolutely positioned where .meta is position relative
+			//- we may need to child a child selector > on .meta:hover (i.e. .meta:hover > a.readMore)
+			//- the initial state should be display none
+			a(href="http://", target="_blank").readMore Read More
+
+mixin twitterEntry1(headline,tweet,timeElapse)
+	if block
+		block
+	else
+		aside.twitterEntry
+			.text
+				h2=headline
+				p=tweet
+			.time
+				p=timeElapse
+
+
+//- END FOOTER
+
+
+
 
 
 //- END MIXINS PROJECT 
