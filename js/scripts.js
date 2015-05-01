@@ -25,16 +25,12 @@ function enableSlideOutShoppingCart () {
 		handler: function(direction) {
 			switch(direction) {
 				case 'up':
-					// $('aside.slideOutShoppingCart').css('display', 'none');
-					// TweenMax.to($('aside.slideOutShoppingCart'),2,{'display':'none',ease:Power2.easeInOut});
 					TweenMax.to($('aside.slideOutShoppingCart'),2,{
 							right: '-999999px',
 							ease:Power2.easeInOut
 						});
 					break;
 				case 'down':
-					// $('aside.slideOutShoppingCart').css('display', 'flex');
-					// TweenMax.to($('aside.slideOutShoppingCart'),2,{'display':'flex',ease:Power2.easeInOut});
 					TweenMax.to($('aside.slideOutShoppingCart'),2,{
 							right: 0,
 							ease: Power2.easeInOut
@@ -52,11 +48,9 @@ function disableSlideOutShoppingCart () {
 		handler: function(direction) {
 			switch(direction) {
 				case 'up':
-					// $('aside.slideOutShoppingCart').css('display', 'flex');
 					TweenMax.to($('aside.slideOutShoppingCart'),2,{right:0,ease:Power2.easeInOut});
 					break;
 				case 'down':
-					// $('aside.slideOutShoppingCart').css('display', 'none');
 					TweenMax.to($('aside.slideOutShoppingCart'),2,{right:'-99999px',ease:Power2.easeInOut});
 					break;
 			}
@@ -64,72 +58,159 @@ function disableSlideOutShoppingCart () {
 	});
 }
 
-function makeProductsDrag1 () {
-	// sadly using Greensock doesn't give us drag and drop functionality
-
-	Draggable.create(".wardrobeDrag",{
-		onClick: function () {
-			console.log('clicked');
-		}
-	});
-	Draggable.create("section.collectionUnit",{
-		onClick: function () {
-			console.log('clicked');
-		}
-	});
-}
-
 function makeProductsDrag2 () {
 	// this function uses jQuery UI and TweenMax to allow drag and drop of products onto the shopping cart
 	
-	$('div.wardrobeDrag').draggable({
-		helper: 'clone',
-		opacity: 0.7,
-		start: function (event,ui) {
-			ui.helper.css('border', '1px solid #FBF200');
-		},
-		revert: function(droppable) {
-			if (droppable === false) {
-				// Drop was rejected, tween back to original position.
-				TweenMax.to(this, 0.4, { left:0, top:0 });
-			}
-			return false;
-		}
-	});
+	// Friday, May 1, 2015 3:16 PM:  using div.wardrobeDrag fails to work on the outermost div.right... there must be a reason
 
-	// $('div.purchaseShader').draggable({
+	// set TimelineMax instance
+	var tm = new TimelineMax({repeat:-1});
+
+	var animateSections1 = [
+		'div.wardrobeDrag',
+		'div.specialDressDrag',
+		'section.collectionUnit'
+	];
+
+	for (var i = 0; i < animateSections1.length; i++) {
+		$(animateSections1[i]).draggable({
+			helper: 'clone',
+			opacity: 0.7,
+			start: function (event,ui) {
+				// don't forget to pass event, ui as args or you get undefined
+				// ui.helper.css('border', '1px solid #FBF200');
+				TweenMax.to(ui.helper,1,{
+					border:'3px solid #FBF200',
+					// width:'100%',
+					zIndex:500
+				});
+			},
+			revert: function(droppable) {
+				if (droppable === false) {
+					// Drop was rejected, tween back to original position.
+					TweenMax.to(this, 0.4, {
+						left:0, 
+						top:0,
+						border:'none',
+						zIndex:0
+					});
+				}
+				return false;
+			}
+		});
+	}
+
+	// $('div.wardrobeDrag').draggable({
 	// 	helper: 'clone',
 	// 	opacity: 0.7,
+	// 	start: function (event,ui) {
+	// 		// don't forget to pass event, ui as args or you get undefined
+	// 		// ui.helper.css('border', '1px solid #FBF200');
+	// 		TweenMax.to(ui.helper,1,{
+	// 			border:'3px solid #FBF200',
+	// 			width:'100%',
+	// 			zIndex:500
+	// 		});
+	// 	},
 	// 	revert: function(droppable) {
 	// 		if (droppable === false) {
 	// 			// Drop was rejected, tween back to original position.
-	// 			TweenMax.to(this, 0.4, { left:0, top:0 });
+	// 			TweenMax.to(this, 0.4, {
+	// 				left:0, 
+	// 				top:0,
+	// 				border:'none',
+	// 				zIndex:0
+	// 			});
 	// 		}
 	// 		return false;
 	// 	}
 	// });
 
-	$('section.collectionUnit').draggable({
-		helper: 'clone',
-		opacity: 0.7,
-		start: function (event,ui) {
-			ui.helper.css('border', '1px solid #FBF200');
-		},
-		revert: function(droppable) {
-			if (droppable === false) {
-				// Drop was rejected, tween back to original position.
-				TweenMax.to(this, 0.4, { left:0, top:0 });
-			}
-			return false;
-		}
-	});
+
+	// $('div.wardrobeDrag').draggable({
+	// 	helper: 'clone',
+	// 	opacity: 0.7,
+	// 	start: function (event,ui) {
+	// 		// don't forget to pass event, ui as args or you get undefined
+	// 		// ui.helper.css('border', '1px solid #FBF200');
+	// 		TweenMax.to(ui.helper,1,{
+	// 			border:'3px solid #FBF200',
+	// 			width:'100%',
+	// 			zIndex:500
+	// 		});
+	// 	},
+	// 	revert: function(droppable) {
+	// 		if (droppable === false) {
+	// 			// Drop was rejected, tween back to original position.
+	// 			TweenMax.to(this, 0.4, {
+	// 				left:0, 
+	// 				top:0,
+	// 				border:'none',
+	// 				zIndex:0
+	// 			});
+	// 		}
+	// 		return false;
+	// 	}
+	// });
+
+
+	// $('section.collectionUnit').draggable({
+	// 	helper: 'clone',
+	// 	opacity: 0.7,
+	// 	start: function (event,ui) {
+	// 		// don't forget to pass event, ui as args or you get undefined
+	// 		// ui.helper.css('border', '1px solid #FBF200');
+	// 		TweenMax.to(ui.helper,1,{
+	// 			border:'3px solid #FBF200',
+	// 			zIndex:500
+	// 		});
+	// 	},
+	// 	revert: function(droppable) {
+	// 		if (droppable === false) {
+	// 			// Drop was rejected, tween back to original position.
+	// 			TweenMax.to(this, 0.4, {
+	// 				left:0, 
+	// 				top:0,
+	// 				border:'none',
+	// 				zIndex:0
+	// 			});
+	// 		}
+	// 		return false;
+	// 	}
+	// });
 
 	$('aside.slideOutShoppingCart').droppable({
+		tolerance: 'touch',
+		over: function (event,ui) {
+			tm.to($('aside.slideOutShoppingCart'),0.25,{border:'5px solid #FBF200',ease:Power1.easeIn});
+			tm.to($('aside.slideOutShoppingCart'),0.25,{border:'1px solid #FBF200',ease:Power1.easeIn});
+			tm.to($('aside.slideOutShoppingCart'),0.25,{border:'1px solid black',ease:Power1.easeIn});
+			tm.to($('aside.slideOutShoppingCart'),0.25,{border:'5px solid black',ease:Power1.easeIn});
+			tm.play();
+		},
+		out: function (event,ui) {
+			tm.to($('aside.slideOutShoppingCart'),0.25,{
+				border:'5px solid black',
+				ease:Power1.easeIn
+			});
+			tm.play();
+			tm.kill();
+		},
 		drop: function(event, ui) {
 			var x = $(this).position().left;
 			var y = $(this).position().top;
-			TweenMax.to(ui.draggable, 0.4, { left:x, top:y });
+			TweenMax.to(ui.draggable, 0.4, {
+				left: x, 
+				top: y 
+			});
 			console.log('Product added to cart!');
+			
+			tm.to($('aside.slideOutShoppingCart'),0.25,{
+				border:'5px solid black',
+				ease:Power1.easeIn
+			});
+			tm.play();
+			tm.kill();
 		}
 	});
 }
@@ -140,7 +221,6 @@ function makeProductsDrag2 () {
 enableStickyNav();
 enableSlideOutShoppingCart();
 disableSlideOutShoppingCart();
-// makeProductsDrag1();
 makeProductsDrag2();
 
 //////////////////////////////////////////////////

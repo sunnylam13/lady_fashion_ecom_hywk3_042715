@@ -427,14 +427,6 @@ section.newArrivals {
 			//flexbox
 			@include flexboxColumn1;
 
-			// div {
-			// 	//flex child
-			// 	// flex: 1 auto;
-			// 	width: 100%;
-			// 	position: relative;
-			// 	height: auto;
-			// }
-
 			// border: 3px dashed black;
 
 			// LEFT TOP RIGHT BOTH
@@ -605,12 +597,7 @@ section.newArrivals {
 			flex: 1 50%;
 			// margin: auto;
 
-			// @include iphone6Minus320R {
-			// 	//flex child
-			// 	flex: 1 100%;
-			// }
-
-
+			// TESTING
 			// border: 1px double aqua;
 			height: 13.25em;
 
