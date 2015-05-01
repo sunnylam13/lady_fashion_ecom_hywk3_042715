@@ -27,6 +27,10 @@ section.newArrivals, section.dressCollection {
 		font-weight: 900;
 		letter-spacing: 0.25em;
 		margin-bottom: 1%;
+
+		@include iphone6Minus320R {
+			margin-bottom: 3%;
+		}
 	}
 
 	aside.companyLogo {
@@ -64,6 +68,10 @@ section.newArrivals {
 
 	div.left, div.right {
 		position: relative;
+	}
+
+	@include desktopR {
+		// margin-top: -10%;
 	}
 
 	
@@ -120,6 +128,13 @@ section.newArrivals {
 			text-transform: uppercase;
 			letter-spacing: 0.1em;
 		}
+
+		// .top div.left, .top div.right {
+		// 	@include iphone6Minus320R {
+		// 		//flex child
+		// 		flex: 1 100%;
+		// 	}
+		// }
 	}
 	// // END WARDROBE DISPLAY ------------------------------------------------
 
@@ -132,6 +147,12 @@ section.newArrivals {
 		// flex child
 		flex: 1 50%;
 		// margin: auto;
+		
+		// you need to alter the flex-basis from 50% to 100% which forces that section to expand to fill
+		
+		@include phoneR {
+			flex: 1 100%;
+		}
 
 		// LEFT TOP  ------------------------------------------------
 		div.top {
@@ -160,6 +181,12 @@ section.newArrivals {
 			// flex child
 			flex: 1 50%;
 			// margin: auto;
+
+			// @include iphone6Minus320R {
+			// 	//flex child
+			// 	flex: 1 100%;
+			// }
+
 
 			//flexbox
 			@include flexboxSettings042215a;
@@ -231,6 +258,11 @@ section.newArrivals {
 
 				@include transitionEffectAllEaseOut(0.4s);
 
+				// @include iphone6Minus320R {
+				// 	height: 40%;
+				// }
+
+
 				// enable hover to show the purchase shader and Add to Cart button
 				@include purchaseShaderDisplay042815a;
 			}
@@ -240,6 +272,11 @@ section.newArrivals {
 				@include backgroundImage042815a('../images/products/image3.jpg');
 
 				@include transitionEffectAllEaseOut(0.4s);
+
+				// @include iphone6Minus320R {
+				// 	height: 40%;
+				// }
+
 
 				// enable hover to show the purchase shader and Add to Cart button
 				@include purchaseShaderDisplay042815a;
@@ -281,7 +318,14 @@ section.newArrivals {
 			// flex child
 			flex: 1 50%;
 			// margin: auto;
-			
+
+			// @include iphone6Minus320R {
+			// 	//flex child
+			// 	flex: 1 100%;
+			// 	// height: 40%;
+			// }
+
+
 			width: 50%;
 			height: 13.25em;
 			// border: 3px groove violet;
@@ -299,6 +343,11 @@ section.newArrivals {
 			flex: 1 50%;
 			// margin: auto;
 			
+			@include iphone6Minus320R {
+				// height: 40%;
+			}
+
+
 			width: 50%;
 			height: 13.25em;
 			// border: 3px outset crimson;
@@ -320,6 +369,11 @@ section.newArrivals {
 		// flex child
 		flex: 1 50%;
 		margin: auto;
+
+		// you need to alter the flex-basis from 50% to 100% which forces that section to expand to fill
+		@include phoneR {
+			flex: 1 100%;
+		}
 
 		// RIGHT TOP  ------------------------------------------------
 		div.top {
@@ -352,6 +406,12 @@ section.newArrivals {
 			// flex child
 			flex: 1 50%;
 			// margin: auto;
+
+			// @include iphone6Minus320R {
+			// 	//flex child
+			// 	flex: 1 100%;
+			// }
+
 
 			// border: 1px double aqua;
 			height: 13.25em;
@@ -436,10 +496,14 @@ section.newArrivals {
 		}
 
 		// RIGHT BOTTOM LEFT COPY
-		div.bottom div.left .copy {
+		div.bottom div.left div.copy {
 			text-align: left;
 			// margin-bottom: 5%;
 			margin-top: 10%;
+
+			@include phoneR {
+				margin-left: 10%;
+			}
 		}
 
 		// RIGHT BOTTOM RIGHT

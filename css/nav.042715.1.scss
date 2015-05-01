@@ -70,6 +70,14 @@ header.navMenu section.banner {
 			justify-content: flex-end;
 			align-content: flex-end;
 
+			@include iphone6Plus414R {
+				flex: 1 50%;
+			}
+
+			@include iphone6Plus375R {
+				flex: 1 50%;
+			}
+
 			img {
 				display: inline-block;
 				margin:0;
@@ -85,6 +93,14 @@ header.navMenu section.banner {
 			@include flexboxSettings041715a;
 			justify-content: flex-start;
 			align-content: flex-start;
+
+			@include iphone6Plus414R {
+				flex: 1 50%;
+			}
+
+			@include iphone6Plus375R {
+				flex: 1 50%;
+			}
 
 			p {
 				line-height: $baselineheight*1.7225;
@@ -136,6 +152,14 @@ header.navMenu section.search.logo {
 		// positioning
 		top: 1em;
 
+		@include iphone6Plus375R {
+			top: 0;
+		}
+
+		@include iphone6Minus320R {
+			top: 0;
+		}
+
 		// add the icon before
 		&::before {
 			@include beforeAfterIconPlace042215a('\f002');
@@ -147,6 +171,8 @@ header.navMenu section.search.logo {
 			font-size: $basefontsize;
 			font-weight: 100;
 		}
+
+
 	}
 
 	input {
@@ -173,6 +199,33 @@ header.navMenu section.search.logo {
 		// 	background: yellow;
 		// 	margin:0;
 		// }
+		
+		@include iphone6Plus414R {
+			margin-bottom: 5%;
+			width: 95%;
+			display: block;
+			position: static;
+			// margin-left: 8%;
+			text-align: center;
+		}
+
+		@include iphone6Plus375R {
+			margin-bottom: 5%;
+			width: 95%;
+			display: block;
+			position: static;
+			// margin-left: 8%;
+			text-align: center;
+		}
+
+		@include iphone6Minus320R {
+			margin-bottom: 5%;
+			width: 95%;
+			display: block;
+			position: static;
+			// margin-left: 8%;
+			text-align: center;
+		}
 	}
 
 	img {
@@ -181,6 +234,17 @@ header.navMenu section.search.logo {
 		padding:0;
 		width: 3.4375em;
 		height: 3.4375em;
+
+		@include iphone6Plus414R {
+			margin-top: 2.5%;
+			margin-bottom: 2.5%;
+		}
+
+		@include iphone6Plus375R {
+			// margin-top: 2.5%;
+			margin-top: -1.5%;
+			margin-bottom: 2.5%;
+		}
 	}
 }
 // // END SEARCH/LOGO ------------------------------------------------
@@ -193,10 +257,6 @@ header.navMenu nav {
 	color: black;
 
 	.wrapper {
-		// @include flexboxSettings041715a;
-		// justify-content: center;
-		// align-content: center;
-
 		@include sectionPadding041515(1%,1%);
 	}
 
@@ -204,8 +264,8 @@ header.navMenu nav {
 		@include flexboxSettings041715a;
 		justify-content: center;
 		align-content: center;
-		// justify-content: space-between;
-		// align-content: space-between;
+		justify-content: space-between;
+		align-content: space-between;
 
 		// set width to max
 		width: 100%;
@@ -217,108 +277,230 @@ header.navMenu nav {
 
 		// align a elements
 		text-align: center;
-	}
 
-	// for styling link a elements see below
-
-	// for the a elements to move they must not be inline unless you're using ul li
-	a {
-		// display: inline-block;
-		// margin:0;
-		// padding:0;
-
-		// // flex child
-		// flex: 1 auto;
-
-		text-transform: uppercase;
-		font-size: $basefontsize*1.1;
-		font-weight: 900;
-		color: black;
-		letter-spacing: 0.1em;
-		@include scalePadding042815a(20%,5%);
-
-		// to allow us to hook the slanted slash
+		// for backup slash hooks
 		position: relative;
-		z-index: 5;
 
-		// we don't want the slash to block the colour of the link text... assing background
-		background: $themeYellow;
+		//flexbox
+		// we need to centre all the a elements within the li's (even though they're inline blocks)
+		@include flexboxSettings041715a;
+		justify-content: center;
+		align-content: center;
 
-		@include transitionEffectAllEaseOut(0.4s);
-		&:hover {
-			background: black;
-			color: $themeYellow;
+		// margin-bottom: 0.5%;
 
-			// padding needed to be changed for size so it doesn't cover the line as much
-			// @include scalePadding042815a(20%,0.25%);
-		}
+		// @include ipadAir1024R {
+		// 	margin-bottom: 5%;
+		// 	// margin-bottom: 0.5%;
+		// }
 
-		&:hover::before {
-			@include navSlantSlash042815a1(black);
-			// @include beforeAfterIconPlace042215a('/');
-			// position: absolute;
-			// color: black;
-			// font-size: $basefontsize*6;
-			// font-weight: 100;
-			
-			// // had to set the z-index to -ve negative values to get it behind a link background
-			// z-index:-5;
-			// // top: -66%;
-			// top: -0.5em;
-			// left: 26%;
+		// @include desktopR {
+		// 	margin-bottom: 0;
+		// }
 
-			// @include transformRotate(10deg);
-		}
+		// @include tabletR {
+		// 	margin-bottom: 5%;
+		// 	// margin-bottom: 0.5%;
+		// }
 
-		// TESTING:  use the following 
-		// &::before {
-		// 	@include navSlantSlash042815a1(black);
-		// 	// @include beforeAfterIconPlace042215a('/');
-		// 	// position: absolute;
-		// 	// color: black;
-		// 	// font-size: $basefontsize*6;
-		// 	// font-weight: 100;
-			
-		// 	// // had to set the z-index to -ve negative values to get it behind a link background
-		// 	// z-index:-5;
-		// 	// // top: -66%;
-		// 	// top: -0.5em;
-		// 	// left: 26%;
+		// @include iphone6Minus320R {
+		// 	//flexbox
+		// 	// we need to centre all the a elements within the li's (even though they're inline blocks)
+		// 	@include flexboxSettings041715a;
+		// 	justify-content: center;
+		// 	align-content: center;
+		// }
 
-		// 	// @include transformRotate(10deg);
+		// &:nth-of-type(4) {
+		// 	@include iphone6Plus414R {
+		// 		margin-bottom: 0.5%;
+		// 	}
+		// }
+
+		// &:nth-of-type(5), &:nth-of-type(6) {
+		// 	@include desktopR {
+		// 		margin-bottom: 0;
+		// 	}
+		// 	@include iphone6Minus568R {
+		// 		margin-bottom: 0.5%;
+		// 	}
+		// 	@include iphone6Plus375R {
+		// 		margin-bottom: 5%;
+		// 	}
+		// 	@include iphone6Minus320R {
+		// 		margin-bottom: 5%;
+		// 	}
+		// }
+
+		// &:nth-of-type(7), &:nth-of-type(8) {
+		// 	@include ipadAir1024R {
+		// 		margin-bottom: 0.5%;
+		// 	}
+		// 	@include desktopR {
+		// 		margin-bottom: 0;
+		// 	}
+		// 	@include iphone6Plus414R {
+		// 		margin-top: 3.5%;
+		// 	}
+		// 	@include iphone6Minus320R {
+		// 		margin-bottom: 5%;
+		// 	}
+		// }
+
+		// &:nth-of-type(6) {
+		// 	@include iphone6Plus667R {
+		// 		margin-bottom: 0.5%;
+		// 	}
+		// }
+
+		// discard
+		// &:nth-of-type(8) {
+		// 	@include ipadAir1024R {
+		// 		margin-bottom: 0.5%;
+		// 	}
 		// }
 	}
 
-	// need to make minor adjustment tweaks for the ::before
-	// a:nth-of-type(2),a:nth-of-type(3),a:nth-of-type(4),a:nth-of-type(5),a:nth-of-type(6) {
-	// 	//
-	// }
+	// for styling link a elements see below
 }
 
-// style the link elements
 // for the a elements to move they must not be inline unless you're using ul li
-// header.navMenu nav a {
-// 	// display: inline-block;
-// 	// margin:0;
-// 	// padding:0;
+header.navMenu nav a {
+	// if using inline block
+	@include marginPaddingReset1;
 
-// 	// // flex child
-// 	// flex: 1 auto;
+	text-transform: uppercase;
+	// font-size: $basefontsize*1.1;
+	font-size: $basefontsize*0.9;
+	font-weight: 900;
+	color: black;
+	letter-spacing: 0.1em;
 
-// 	text-transform: uppercase;
-// 	font-size: $basefontsize*1.1;
-// 	font-weight: 900;
-// 	color: black;
-// 	@include scalePadding042815a(20%,5%);
+	// use padding to create button
+	// @include scalePadding042815a(20%,5%);
 
-// 	// to allow us to hook the slanted slash
-// 	position: relative;
+	// use set height and width
+	// to use this a must be an inline block
+	// 139x26px
+	// seems to be more accurate to use ems instead of percentage
+	// as the browser shrinks the percentage changes causing the buttons to magnify
+	// WARNING:  if you use the padding version flexbox doesn't naturally act responsive
+	display: inline-block;
+	// width: 8.6875em;
+	// height: 1.625em;
+	width: 11.6875em;
+	height: 2.025em;
 
-// 	&:hover {
-// 		background: black;
-// 		color: $themeYellow;
-// 	}
-// }
+	// flexbox
+	// if using inline block
+	@include flexboxSettings041715a;
+
+	@include desktopR {
+		// use padding to create button
+		// change padding
+		// padding: 5% 10% 5% 10%;
+	}
+
+	// to allow us to hook the slanted slash
+	position: relative;
+	z-index: 5;
+
+	// we don't want the slash to block the colour of the link text... assing background
+	background: $themeYellow;
+
+	// enable transitions
+	@include transitionEffectAllEaseOut(0.4s);
+	&:hover {
+		background: black;
+		color: $themeYellow;
+	}
+
+	&:hover > div.slash {
+		display: block;
+	}
+
+	// enable the slashes to appear when the link is hovered over
+	
+}
+
+////////////////////////////////////////////
+///// 		SLANTED SLASH
+///////////////////////////////////////////////
+
+// it appears I have to manually adjust the slanted slash
+
+// BASE/NEW ARRIVALS
+header.navMenu nav ul div.slash {
+	// DEFAULT
+	// comment out to disable and style easily
+	display: none;
+
+	border: 1px solid black;
+	background: none;
+	// width: 37%;
+	width: 53%;
+	@include transformRotate(-64deg);
+
+	position: absolute;
+	top: 39%;
+	left: 17%;
+	// set z-index to -5 to put it behind .bar and .extraShader... you still need .extraShader (if you comment .extraShader out the line appears)
+	z-index: -5;
+
+	@include desktopR {
+		width: 40%;
+	}
+
+	@include tabletR {
+		width: 34%;
+	}
+}
+
+// WOMEN
+header.navMenu nav ul li:nth-of-type(2) div.slash {
+	// width: 70%;
+	left: 22%;
+}
+
+// MEN
+header.navMenu nav ul li:nth-of-type(3) div.slash {
+	// width: 110%;
+	// left: -7%;
+	left: 22%;
+}
+
+// ACCESSORIES
+header.navMenu nav ul li:nth-of-type(4) div.slash {
+	// width: 40%;
+	left: 25%;
+}
+
+// DRESS
+header.navMenu nav ul li:nth-of-type(5) div.slash {
+	// width: 79%;
+	left: 5%;
+	left: 22%;
+}
+
+// SALES-OFF
+header.navMenu nav ul li:nth-of-type(6) div.slash {
+	// width: 49%;
+}
+
+// LOOKBOOK
+header.navMenu nav ul li:nth-of-type(7) div.slash {
+	// width: 51%;
+	left: 24%;
+}
+
+// THIS WEEK
+header.navMenu nav ul li:nth-of-type(8) div.slash {
+	// width: 50%;
+}
+
+///////////////////////////////////////////////
+
+
 
 // // END NAV MENU ------------------------------------------------
 

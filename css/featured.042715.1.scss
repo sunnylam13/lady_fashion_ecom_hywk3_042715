@@ -15,6 +15,7 @@ section.featurePanel {
 		// using space-between set the boxes too far apart
 		justify-content: center;
 		align-content: center;
+		align-items: flex-start;
 	}
 
 	section.newIn, section.featured, section.top {
@@ -29,6 +30,16 @@ section.featurePanel {
 		flex: 1 31.33%;
 
 		margin: 0 1% 0 1%;
+
+		@include iphone6Minus568R {
+			flex: 1 100%;
+			margin-bottom: 5%;
+		}
+
+		@include phoneR {
+			flex: 1 100%;
+			margin-bottom: 5%;
+		}
 	}
 }
 
@@ -51,7 +62,7 @@ section.featurePanel section.featureEntry {
 		font-weight: bold;
 		text-transform: uppercase;
 		letter-spacing: 0.2em;
-		margin-bottom: 0.8%;
+		margin-bottom: 2%;
 	}
 
 }
@@ -148,7 +159,13 @@ section.featurePanel section.selectEntry {
 	// IMAGE  ------------------------------------------------
 	div.image {
 		//flex child
-		flex:1 auto;
+		// flex:1 auto;
+		flex:1 33.333333333%;
+		// using flex: 1 auto causes the div.meta to shift onto the next line which isn't what I want
+		
+		@include iphone6Minus568R {
+			flex:1 50%;
+		}
 	}
 	// // END IMAGE ------------------------------------------------
 	
@@ -159,8 +176,19 @@ section.featurePanel section.selectEntry {
 		align-items:flex-start;
 
 		//flex child
-		flex:2 auto;
+		// flex:2 auto;
+		flex:2 66.666666667%;	
+		// using flex: 1 auto causes the div.meta to shift onto the next line which isn't what I want
 		// width: 100%;
+
+		@include iphone6Plus667R {
+			// simply shrinking this one's flex-basis is enough to clear things up
+			flex: 2 47.666667%;
+		}
+
+		@include iphone6Minus568R {
+			flex:1 50%;
+		}
 
 		h3 {
 			font-size: $basefontsize*0.9;

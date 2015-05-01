@@ -3,14 +3,23 @@
 ///////////////////////////////////////////////
 
 section.heroBlock {
-	background-image: url('http://lorempixel.com/1400/700');
+	// background-image: url('http://lorempixel.com/1400/700');
 	background-image: url('../images/hero/image2.jpg');
+	// you don't have to use background-size: contain if you're using a big enough image
 	background-size: cover;
+	// background-size: contain;
 	background-repeat: no-repeat;
 	height: 70vh;
 	position: relative;
+
+	@include desktopR {
+		// issue is the original background image doesn't have enough height to match
+		background-image: url('http://lorempixel.com/1400/700');
+	}
 }
 
+// IMAGE SHADER  ------------------------------------------------
+// this is used to make the background image darker or lighter so text in front can be seen
 section.heroBlock .imageshader {
 	position: absolute;
 	top:0;
@@ -19,12 +28,18 @@ section.heroBlock .imageshader {
 	left:0;
 	background: $themeWhite3;
 }
+// // END IMAGE SHADER ------------------------------------------------
+
+
 
 section.heroBlock .wrapper {
 	@include flexboxSettings041715a;
 	justify-content: center;
 	align-content: center;
 }
+
+// COPY  ------------------------------------------------
+// this is the copy above and in front of the cover image
 
 section.heroBlock .copy {
 	//flex child setting
@@ -44,6 +59,10 @@ section.heroBlock .copy {
 		letter-spacing: 0.4em;
 		font-weight: bold;
 		margin-right: -0.4em;
+
+		@include phoneR {
+			font-size: $basefontsize*4;
+		}
 	}
 
 	p {
@@ -57,6 +76,10 @@ section.heroBlock .copy {
 		@include sectionMargins041515(3%,7%);
 		padding-left: 40%;
 		text-align: right;
+
+		@include phoneR {
+			padding-left: 0;
+		}
 	}
 
 	// styling the link is done below
@@ -67,45 +90,9 @@ section.heroBlock .fillspace {
 	height: 70vh;
 }
 
-// section.heroBlock .copy div {
-// 	background: black;
-// 	text-align: center;
-// 	width: 11.8125em;
-// 	height: 2.4375em;
-
-// 	//flexbox
-// 	@include flexboxSettings041715a;
-
-// 	position: relative;
-// 	z-index: 5;
-
-// 	&::before {
-// 		@include slantSlash042815a1($themeYellow);
-// 	}
-// }
-
-// section.heroBlock .copy a {
-// 	text-transform: uppercase;
-// 	font-size: $basefontsize;
-// 	// background: black;
-// 	background: transparent;
-// 	color: $themeYellow;
-// 	letter-spacing: 0.1em;
-// 	@include scalePadding042815a(10%,2.5%);
-
-// 	position: relative;
-// 	z-index: 5;
-// 	z-index: 10;
-
-// 	// &::before {
-// 	// 	@include slantSlash042815a1($themeYellow);
-// 	// }
-
-// }
-
-section.heroBlock .copy a {
-	//
-}
+////////////////////////////////////////////
+///// 		BUTTON
+///////////////////////////////////////////////
 
 section.heroBlock .copy div {
 	margin:0;
@@ -127,19 +114,59 @@ section.heroBlock .copy div {
 
 	@include transitionEffectAllEaseOut(0.4s);
 
+
+	@include tabletR {
+		width: 9.8125em;
+		height: 2.2375em;
+	}
+
+
 	&:hover {
 		background: white;
 	}
 
+	// activate the hover state for p
 	&:hover > p {
 		background: white;
 		color: black;
 		font-weight: bold;
 	}
 
+	// activate the hover state for the slanted slash AND p when hovering over the div button
+	&:hover > div.slash {
+		// you don't change the colour, you change border colour!
+		// color: black;
+		border: 1px solid black;
+	}
+
+	// SLANTED SLASH  ------------------------------------------------
+	div.slash {
+		@include marginPaddingReset1;
+		
+		// DEFAULT
+		// comment out to disable and style easily
+		// display: none;
+
+		border: 1px solid $themeYellow;
+		background: none;
+		width: 24%;
+		height:0;
+		@include transformRotate(-64deg);
+
+		position: absolute;
+		top: 48%;
+		left: 39%;
+		// set z-index to -5 to put it behind .bar and .extraShader... you still need .extraShader (if you comment .extraShader out the line appears)
+		z-index: -5;
+	}
+
+	// // END SLANTED SLASH ------------------------------------------------
+
 	p {
 		color: $themeYellow;
 		letter-spacing: 0.1em;
+
+		// you need a background to block out the slanted slash behind it and create a bridge effect
 		background: black;
 		// remove the default margin... went back to style.scss and removed margin-bottom from @mixin baseParagraphStyle
 		margin:0;
@@ -154,10 +181,20 @@ section.heroBlock .copy div {
 		// }
 	}
 
-	&::before {
-		@include slantSlash042815a1($themeYellow);
+	// this is the older version use of slanted slash that was too thick
+	// &::before {
+	// 	@include slantSlash042815a1($themeYellow);
 
-	}
+	// }
 }
+
+///////////////////////////////////////////////
+
+// // END COPY ------------------------------------------------
+
+
+
+
+
 
 ///////////////////////////////////////////////

@@ -35,6 +35,11 @@ section.footer {
 	// }
 }
 
+// CHANGE THE COLOUR OF THE SLASH TO BE YELLOW
+section.footer aside.companyLogo .slash {
+	@include companyLogoSlashStyle1($themeYellow);
+}
+
 // NOTE:  The flexbox must go on .wrapper with your current structure
 section.footer .wrapper {
 	//flexbox
@@ -46,7 +51,7 @@ section.footer .wrapper {
 	// each of your flexboxed kids must be changed with flex: 1 auto or similar
 	section.quickLink, section.recentBlogs, section.tags, section.contactinfo {
 		//flex child
-		flex: 1 25%;
+		// flex: 1 25%;
 		// set minimum size to 25%
 		flex: 1 23%;
 		// adapted for margin
@@ -56,13 +61,21 @@ section.footer .wrapper {
 		// TESTING
 		// border: 1px solid yellow;
 		
+		@include iphone6Minus568R {
+			flex: 1 48%;
+		}
+
+		@include phoneR {
+			flex: 1 100%;
+			margin-bottom: 5%;
+		}
 	}
 }
 
 // COMPANY LOGO  ------------------------------------------------
 // use only if you're not setting the margin-top for each section
 section.footer aside.companyLogo {
-	margin-bottom: 11%;
+	margin-bottom: 20%;
 	// border: 1px solid red;
 }
 // // END COMPANY LOGO ------------------------------------------------
@@ -110,6 +123,7 @@ section.recentBlogs {
 	align-items:flex-start;
 
 
+	// PRIMARY ENTRY UNIT
 	aside.blogHeadline {
 		width: 100%;
 		//flexbox
@@ -123,16 +137,39 @@ section.recentBlogs {
 
 	// KEY POINT:  it appears that setting the widths using flex in % is better than using auto in this case
 
+	// LEFT SIDE (PRIMARY ENTRY UNIT) ------------------------------------------------
+	// IMAGE (LEFT)
 	aside.blogHeadline div.image {
 		//flex child
 		flex: 1 0 33.333333333%;
+
+		@include ipadAir1024R {
+			flex: 1 50%;
+		}
+
+		@include tabletR {
+			flex: 1 0 33.333333333%;
+		}
+
+		// @include iphone6Minus568R {
+
+		// }
+
+		@include phoneR {
+			// using flex-basis 0 pulls the text closer to the image
+			// flex: 1 0 0;
+		}
 	}
 
 	aside.blogHeadline a {
 		font-size: $basefontsize*0.8;
 		@include transitionEffectAllEaseOut(0.4s);
 	}
+	// // END LEFT SIDE (PRIMARY ENTRY UNIT) ------------------------------------------------
 
+
+	// RIGHT SIDE (PRIMARY ENTRY UNIT)   ------------------------------------------------
+	// READ MORE BUTTON
 	aside.blogHeadline a.readMore {
 		// comment on/off here
 		// default is display none
@@ -146,11 +183,32 @@ section.recentBlogs {
 		@include transitionEffectAllEaseOut(0.4s);
 	}
 
+	// META (RIGHT)
 	aside.blogHeadline .meta {
 		//flex child
 		flex: 2 0 66.666666667%;
 
 		@include transitionEffectAllEaseOut(0.4s);
+
+		@include ipadAir1024R {
+			flex: 1 50%;
+		}
+
+		@include tabletR {
+			//flex child
+			flex: 2 0 60.666666667%;
+			margin-left: 6%;
+		}
+
+		@include iphone6Plus667R {
+			//flex child
+			flex: 2 47.666667%;
+		}
+
+		@include phoneR {
+			// using flex-basis 0 pulls the text closer to the image
+			flex: 1 60%;
+		}
 
 		h4 {
 			line-height: $baselineheight*1.45;
@@ -168,6 +226,9 @@ section.recentBlogs {
 			display: inline;
 		}
 	}
+	// // END RIGHT SIDE (PRIMARY ENTRY UNIT) ------------------------------------------------
+
+	
 }
 // // END RECENT BLOGS ------------------------------------------------
 
@@ -258,9 +319,9 @@ section.contactinfo aside.socialIcons {
 
 // Twitter feed
 
-section.contactinfo aside.twitterFeed {
-	//
-}
+// section.contactinfo aside.twitterFeed {
+// 	//
+// }
 
 section.contactinfo aside.twitterEntry {
 	//flexbox
@@ -334,6 +395,10 @@ section.copyright {
 section.copyright div.copyright {
 	//flex child
 	flex: 1 50%;
+
+	@include iphone6Minus320R {
+		padding-right: 5%;
+	}
 }
 
 // nav menu

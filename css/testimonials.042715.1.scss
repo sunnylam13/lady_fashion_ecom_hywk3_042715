@@ -25,7 +25,11 @@ section.testimonials {
 	h2 {
 		font-size: $basefontsize*2;
 		letter-spacing: 0.3em;
-		margin-bottom: 0.5%;
+		margin-bottom: 2%;
+
+		@include desktopR {
+			margin-bottom: 3%;
+		}
 	}
 
 	blockquote, cite {
@@ -61,12 +65,18 @@ section.testimonials ul.testimonialList li:nth-of-type(2), section.testimonials 
 	display: none;
 }
 
+// CHANGE THE COLOUR OF THE SLASH TO BE YELLOW
+section.testimonials aside.companyLogo .slash {
+	@include companyLogoSlashStyle1($themeYellow);
+}
+
 // TESTIMONIAL LIST
 section.testimonials ul.testimonialList {
 	margin-top: 5%;
 	margin-bottom: 3.5%;
 }
 
+////////////////////////////////////////////
 // TESTIMONIAL ENTRY
 // located within a ul li element
 section.testimonials section.testimonialEntry {
@@ -83,6 +93,18 @@ section.testimonials section.testimonialEntry {
 
 	position: relative;
 
+	@include iphone6Plus414R {
+		width: 23.6875em;
+	}
+
+	@include iphone6Plus375R {
+		width: 21.6875em;
+	}
+
+	@include iphone6Minus320R {
+		width: 17.6875em;
+	}
+
 	// SLASH  ------------------------------------------------
 	// this modifies the div.slash that's been inserted into various mixin templates
 	// the parent element must contain a div.slash BEFORE the element that will cut through it
@@ -96,6 +118,21 @@ section.testimonials section.testimonialEntry {
 		left: 22%;
 		// set z-index to -5 to put it behind .bar and .extraShader... you still need .extraShader (if you comment .extraShader out the line appears)
 		z-index: -5;
+
+		@include iphone6Plus414R {
+			width: 54%;
+			left: 9%;
+		}
+
+		@include iphone6Plus375R {
+			width: 54%;
+			left: 7%;
+		}
+
+		@include iphone6Minus320R {
+			width: 65%;
+			left:-1%;
+		}
 	}
 	// // END SLASH ------------------------------------------------
 
@@ -167,6 +204,8 @@ section.testimonials section.testimonialEntry {
 	// }
 }
 
+////////////////////////////////////////////
+
 // TESTIMONIAL SELECTOR NAV
 section.testimonials ul.selectorNav {
 	// TESTING
@@ -203,5 +242,7 @@ section.testimonials ul.selectorNav {
 	}
 	
 }
+
+////////////////////////////////////////////
 
 ///////////////////////////////////////////////

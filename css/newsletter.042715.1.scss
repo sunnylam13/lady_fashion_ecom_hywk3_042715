@@ -11,6 +11,10 @@ section.newsletter {
 
 	width: 100%;
 
+	@include iphone6Minus320R {
+		@include sectionPadding041515(6%,6%);
+	}
+
 	// again I should have put the flexbox on .wrapper and not section.newsletter
 	.wrapper {
 		//flexbox
@@ -36,6 +40,7 @@ section.newsletter {
 	}
 }
 
+// FORM  ------------------------------------------------
 section.newsletter form {
 	@include marginPaddingReset1;
 	text-align: center;
@@ -71,6 +76,7 @@ section.newsletter form {
 	// }
 }
 
+// Input
 section.newsletter form input[type='email'] {
 	background: black;
 	margin-top: 4%;
@@ -91,11 +97,21 @@ section.newsletter form input[type='email'] {
 	// for the FA icon
 	// position: relative;
 	
+	@include ipadAir1024R {
+		width: 75%;
+	}
+
+	@include phoneR {
+		width: 95%;
+	}
+
 	&:focus {
 		// @include pulsingBorder($themeYellow);
 		border: 2px solid $themeYellow;
 		// animation: pulsingBorder 5s linearinfinite;
 	}
 }
+// // END FORM ------------------------------------------------
+
 
 ///////////////////////////////////////////////
