@@ -22,20 +22,6 @@ header.navMenu section.banner {
 		display: inline-block;
 		margin:0;
 		padding:0;
-		// flex: 1 auto;
-
-		// &:nth-of-type(1) {
-		// 	flex: 5 75%;
-		// }
-		// &:nth-of-type(2) {
-		// 	flex: 1 12.5%;
-		// }
-		// &:nth-of-type(3) {
-		// 	flex: 1 6.25%;
-		// }
-		// &:nth-of-type(4) {
-		// 	flex: 1 6.25%;
-		// }
 	}
 
 	.wrapper {
@@ -113,19 +99,7 @@ header.navMenu section.banner {
 	.wrapper span.cartCount {
 		color: $themeYellow;
 		position: relative;
-
-		// font awesome icon
-		// &::before {
-		// 	// position: absolute;
-		// 	@include beforeAfterIconPlace042215a(url('../images/cart.png'));
-		// 	font-size: $basefontsize*0.7;
-
-		// 	// flexbox
-		// 	// apply flexbox to centre the icon
-		// 	// @include flexboxColumn1;
-		// }
-		
-		// add a hover state
+		margin-right: 9%;
 	}
 
 	

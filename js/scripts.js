@@ -21,17 +21,19 @@ function enableStickyNav () {
 
 function enableSlideOutShoppingCart () {
 	// when user scrolls to New Arrivals
+	// setting the time to 2 seconds is too slow
+	// you want it immediate, lower the time
 	var waypoints = $('section.newArrivals').waypoint({
 		handler: function(direction) {
 			switch(direction) {
 				case 'up':
-					TweenMax.to($('aside.slideOutShoppingCart'),2,{
+					TweenMax.to($('aside.slideOutShoppingCart'),0.4,{
 							right: '-999999px',
 							ease:Power2.easeInOut
 						});
 					break;
 				case 'down':
-					TweenMax.to($('aside.slideOutShoppingCart'),2,{
+					TweenMax.to($('aside.slideOutShoppingCart'),0.4,{
 							right: 0,
 							ease: Power2.easeInOut
 						});
@@ -48,10 +50,10 @@ function disableSlideOutShoppingCart () {
 		handler: function(direction) {
 			switch(direction) {
 				case 'up':
-					TweenMax.to($('aside.slideOutShoppingCart'),2,{right:0,ease:Power2.easeInOut});
+					TweenMax.to($('aside.slideOutShoppingCart'),0.4,{right:0,ease:Power2.easeInOut});
 					break;
 				case 'down':
-					TweenMax.to($('aside.slideOutShoppingCart'),2,{right:'-99999px',ease:Power2.easeInOut});
+					TweenMax.to($('aside.slideOutShoppingCart'),0.4,{right:'-99999px',ease:Power2.easeInOut});
 					break;
 			}
 		}
@@ -73,16 +75,11 @@ function makeProductsDrag2 () {
 		'.collectionUnit'
 	];
 
-	// var animateSections1 = [
-	// 	'div.wardrobeDrag',
-	// 	'div.specialDressDrag',
-	// 	'section.collectionUnit'
-	// ];
-
 	for (var i = 0; i < animateSections1.length; i++) {
 		$(animateSections1[i]).draggable({
 			helper: 'clone',
 			opacity: 0.7,
+			containment: "body",
 			start: function (event,ui) {
 				// don't forget to pass event, ui as args or you get undefined				
 				if (animateSections1[i]='div.specialDressDrag') {
@@ -151,6 +148,51 @@ function makeProductsDrag2 () {
 	});
 }
 
+function shopCartCount1 () {
+	// whenever someone clicks on those Add to Cart buttons, update the counter 
+	// later on we can add functionality to remove cart items
+	
+	// declare count variable
+	var shopCartItems=0;
+
+	// the buttons to target
+	var buttonObjArray = [
+		$('div.purchaseShader a.button'),
+		$('div.addToCartButton a.button')
+	];
+
+	// use a for loop to iterate through the array, select the object and set a click event handler on each
+	for (var i = 0; i < buttonObjArray.length; i++) {
+		// setup the click function on all of the a elements so they will update the shop cart count variable
+		buttonObjArray[i].each(function(index, val) {
+			$(this).click(function(event) {
+				event.preventDefault();
+				console.log("I've been clicked!");
+				shopCartItems+=1;
+				console.log('The number of items in the shopping cart is %s',shopCartItems);
+
+				// or use a handler function to automatically update the DOM for the shopping cart display
+				// this needs to happen each time the button is clicked
+				updateShopCartDisplayValue1(shopCartItems);
+			});
+		});
+	}
+
+	
+
+	// return the value of the shopCartItems for later use or updating span values
+	// return shopCartItems;
+	
+}
+
+function updateShopCartDisplayValue1 (shopCartItems) {
+	// find the banner shopping cart and change its value in the DOM
+	$('section.banner span.cartCount').text(shopCartItems);
+
+	// find the slide out shopping cart and change its value in the DOM
+	$('aside.slideOutShoppingCart span.shopCartCount').text(shopCartItems);
+}
+
 //////////////////////////////////////////////////
 // EXECUTION CODE
 
@@ -158,6 +200,8 @@ enableStickyNav();
 enableSlideOutShoppingCart();
 disableSlideOutShoppingCart();
 makeProductsDrag2();
+
+shopCartCount1();
 
 //////////////////////////////////////////////////
 

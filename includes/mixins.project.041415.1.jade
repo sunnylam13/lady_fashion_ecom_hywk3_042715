@@ -13,14 +13,31 @@
 //- the slide out shopping cart should appear when the user scrolls down to the products and disappear once it leaves the product section
 
 mixin slideOutShoppingCart1
+	//- aside.slideOutShoppingCart
+	//- 	span.fa.fa-shopping-cart
+	//- 		//- slanted slash... to follow site style
+	//- 		div.slash
+	//- 			//- where the div.slash is used to create the slash that goes behind the icon... you'll need to give the font-awesome icon a background to obscure it?
+			
+	//- 		//- use to display the number of cart items
+	//- 		//- the number should only appear when Javascript inserts it... any numbers below are test numbers
+	//- 		//- span.shopCartCount 0
+	//- 		//- span.shopCartCount
+	//- 		div.shopCartField
+	//- 			span.shopCartCount 0
+
 	aside.slideOutShoppingCart
 		span.fa.fa-shopping-cart
 			//- slanted slash... to follow site style
 			div.slash
 				//- where the div.slash is used to create the slash that goes behind the icon... you'll need to give the font-awesome icon a background to obscure it?
+		div.frame
 			//- use to display the number of cart items
 			//- the number should only appear when Javascript inserts it... any numbers below are test numbers
-			span.shopCartCount 0
+			//- span.shopCartCount 0
+			//- span.shopCartCount
+			//- div.shopCartField
+			span.shopCartCount
 
 //- END SLIDE OUT SHOPPING CART
 
@@ -69,7 +86,8 @@ mixin banner1
 				img(src="./images/cart.png", alt="cart")
 				//- p 1 Items
 				a(href="#")
-					span.cartCount 1 
+					//- span.cartCount 1
+					span.cartCount 0
 					| Items
 			div
 				p $35
@@ -165,12 +183,6 @@ mixin addToCartButton1
 	if block
 		block
 	else
-		//- div.addToCartButton
-		//- 	a(href='#').button
-		//- 		div.button
-		//- 			//- the div will hold the before element
-		//- 			p.text Add to Cart
-
 		div.addToCartButton
 			a(href='javascript:void(0)').button
 				div.button
