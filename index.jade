@@ -156,19 +156,27 @@ block content
 					
 				// END LEFT ------------------------------------------------
 				
-				
+				//- it appears that certain classes have already been used from the left side (i.e. top,bottom,left,right) so unique names need to be assigned
 				// RIGHT  ------------------------------------------------
 				div.right
 					// RIGHT TOP  ------------------------------------------------
 					div.top
-						div.left.wardrobeDrag
+						//- div.left.wardrobeDrag
+						//- 	+purchaseShader1
+						//- div.right.wardrobeDrag
+						//- 	+purchaseShader1
+						div.left.specialDressDrag
 							+purchaseShader1
-						div.right.wardrobeDrag
+						div.right.specialDressDrag
 							+purchaseShader1
+						//- section.left.specialDressDrag
+						//- 	+purchaseShader1
+						//- section.right.specialDressDrag
+						//- 	+purchaseShader1
 					// END RIGHT TOP ------------------------------------------------
 					
 					// RIGHT BOTTOM  ------------------------------------------------
-					div.bottom.wardrobeDrag
+					div.bottom
 						//- div.left.wardrobeDrag.specialDressDrag
 						//- 	//- dimensions 420x420px
 						//- 	div.top
@@ -261,13 +269,22 @@ block content
 
 			// TESTIMONIALS  ------------------------------------------------
 			// use either a jQuery slider plugin or custom code it
+			//- ul.testimonialList
+			//- 	li
+			//- 		+testimonialEntry1('Kyle James','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad quidem repudiandae, sequi ea delectus ut.')
+			//- 	li
+			//- 		+testimonialEntry1('Mary Jane','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad quidem repudiandae, sequi ea delectus ut.')
+			//- 	li
+			//- 		+testimonialEntry1('Peter Parker','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad quidem repudiandae, sequi ea delectus ut.')
+
 			ul.testimonialList
-				li
-					+testimonialEntry1('Kyle James','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad quidem repudiandae, sequi ea delectus ut.')
-				li
-					+testimonialEntry1('Mary Jane','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad quidem repudiandae, sequi ea delectus ut.')
-				li
-					+testimonialEntry1('Peter Parker','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad quidem repudiandae, sequi ea delectus ut.')
+				li#testimonial1
+					+testimonialEntry1('Kyle James','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad quidem repudiandae, sequi ea delectus ut.','testimonial1')
+				li#testimonial2
+					+testimonialEntry1('Mary Jane','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad quidem repudiandae, sequi ea delectus ut.','testimonial2')
+				li#testimonial3
+					+testimonialEntry1('Peter Parker','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad quidem repudiandae, sequi ea delectus ut.','testimonial3')
+
 			// END TESTIMONIALS ------------------------------------------------
 			
 			

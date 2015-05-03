@@ -3,6 +3,8 @@ jQuery(document).ready(function($) {
 //////////////////////////////////////////////////
 // GLOBAL VARIABLES
 
+// declare count variable
+var shopCartItems=0;
 
 //////////////////////////////////////////////////
 // FUNCTIONS
@@ -132,12 +134,22 @@ function makeProductsDrag2 () {
 		drop: function(event, ui) {
 			var x = $(this).position().left;
 			var y = $(this).position().top;
-			TweenMax.to(ui.draggable, 0.4, {
-				left: x, 
-				top: y 
-			});
+
+			// TweenMax.to(ui.draggable, 0.4, {
+			// 	left: x, 
+			// 	top: y 
+			// });
+			
+			// fold up the dragged object and make it disappear
+			ui.helper.hide("fold");
+
+			// increase the shopping cart count
+			shopCartItems+=1;
+			updateShopCartDisplayValue1(shopCartItems);
+
 			console.log('Product added to cart!');
 			
+			// animations
 			tm.to($('aside.slideOutShoppingCart'),0.25,{
 				border:'5px solid black',
 				ease:Power1.easeIn
@@ -153,7 +165,7 @@ function shopCartCount1 () {
 	// later on we can add functionality to remove cart items
 	
 	// declare count variable
-	var shopCartItems=0;
+	// var shopCartItems=0;
 
 	// the buttons to target
 	var buttonObjArray = [
@@ -193,6 +205,87 @@ function updateShopCartDisplayValue1 (shopCartItems) {
 	$('aside.slideOutShoppingCart span.shopCartCount').text(shopCartItems);
 }
 
+function testimonySlider1 () {
+
+	// to make this function work well or at all you need to give your li elements unique IDs that are numbered and can be tied directly to the numbering of the slider nav...
+	// you use the index() method to return the position of the li that was clicked (i.e. $(this) element clicked) and that helps you acquire the targeting on corresponding ID#
+
+	// NOTE:  since I put display: none on the li that holds the section.testimonialEntry I have to target the li and not the section if I want the element to appear again... it's also easier because it's not an object
+	// store references to the testimonial objects
+	// var $testimonyRef = $('ul.testimonialList li');
+	// use a version with only the parent and use find
+	// doesn't work, it's undefined
+	// var $testimonyRef = $('ul.testimonialList');
+	var $testimonyRef = $('ul.testimonialList');
+	var $testimonyNav = $('ul.selectorNav li');
+
+	// console.log('The testimony reference entries are: %s',$testimonyRef);
+	// console.log('The testimony nav buttons are: %s',$testimonyNav);
+
+	$testimonyNav.each(function(index, val) {
+		$(this).click(function(event) {
+			var $target = $(this);
+
+			// get this item's index value so we can match it to the correct li element to target for the testimonial list
+			var navClickIndex = $testimonyNav.index($(this));
+			console.log('Array index position of the nav button clicked %s',navClickIndex);
+
+			// since the nth-of-type counts its immediate parent as n=0 you must increase you click index by 1
+			// var $liToTarget = 'ul.testimonialList' + ' ' + 'li:nth-of-type(' + (navClickIndex+1) + ')';
+			// console.log('The li to target is %s',$liToTarget);
+			// since arrays start numbering at 0 we must add one to match my 1,2,3 naming
+			var $liToTarget = '#testimonial' + (navClickIndex+1);
+			// console.log('The li to target is %s',$liToTarget);
+
+
+			// console.log('The nav button clicked was %s',$target);
+			// console.log('I was clicked!');
+			// console.log($testimonyRef);
+			
+			// when this slider nav button is clicked, change its background to yellow
+			$target.css('background', '#FBF200');
+
+			// make this one's testimonial list entry appear
+			$(this).parents('section.testimonials').find($liToTarget).css('display','flex');
+
+			// change all the other buttons to white
+			// cycle through the DOM elements
+			$testimonyNav.each(function(i, v) {
+				// if the number doesn't match the recorded click index that means it's not the button we pressed so change its colour
+				if (i != navClickIndex) {
+					$(this).css('background', 'white');
+
+					// go up to the highest parent for this section, find the li to target and change its display value
+					// $(this).parents('section.testimonials').find($liToTarget).css({
+					// 	'display': 'none',
+					// });
+					// $(this).parents('section.testimonials').find($liToTarget).css('display','none');
+					// $(this).parents('section.testimonials').find($liToTarget).css('display','none');
+					// since arrays start numbering at 0 we must add one to match my 1,2,3 naming
+					var $liToTarget = '#testimonial'+(i+1);
+					$(this).parents('section.testimonials').find($liToTarget).css('display','none');
+
+				} else {
+					// break out of the loop if it is equal because it's the one that was pressed
+					return;
+					
+					// go up to the highest parent for this section, find the li to target and change its display value
+					// $(this).parents('section.testimonials').find($liToTarget).css({
+					// 	'display': 'flex',
+					// });
+					// $(this).parents('section.testimonials').find($liToTarget).css('display','flex');
+					
+				}
+			});
+
+			// TESTIMONIAL LIST  ------------------------------------------------
+			
+			
+			// // END TESTIMONIAL LIST ------------------------------------------------
+		});
+	});
+}
+
 //////////////////////////////////////////////////
 // EXECUTION CODE
 
@@ -202,6 +295,7 @@ disableSlideOutShoppingCart();
 makeProductsDrag2();
 
 shopCartCount1();
+testimonySlider1();
 
 //////////////////////////////////////////////////
 

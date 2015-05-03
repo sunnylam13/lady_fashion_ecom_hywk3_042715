@@ -198,9 +198,9 @@ mixin addToCartButton1
 //- 		TESTIMONIALS
 //- ===================================
 
-mixin testimonialEntry1(name,quoteText)
+mixin testimonialEntry1(name,quoteText,uniqueID)
 	//- size 539x133px
-	section.testimonialEntry
+	section(class=uniqueID).testimonialEntry
 		.entryText
 			// for the slanted slash
 			div.slash

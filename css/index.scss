@@ -587,6 +587,13 @@ section.newArrivals {
 			@include purchaseShaderDisplay1;
 		}
 
+		// div.top section.left, div.top section.right {
+		// 	@include transitionEffectAllEaseOut(0.4s);
+
+		// 	// enable hover to show the purchase shader and Add to Cart button
+		// 	@include purchaseShaderDisplay1;
+		// }
+
 		// RIGHT TOP LEFT
 		div.top div.left {
 			// apply margin, padding reset
@@ -604,6 +611,22 @@ section.newArrivals {
 			@include backgroundImage1('../images/products/image5.jpg');
 		}
 
+		// div.top section.left {
+		// 	// apply margin, padding reset
+		// 	margin: 0;
+		// 	padding: 0;
+
+		// 	// flex child
+		// 	flex: 1 50%;
+		// 	// margin: auto;
+
+		// 	// TESTING
+		// 	// border: 1px double aqua;
+		// 	height: 13.25em;
+
+		// 	@include backgroundImage1('../images/products/image5.jpg');
+		// }
+
 		// RIGHT TOP RIGHT
 		div.top div.right {
 			// apply margin, padding reset
@@ -619,6 +642,21 @@ section.newArrivals {
 
 			@include backgroundImage1('../images/products/image2.jpg');
 		}
+
+		// div.top section.right {
+		// 	// apply margin, padding reset
+		// 	margin: 0;
+		// 	padding: 0;
+
+		// 	// flex child
+		// 	flex: 1 50%;
+		// 	// margin: auto;
+
+		// 	// border: 1px ridge blue;
+		// 	height: 13.25em;
+
+		// 	@include backgroundImage1('../images/products/image2.jpg');
+		// }
 		// // END RIGHT TOP ------------------------------------------------
 		
 
@@ -1031,6 +1069,11 @@ section.testimonials {
 	}
 
 }
+
+// section.testimonials ul.testimonialList li {
+// 	width: auto;
+// 	height: auto;
+// }
 
 // we want the other testimonials to not appear
 // we will write jQuery to select the other testimonials
