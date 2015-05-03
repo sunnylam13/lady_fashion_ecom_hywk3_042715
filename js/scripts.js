@@ -236,7 +236,8 @@ function testimonySlider1 () {
 
 			// make this one's testimonial list entry appear
 			// $(this).parents('section.testimonials').find($liToTarget).css('display','flex');
-			myAnimation = TweenMax.to($target.parents('section.testimonials').find($liToTarget),0.8,{display:'flex', opacity: 1, scaleX: 1.3, scaleY: 1.3, transformPerspective: 300, ease:Power2.easeIn, overwrite:'all'});
+			// myAnimation = TweenMax.to($target.parents('section.testimonials').find($liToTarget),0.8,{display:'flex', opacity: 1, scaleX: 1.3, scaleY: 1.3, transformPerspective: 300, ease:Power2.easeIn, overwrite:'all'});
+			myAnimation = TweenMax.to($target.parents('section.testimonials').find($liToTarget),0.8,{display:'flex', opacity: 1, ease:Power2.easeIn, overwrite:'all'});
 
 			// change all the other buttons to white
 			// cycle through the DOM elements
@@ -251,8 +252,7 @@ function testimonySlider1 () {
 
 					// $(this).parents('section.testimonials').find($liToTarget).css('display','none');
 
-					TweenMax.to($(this).parents('section.testimonials').find($liToTarget),0.8,{display:'none', opacity:0, ease:Power2.easeIn, overwrite:'all'});
-
+					TweenMax.to($(this).parents('section.testimonials').find($liToTarget),0.1,{display:'none', opacity:0, ease:Power2.easeIn, overwrite:'all'});
 				} else {
 					// break out of the loop if it is equal because it's the one that was pressed
 					return;					
@@ -263,45 +263,9 @@ function testimonySlider1 () {
 		$(this).on('mouseout', function(event) {
 			event.preventDefault();
 			// myAnimation.reverse();
-			TweenMax.to($target.parents('section.testimonials').find($liToTarget),0.8,{display:'flex', opacity: 1, scaleX: 1, scaleY: 1, transformPerspective: 300, ease:Power2.easeIn, overwrite:'all'});
+			// TweenMax.to($target.parents('section.testimonials').find($liToTarget),0.8,{display:'flex', opacity: 1, scaleX: 1, scaleY: 1, transformPerspective: 300, ease:Power2.easeIn, overwrite:'all'});
+			TweenMax.to($target.parents('section.testimonials').find($liToTarget),0.8,{display:'flex', opacity: 1, ease:Power2.easeIn, overwrite:'all'});
 		});
-
-		// $(this).click(function(event) {
-		// 	var $target = $(this);
-
-		// 	// get this item's index value so we can match it to the correct li element to target for the testimonial list
-		// 	// use the array.index() method which returns the matched element's position
-		// 	var navClickIndex = $testimonyNav.index($(this));
-		// 	console.log('Array index position of the nav button clicked %s',navClickIndex);
-
-		// 	// since arrays start numbering at 0 we must add one to match my 1,2,3 naming
-		// 	var $liToTarget = '#testimonial' + (navClickIndex+1);
-
-		// 	// when this slider nav button is clicked, change its background to yellow
-		// 	$target.css('background', '#FBF200');
-
-		// 	// make this one's testimonial list entry appear
-		// 	// $(this).parents('section.testimonials').find($liToTarget).css('display','flex');
-		// 	TweenMax.to($(this).parents('section.testimonials').find($liToTarget),0.8,{display:'flex', scaleX: 1.3, scaleY: 1.3, transformPerspective: 300, ease:Power2.easeIn});
-
-		// 	// change all the other buttons to white
-		// 	// cycle through the DOM elements
-		// 	$testimonyNav.each(function(i, v) {
-		// 		// if the number doesn't match the recorded click index that means it's not the button we pressed so change its colour
-		// 		if (i != navClickIndex) {
-		// 			$(this).css('background', 'white');
-
-		// 			// go up to the highest parent for this section, find the li to target and change its display value
-		// 			// since arrays start numbering at 0 we must add one to match my 1,2,3 naming
-		// 			var $liToTarget = '#testimonial'+(i+1);
-		// 			$(this).parents('section.testimonials').find($liToTarget).css('display','none');
-
-		// 		} else {
-		// 			// break out of the loop if it is equal because it's the one that was pressed
-		// 			return;					
-		// 		}
-		// 	});
-		// });
 	});
 }
 
