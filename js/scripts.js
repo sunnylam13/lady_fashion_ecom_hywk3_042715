@@ -6,8 +6,33 @@ jQuery(document).ready(function($) {
 // declare count variable
 var shopCartItems=0;
 
+// create featured items using the constructor like featuredItemConstruct1
+var abstract_dooted_dress = new featuredItemConstruct1('Abstract Dooted Dress','$21.5','http://lorempixel.com/51/86','Lorem Placeholder');
+var flair_trap_dress = new featuredItemConstruct1('Flair Trap Dress','$22.5','http://lorempixel.com/51/86','Lorem Placeholder');
+var chipon_floral_dress = new featuredItemConstruct1('Chipon & Floral Dress','$23.5','http://lorempixel.com/51/86','Lorem Placeholder');
+var teen_dress = new featuredItemConstruct1('Teenager Dress','$22.5','http://lorempixel.com/51/86','Lorem Placeholder');
+var warm_dress = new featuredItemConstruct1('Warm Dress','$21.5','http://lorempixel.com/51/86','Lorem Placeholder');
+var dotted_mosaic_dress = new featuredItemConstruct1('Dotted Mosaic Dress','$21.5','http://lorempixel.com/51/86','Lorem Placeholder');
+
+// create featured items array
+// this allows us to create a random number setup
+var featuredItemsArray1 = [abstract_dooted_dress,flair_trap_dress,chipon_floral_dress,teen_dress,warm_dress,dotted_mosaic_dress];
+
 //////////////////////////////////////////////////
 // FUNCTIONS
+
+// featured item constructor
+function featuredItemConstruct1 (heading,priceVal,imgSrc,altText) {
+	this.heading = heading;
+	this.priceVal = priceVal;
+	this.imgSrc = imgSrc;
+	this.altText = altText;
+}
+
+function getRandom (num) {
+	var my_num = Math.floor(Math.random()*num);
+	return my_num;
+}
 
 function enableStickyNav () {
 	// set the primary nav z-index so it's above everything else
@@ -252,7 +277,8 @@ function testimonySlider1 () {
 
 					// $(this).parents('section.testimonials').find($liToTarget).css('display','none');
 
-					TweenMax.to($(this).parents('section.testimonials').find($liToTarget),0.1,{display:'none', opacity:0, ease:Power2.easeIn, overwrite:'all'});
+					// setting the time to 0 instead of 0.1 or 0.4 means there isn't enough time for the previous element to remain, forcing the new one below it and causing a spatial stutter effect... the switch and then fade in later becomes near instant
+					TweenMax.to($(this).parents('section.testimonials').find($liToTarget),0,{display:'none', opacity:0, ease:Power2.easeIn, overwrite:'all'});
 				} else {
 					// break out of the loop if it is equal because it's the one that was pressed
 					return;					
@@ -260,11 +286,106 @@ function testimonySlider1 () {
 			});
 		});
 
-		$(this).on('mouseout', function(event) {
-			event.preventDefault();
-			// myAnimation.reverse();
-			// TweenMax.to($target.parents('section.testimonials').find($liToTarget),0.8,{display:'flex', opacity: 1, scaleX: 1, scaleY: 1, transformPerspective: 300, ease:Power2.easeIn, overwrite:'all'});
-			TweenMax.to($target.parents('section.testimonials').find($liToTarget),0.8,{display:'flex', opacity: 1, ease:Power2.easeIn, overwrite:'all'});
+		// $(this).on('mouseout', function(event) {
+		// 	event.preventDefault();
+		// 	// myAnimation.reverse();
+		// 	// TweenMax.to($target.parents('section.testimonials').find($liToTarget),0.8,{display:'flex', opacity: 1, scaleX: 1, scaleY: 1, transformPerspective: 300, ease:Power2.easeIn, overwrite:'all'});
+		// 	TweenMax.to($target.parents('section.testimonials').find($liToTarget),0.8,{display:'flex', opacity: 1, ease:Power2.easeIn, overwrite:'all'});
+		// });
+	});
+}
+
+function featuredItemsSwitcher1 () {
+	// when one of the navigation buttons is pressed we change the 3 selection entries to be something entirely different
+	// first we must target each entry in sequence
+	// we go into its children elements and change the correct headings and what not
+	
+	// when we click one of the navigation buttons
+	$('section.featureEntry nav span.fa').on('click', function(event) {
+		event.preventDefault();
+
+		var $clicked = $(this);
+
+		// go to the top most parent of the "this" clicked button
+		// locate all of the section.selectEntry items and gather these into an object filled array
+		var $selectEntriesArray1 = $clicked.parents('section.featureEntry').find('section.selectEntry');
+
+		// for each element with the selected entries object you will change these values...
+		$selectEntriesArray1.each(function(index, val) {
+			// store a reference to the current selection entry "jQuery" object you will be surgically changing
+			var $selectEntryTarget = $(this);
+
+			// pick a random number between 0 and n (the length of the featuredItemsArray1 array)
+			var randomNum = getRandom(featuredItemsArray1.length);
+			// using that random number select the correct featured item you will take data from, the stored result will be an object
+			var featuredItemSelected1 = featuredItemsArray1[randomNum];
+
+			// since this is a jQuery object you alter it with jQuery methods
+			// change the image
+			$selectEntryTarget.find('div.image img').css({
+				src: featuredItemSelected1.imgSrc,
+				alt: featuredItemSelected1.altText
+			});
+			// change the heading
+			$selectEntryTarget.find('.meta h3').text(featuredItemSelected1.heading);
+			// change the price
+			$selectEntryTarget.find('.meta p.price').text(featuredItemSelected1.priceVal);
+		});
+	});
+}
+
+function featuredItemsSwitcher2 () {
+	// this version uses TweenMax animations
+
+	// when one of the navigation buttons is pressed we change the 3 selection entries to be something entirely different
+	// first we must target each entry in sequence
+	// we go into its children elements and change the correct headings and what not
+	
+	// when we click one of the navigation buttons
+	$('section.featureEntry nav span.fa').on('click', function(event) {
+		event.preventDefault();
+
+		var $clicked = $(this);
+
+		// go to the top most parent of the "this" clicked button
+		// locate all of the section.selectEntry items and gather these into an object filled array
+		var $selectEntriesArray1 = $clicked.parents('section.featureEntry').find('section.selectEntry');
+
+		// for each element with the selected entries object you will change these values...
+		$selectEntriesArray1.each(function(index, val) {
+			// store a reference to the current selection entry "jQuery" object you will be surgically changing
+			var $selectEntryTarget = $(this);
+			var $selectEntryParent = $(this).parents('section.featureEntry');
+
+			// pick a random number between 0 and n (the length of the featuredItemsArray1 array)
+			var randomNum = getRandom(featuredItemsArray1.length);
+			// using that random number select the correct featured item you will take data from, the stored result will be an object
+			var featuredItemSelected1 = featuredItemsArray1[randomNum];
+
+			// since this is a jQuery object you alter it with jQuery methods
+			
+			// make the entire entry fade away
+			TweenMax.to($selectEntryParent,0.3,{
+				opacity: 0, 
+				ease:Power2.easeIn
+			});
+			
+			// WHILE entry is invisible
+			// change the image src and alt
+			$selectEntryTarget.find('div.image img').css({
+				src: featuredItemSelected1.imgSrc,
+				alt: featuredItemSelected1.altText
+			});
+			// change the heading
+			$selectEntryTarget.find('.meta h3').text(featuredItemSelected1.heading);
+			// change the price
+			$selectEntryTarget.find('.meta p.price').text(featuredItemSelected1.priceVal);
+
+			// make the entire entry re-appear
+			TweenMax.to($selectEntryParent,1,{
+				opacity: 1, 
+				ease:Power2.easeIn
+			});
 		});
 	});
 }
@@ -279,6 +400,8 @@ makeProductsDrag2();
 
 shopCartCount1();
 testimonySlider1();
+// featuredItemsSwitcher1();
+featuredItemsSwitcher2();
 
 //////////////////////////////////////////////////
 
