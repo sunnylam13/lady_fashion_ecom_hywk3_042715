@@ -236,7 +236,7 @@ function testimonySlider1 () {
 
 			// make this one's testimonial list entry appear
 			// $(this).parents('section.testimonials').find($liToTarget).css('display','flex');
-			myAnimation = TweenMax.to($target.parents('section.testimonials').find($liToTarget),0.8,{display:'flex', scaleX: 1.3, scaleY: 1.3, transformPerspective: 300, ease:Power2.easeIn});
+			myAnimation = TweenMax.to($target.parents('section.testimonials').find($liToTarget),0.8,{display:'flex', opacity: 1, scaleX: 1.3, scaleY: 1.3, transformPerspective: 300, ease:Power2.easeIn, overwrite:'all'});
 
 			// change all the other buttons to white
 			// cycle through the DOM elements
@@ -248,7 +248,10 @@ function testimonySlider1 () {
 					// go up to the highest parent for this section, find the li to target and change its display value
 					// since arrays start numbering at 0 we must add one to match my 1,2,3 naming
 					var $liToTarget = '#testimonial'+(i+1);
-					$(this).parents('section.testimonials').find($liToTarget).css('display','none');
+
+					// $(this).parents('section.testimonials').find($liToTarget).css('display','none');
+
+					TweenMax.to($(this).parents('section.testimonials').find($liToTarget),0.8,{display:'none', opacity:0, ease:Power2.easeIn, overwrite:'all'});
 
 				} else {
 					// break out of the loop if it is equal because it's the one that was pressed
@@ -260,7 +263,7 @@ function testimonySlider1 () {
 		$(this).on('mouseout', function(event) {
 			event.preventDefault();
 			// myAnimation.reverse();
-			TweenMax.to($target.parents('section.testimonials').find($liToTarget),0.8,{display:'flex', scaleX: 1, scaleY: 1, transformPerspective: 300, ease:Power2.easeIn});
+			TweenMax.to($target.parents('section.testimonials').find($liToTarget),0.8,{display:'flex', opacity: 1, scaleX: 1, scaleY: 1, transformPerspective: 300, ease:Power2.easeIn, overwrite:'all'});
 		});
 
 		// $(this).click(function(event) {
