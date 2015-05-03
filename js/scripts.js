@@ -210,43 +210,33 @@ function testimonySlider1 () {
 	// to make this function work well or at all you need to give your li elements unique IDs that are numbered and can be tied directly to the numbering of the slider nav...
 	// you use the index() method to return the position of the li that was clicked (i.e. $(this) element clicked) and that helps you acquire the targeting on corresponding ID#
 
-	// NOTE:  since I put display: none on the li that holds the section.testimonialEntry I have to target the li and not the section if I want the element to appear again... it's also easier because it's not an object
-	// store references to the testimonial objects
-	// var $testimonyRef = $('ul.testimonialList li');
-	// use a version with only the parent and use find
-	// doesn't work, it's undefined
-	// var $testimonyRef = $('ul.testimonialList');
 	var $testimonyRef = $('ul.testimonialList');
 	var $testimonyNav = $('ul.selectorNav li');
-
-	// console.log('The testimony reference entries are: %s',$testimonyRef);
-	// console.log('The testimony nav buttons are: %s',$testimonyNav);
+	var $target;
+	var myAnimation;
+	var navClickIndex;
+	var $liToTarget
 
 	$testimonyNav.each(function(index, val) {
-		$(this).click(function(event) {
-			var $target = $(this);
+
+		$(this).on('click', function(event) {
+			event.preventDefault();
+			$target = $(this);
 
 			// get this item's index value so we can match it to the correct li element to target for the testimonial list
-			var navClickIndex = $testimonyNav.index($(this));
+			// use the array.index() method which returns the matched element's position
+			navClickIndex = $testimonyNav.index($(this));
 			console.log('Array index position of the nav button clicked %s',navClickIndex);
 
-			// since the nth-of-type counts its immediate parent as n=0 you must increase you click index by 1
-			// var $liToTarget = 'ul.testimonialList' + ' ' + 'li:nth-of-type(' + (navClickIndex+1) + ')';
-			// console.log('The li to target is %s',$liToTarget);
 			// since arrays start numbering at 0 we must add one to match my 1,2,3 naming
-			var $liToTarget = '#testimonial' + (navClickIndex+1);
-			// console.log('The li to target is %s',$liToTarget);
+			$liToTarget = '#testimonial' + (navClickIndex+1);
 
-
-			// console.log('The nav button clicked was %s',$target);
-			// console.log('I was clicked!');
-			// console.log($testimonyRef);
-			
 			// when this slider nav button is clicked, change its background to yellow
 			$target.css('background', '#FBF200');
 
 			// make this one's testimonial list entry appear
-			$(this).parents('section.testimonials').find($liToTarget).css('display','flex');
+			// $(this).parents('section.testimonials').find($liToTarget).css('display','flex');
+			myAnimation = TweenMax.to($target.parents('section.testimonials').find($liToTarget),0.8,{display:'flex', scaleX: 1.3, scaleY: 1.3, transformPerspective: 300, ease:Power2.easeIn});
 
 			// change all the other buttons to white
 			// cycle through the DOM elements
@@ -256,33 +246,59 @@ function testimonySlider1 () {
 					$(this).css('background', 'white');
 
 					// go up to the highest parent for this section, find the li to target and change its display value
-					// $(this).parents('section.testimonials').find($liToTarget).css({
-					// 	'display': 'none',
-					// });
-					// $(this).parents('section.testimonials').find($liToTarget).css('display','none');
-					// $(this).parents('section.testimonials').find($liToTarget).css('display','none');
 					// since arrays start numbering at 0 we must add one to match my 1,2,3 naming
 					var $liToTarget = '#testimonial'+(i+1);
 					$(this).parents('section.testimonials').find($liToTarget).css('display','none');
 
 				} else {
 					// break out of the loop if it is equal because it's the one that was pressed
-					return;
-					
-					// go up to the highest parent for this section, find the li to target and change its display value
-					// $(this).parents('section.testimonials').find($liToTarget).css({
-					// 	'display': 'flex',
-					// });
-					// $(this).parents('section.testimonials').find($liToTarget).css('display','flex');
-					
+					return;					
 				}
 			});
-
-			// TESTIMONIAL LIST  ------------------------------------------------
-			
-			
-			// // END TESTIMONIAL LIST ------------------------------------------------
 		});
+
+		$(this).on('mouseout', function(event) {
+			event.preventDefault();
+			// myAnimation.reverse();
+			TweenMax.to($target.parents('section.testimonials').find($liToTarget),0.8,{display:'flex', scaleX: 1, scaleY: 1, transformPerspective: 300, ease:Power2.easeIn});
+		});
+
+		// $(this).click(function(event) {
+		// 	var $target = $(this);
+
+		// 	// get this item's index value so we can match it to the correct li element to target for the testimonial list
+		// 	// use the array.index() method which returns the matched element's position
+		// 	var navClickIndex = $testimonyNav.index($(this));
+		// 	console.log('Array index position of the nav button clicked %s',navClickIndex);
+
+		// 	// since arrays start numbering at 0 we must add one to match my 1,2,3 naming
+		// 	var $liToTarget = '#testimonial' + (navClickIndex+1);
+
+		// 	// when this slider nav button is clicked, change its background to yellow
+		// 	$target.css('background', '#FBF200');
+
+		// 	// make this one's testimonial list entry appear
+		// 	// $(this).parents('section.testimonials').find($liToTarget).css('display','flex');
+		// 	TweenMax.to($(this).parents('section.testimonials').find($liToTarget),0.8,{display:'flex', scaleX: 1.3, scaleY: 1.3, transformPerspective: 300, ease:Power2.easeIn});
+
+		// 	// change all the other buttons to white
+		// 	// cycle through the DOM elements
+		// 	$testimonyNav.each(function(i, v) {
+		// 		// if the number doesn't match the recorded click index that means it's not the button we pressed so change its colour
+		// 		if (i != navClickIndex) {
+		// 			$(this).css('background', 'white');
+
+		// 			// go up to the highest parent for this section, find the li to target and change its display value
+		// 			// since arrays start numbering at 0 we must add one to match my 1,2,3 naming
+		// 			var $liToTarget = '#testimonial'+(i+1);
+		// 			$(this).parents('section.testimonials').find($liToTarget).css('display','none');
+
+		// 		} else {
+		// 			// break out of the loop if it is equal because it's the one that was pressed
+		// 			return;					
+		// 		}
+		// 	});
+		// });
 	});
 }
 
