@@ -260,6 +260,71 @@ function testimonySlider1 () {
 			$target.css('background', '#FBF200');
 
 			// make this one's testimonial list entry appear
+			$(this).parents('section.testimonials').find($liToTarget).css('display','flex');
+			// myAnimation = TweenMax.to($target.parents('section.testimonials').find($liToTarget),0.8,{display:'flex', opacity: 1, scaleX: 1.3, scaleY: 1.3, transformPerspective: 300, ease:Power2.easeIn, overwrite:'all'});
+			// myAnimation = TweenMax.to($target.parents('section.testimonials').find($liToTarget),0.8,{display:'flex', opacity: 1, ease:Power2.easeIn, overwrite:'all'});
+
+			// change all the other buttons to white
+			// cycle through the DOM elements
+			$testimonyNav.each(function(i, v) {
+				// if the number doesn't match the recorded click index that means it's not the button we pressed so change its colour
+				if (i != navClickIndex) {
+					$(this).css('background', 'white');
+
+					// go up to the highest parent for this section, find the li to target and change its display value
+					// since arrays start numbering at 0 we must add one to match my 1,2,3 naming
+					var $liToTarget = '#testimonial'+(i+1);
+
+					$(this).parents('section.testimonials').find($liToTarget).css('display','none');
+
+					// setting the time to 0 instead of 0.1 or 0.4 means there isn't enough time for the previous element to remain, forcing the new one below it and causing a spatial stutter effect... the switch and then fade in later becomes near instant
+					// TweenMax.to($(this).parents('section.testimonials').find($liToTarget),0,{display:'none', opacity:0, ease:Power2.easeIn, overwrite:'all'});
+				} else {
+					// break out of the loop if it is equal because it's the one that was pressed
+					return;					
+				}
+			});
+		});
+
+		// $(this).on('mouseout', function(event) {
+		// 	event.preventDefault();
+		// 	// myAnimation.reverse();
+		// 	// TweenMax.to($target.parents('section.testimonials').find($liToTarget),0.8,{display:'flex', opacity: 1, scaleX: 1, scaleY: 1, transformPerspective: 300, ease:Power2.easeIn, overwrite:'all'});
+		// 	TweenMax.to($target.parents('section.testimonials').find($liToTarget),0.8,{display:'flex', opacity: 1, ease:Power2.easeIn, overwrite:'all'});
+		// });
+	});
+}
+
+function testimonySlider2 () {
+
+	// to make this function work well or at all you need to give your li elements unique IDs that are numbered and can be tied directly to the numbering of the slider nav...
+	// you use the index() method to return the position of the li that was clicked (i.e. $(this) element clicked) and that helps you acquire the targeting on corresponding ID#
+
+	var $testimonyRef = $('ul.testimonialList');
+	var $testimonyNav = $('ul.selectorNav li');
+	var $target;
+	var myAnimation;
+	var navClickIndex;
+	var $liToTarget
+
+	$testimonyNav.each(function(index, val) {
+
+		$(this).on('click', function(event) {
+			event.preventDefault();
+			$target = $(this);
+
+			// get this item's index value so we can match it to the correct li element to target for the testimonial list
+			// use the array.index() method which returns the matched element's position
+			navClickIndex = $testimonyNav.index($(this));
+			console.log('Array index position of the nav button clicked %s',navClickIndex);
+
+			// since arrays start numbering at 0 we must add one to match my 1,2,3 naming
+			$liToTarget = '#testimonial' + (navClickIndex+1);
+
+			// when this slider nav button is clicked, change its background to yellow
+			$target.css('background', '#FBF200');
+
+			// make this one's testimonial list entry appear
 			// $(this).parents('section.testimonials').find($liToTarget).css('display','flex');
 			// myAnimation = TweenMax.to($target.parents('section.testimonials').find($liToTarget),0.8,{display:'flex', opacity: 1, scaleX: 1.3, scaleY: 1.3, transformPerspective: 300, ease:Power2.easeIn, overwrite:'all'});
 			myAnimation = TweenMax.to($target.parents('section.testimonials').find($liToTarget),0.8,{display:'flex', opacity: 1, ease:Power2.easeIn, overwrite:'all'});
@@ -399,7 +464,8 @@ disableSlideOutShoppingCart();
 makeProductsDrag2();
 
 shopCartCount1();
-testimonySlider1();
+// testimonySlider1();
+testimonySlider2();
 // featuredItemsSwitcher1();
 featuredItemsSwitcher2();
 
