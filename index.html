@@ -1,0 +1,788 @@
+
+<html lang="en">
+  <head>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="robots" content="noindex,nofollow"/>
+    <link type="image/png" rel="icon" href="./images/favicon.png"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="./css/jquery-ui.min.css"/>
+    <link href="http://fonts.googleapis.com/css?family=Gudea:400,700,400italic" rel="stylesheet" type="text/css"/>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.min.css" rel="stylesheet" type="text/css"/>
+    <link href="./css/style.css" rel="stylesheet" type="text/css"/>
+    <!-- SCRIPTS-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.sticky.js"></script>
+    <script type="text/javascript" src="./js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.pkgd.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.gsap.min.js"></script>
+    <script type="text/javascript" src="./js/TweenMax.min.js"></script>
+    <script type="text/javascript" src="./js/Draggable.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.waypoints.min.js"></script>
+    <script type="text/javascript" src="./js/scripts.js"></script>
+  </head>
+  <body>
+    
+    
+    <!--//////////////////////////////////////////-->
+    <!-- 		PRIMARY NAVIGATION MENU-->
+    <!--///////////////////////////////////////-->
+    <!-- this is the side wide primary navigation menu-->
+    <header class="navMenu">
+      <!-- BANNER STRIP AT THE TOP  -------------------------------------------------->
+      <!-- this is the section above the logo segment and includes the shopping cart-->
+          <section class="banner">
+            <div class="wrapper">
+              <div>
+                <p>Free Shipping Over $50</p>
+              </div>
+              <div><a href="#">
+                  Login
+                  / <a href="#">Sign Up</a></a>
+              </div>
+              <div><img src="./images/cart.png" alt="cart"/><a href="#"><span class="cartCount">0</span>Items</a>
+              </div>
+              <div>
+                <p>$35</p>
+              </div>
+            </div>
+          </section>
+      <!-- END BANNER STRIP AT THE TOP -------------------------------------------------->
+      <!-- SEARCH & LOGO SEGMENT  -------------------------------------------------->
+      <!-- this section contains the site search field and the logo-->
+      <section class="search logo">
+        <div class="wrapper">
+          <div>
+            <input placeholder="Search Something" class="search"/>
+          </div><img src="./images/logo.png" alt="Logo"/>
+        </div>
+      </section>
+      <!-- END SEARCH & LOGO SEGMENT -------------------------------------------------->
+      <!-- NAVIGATION MENU  -------------------------------------------------->
+      <!-- this is the actual html for the navigation menu-->
+      <nav class="primaryNav1">
+        <div class="wrapper">		
+          <ul>
+                <li><a href="#">New Arrivals
+                    <div class="slash"></div></a></li>
+                <li><a href="#">Women
+                    <div class="slash"></div></a></li>
+                <li><a href="#">Men
+                    <div class="slash"></div></a></li>
+                <li><a href="#">Accessories
+                    <div class="slash"></div></a></li>
+                <li><a href="#">Dress
+                    <div class="slash"></div></a></li>
+                <li><a href="#">Sales-Off
+                    <div class="slash"></div></a></li>
+                <li><a href="#">Lookbook
+                    <div class="slash"></div></a></li>
+                <li><a href="#">This Week
+                    <div class="slash"></div></a></li>
+          </ul>
+        </div>
+      </nav>
+      <!-- END NAVIGATION MENU -------------------------------------------------->
+    </header>
+    <!--//////////////////////////////////////////-->
+    <!-- SLIDE OUT SHOPPING CART  -------------------------------------------------->
+    <!--//////////////////////////////////////////-->
+    <!-- 		SLIDE OUT SHOPPING CART-->
+    <!--////////////////////////////////////////-->
+    <!-- see mixins.project.jade for the html markup in Jade-->
+    <!-- the body will need to be set to position relative-->
+    <!-- DISPLAY STATUS-->
+    <!-- where display: none is default and it is revealed using jQuery Waypoints-->
+    <!-- display: none;-->
+        <aside class="slideOutShoppingCart"><span class="fa fa-shopping-cart">
+            <div class="slash">
+            </div></span>
+          <div class="frame"><span class="shopCartCount"></span>
+          </div>
+        </aside>
+    <!--//////////////////////////////////////////-->
+    <!-- END SLIDE OUT SHOPPING CART -------------------------------------------------->
+    <!--//////////////////////////////////////////-->
+    <!-- 		HERO BLOCK-->
+    <!--///////////////////////////////////////-->
+    <section class="heroBlock heroBlock042715">
+      <!-- IMAGE SHADER  -------------------------------------------------->
+      <!-- the image shader is used for placeholder images and prevents the image from obscuring the text-->
+      <div class="imageshader">
+      </div>
+      <!-- END IMAGE SHADER -------------------------------------------------->
+      <div class="wrapper">
+        <!-- COPY TEXT  -------------------------------------------------->
+        <div class="copy">
+          <h1>Lady</h1>
+          <p>Rethink your swim wear and take it to the street</p><a href="#">
+            <div>
+              <div class="slash"></div>
+              <p>View the Lookbook</p>
+            </div></a>
+        </div>
+        <!-- END COPY TEXT -------------------------------------------------->
+        <!-- FILL SPACE  -------------------------------------------------->
+        <!-- this div is used to fill space and force the .copy text to be aligned around the vertical axis at the 50% mark-->
+        <div class="fillspace"></div>
+        <!-- END FILL SPACE -------------------------------------------------->
+      </div>
+    </section>
+    <!--//////////////////////////////////////////-->
+    <!--//////////////////////////////////////////-->
+    <!-- 		PRODUCTS DISPLAY-->
+    <!--///////////////////////////////////////-->
+    <!-- display the products like a storefront-->
+    <!-- NEW ARRIVALS SECTION  -------------------------------------------------->
+    <!-- this is the New Arrivals section of the page-->
+    <section class="newArrivals">
+      <div class="wrapper">
+        <p class="introHead">The New Arrivals</p>
+        <h2>Trending</h2>
+            <aside class="companyLogo">
+              <div class="bar">
+                <div class="slash"></div>
+                <div class="extraShader"></div>
+              </div>
+            </aside>
+        <p class="subhead">Define your wardrobe with accessories</p>
+        <!-- WARDROBE DISPLAY SECTION-->
+        <section class="wardrobeDisplay">
+          <!-- LEFT  -------------------------------------------------->
+          <div class="left">
+            <!-- LEFT TOP  -------------------------------------------------->
+            <div class="top">
+              <!-- LEFT TOP LEFT  -------------------------------------------------->
+              <div class="left wardrobeDrag">
+                <h3>Sweater</h3>
+                <p class="copy">Bring our style</p>
+                <p class="price">$125</p>
+                    <div class="purchaseShader">
+                      <p class="price"><span>$</span>99</p><a href="javascript:void(0)" class="button">
+                        <div class="button">
+                          <div class="slash">				</div>
+                          <p class="text">Add to Cart</p>
+                        </div></a>
+                    </div>
+              </div>
+              <!-- END LEFT TOP LEFT -------------------------------------------------->
+              <!-- LEFT TOP RIGHT  -------------------------------------------------->
+              <div class="right">
+                <div class="top wardrobeDrag">
+                      <div class="purchaseShader">
+                        <p class="price"><span>$</span>99</p><a href="javascript:void(0)" class="button">
+                          <div class="button">
+                            <div class="slash">				</div>
+                            <p class="text">Add to Cart</p>
+                          </div></a>
+                      </div>
+                </div>
+                <div class="bottom wardrobeDrag">
+                      <div class="purchaseShader">
+                        <p class="price"><span>$</span>99</p><a href="javascript:void(0)" class="button">
+                          <div class="button">
+                            <div class="slash">				</div>
+                            <p class="text">Add to Cart</p>
+                          </div></a>
+                      </div>
+                </div>
+              </div>
+              <!-- END LEFT TOP RIGHT -------------------------------------------------->
+            </div>
+            <!-- END LEFT TOP -------------------------------------------------->
+            <!-- LEFT BOTTOM  -------------------------------------------------->
+            <div class="bottom">
+              <div class="left wardrobeDrag">
+                    <div class="purchaseShader">
+                      <p class="price"><span>$</span>99</p><a href="javascript:void(0)" class="button">
+                        <div class="button">
+                          <div class="slash">				</div>
+                          <p class="text">Add to Cart</p>
+                        </div></a>
+                    </div>
+              </div>
+              <div class="right wardrobeDrag">
+                    <div class="purchaseShader">
+                      <p class="price"><span>$</span>99</p><a href="javascript:void(0)" class="button">
+                        <div class="button">
+                          <div class="slash">				</div>
+                          <p class="text">Add to Cart</p>
+                        </div></a>
+                    </div>
+              </div>
+            </div>
+            <!-- END LEFT BOTTOM -------------------------------------------------->
+          </div>
+          <!-- END LEFT -------------------------------------------------->
+          <!-- RIGHT  -------------------------------------------------->
+          <div class="right">
+            <!-- RIGHT TOP  -------------------------------------------------->
+            <div class="top">
+              <div class="left specialDressDrag">
+                    <div class="purchaseShader">
+                      <p class="price"><span>$</span>99</p><a href="javascript:void(0)" class="button">
+                        <div class="button">
+                          <div class="slash">				</div>
+                          <p class="text">Add to Cart</p>
+                        </div></a>
+                    </div>
+              </div>
+              <div class="right specialDressDrag">
+                    <div class="purchaseShader">
+                      <p class="price"><span>$</span>99</p><a href="javascript:void(0)" class="button">
+                        <div class="button">
+                          <div class="slash">				</div>
+                          <p class="text">Add to Cart</p>
+                        </div></a>
+                    </div>
+              </div>
+            </div>
+            <!-- END RIGHT TOP -------------------------------------------------->
+            <!-- RIGHT BOTTOM  -------------------------------------------------->
+            <div class="bottom">
+              <div class="left specialDressDrag">
+                <div class="top"></div>
+                <div class="bottom">
+                  <div class="copy">
+                    <h3>Full Options</h3>
+                    <p class="copy">Body and Smiling</p>
+                    <p class="price">$399</p>
+                  </div>
+                      <div class="purchaseShader">
+                        <p class="price"><span>$</span>99</p><a href="javascript:void(0)" class="button">
+                          <div class="button">
+                            <div class="slash">				</div>
+                            <p class="text">Add to Cart</p>
+                          </div></a>
+                      </div>
+                </div>
+              </div>
+              <div class="right specialDressDrag">
+                    <div class="purchaseShader">
+                      <p class="price"><span>$</span>99</p><a href="javascript:void(0)" class="button">
+                        <div class="button">
+                          <div class="slash">				</div>
+                          <p class="text">Add to Cart</p>
+                        </div></a>
+                    </div>
+              </div>
+            </div>
+            <!-- END RIGHT BOTTOM -------------------------------------------------->
+          </div>
+          <!-- END RIGHT -------------------------------------------------->
+        </section>
+      </div>
+    </section>
+    <!-- END NEW ARRIVALS SECTION -------------------------------------------------->
+    
+    <!-- DRESS COLLECTION SECTION  -------------------------------------------------->
+    <!-- this is the Dress Collection section of the page-->
+    <section class="dressCollection">
+      <div class="wrapper">
+        <p class="introHead">Dress Collection</p>
+        <nav><a href="javascript:void(0)" class="popular">
+            <h2>Popular</h2></a><span class="divider"> / </span><a href="javascript:void(0)" class="recent">
+            <h2>Recent</h2></a><span class="divider"> / </span><a href="javascript:void(0)" class="random">
+            <h2>Random</h2></a></nav>
+            <aside class="companyLogo">
+              <div class="bar">
+                <div class="slash"></div>
+                <div class="extraShader"></div>
+              </div>
+            </aside>
+        <!-- COLLECTION DISPLAY SECTION-->
+        <section class="collectionDisplay">
+              <section class="chifonFloral collectionUnit">
+                <div class="imgHolder">
+                  <div class="imgShader">
+                        <div class="addToCartButton"><a href="javascript:void(0)" class="button">
+                            <div class="button">
+                              <div class="slash"></div>
+                              <p class="text">Add to Cart</p>
+                            </div></a></div>
+                  </div>
+                </div>
+                <h3>Chifon &amp; Floral Dress</h3>
+                <p class="price">$22.5</p>
+                <div class="colourSelect"><a href="javascript:void(0)" class="colour1"></a><a href="javascript:void(0)" class="colour2"></a>
+                </div>
+              </section>
+              <section class="camiStrap collectionUnit">
+                <div class="imgHolder">
+                  <div class="imgShader">
+                        <div class="addToCartButton"><a href="javascript:void(0)" class="button">
+                            <div class="button">
+                              <div class="slash"></div>
+                              <p class="text">Add to Cart</p>
+                            </div></a></div>
+                  </div>
+                </div>
+                <h3>Cami Strap Dress</h3>
+                <p class="price">$23.5</p>
+                <div class="colourSelect"><a href="javascript:void(0)" class="colour1"></a><a href="javascript:void(0)" class="colour2"></a>
+                </div>
+              </section>
+              <section class="abstractDDress collectionUnit">
+                <div class="imgHolder">
+                  <div class="imgShader">
+                        <div class="addToCartButton"><a href="javascript:void(0)" class="button">
+                            <div class="button">
+                              <div class="slash"></div>
+                              <p class="text">Add to Cart</p>
+                            </div></a></div>
+                  </div>
+                </div>
+                <h3>Flare Strap Dress</h3>
+                <p class="price">$19.0</p>
+                <div class="colourSelect"><a href="javascript:void(0)" class="colour1"></a><a href="javascript:void(0)" class="colour2"></a>
+                </div>
+              </section>
+              <section class="flareStrap collectionUnit">
+                <div class="imgHolder">
+                  <div class="imgShader">
+                        <div class="addToCartButton"><a href="javascript:void(0)" class="button">
+                            <div class="button">
+                              <div class="slash"></div>
+                              <p class="text">Add to Cart</p>
+                            </div></a></div>
+                  </div>
+                </div>
+                <h3>Abstract Dooted Dress</h3>
+                <p class="price">$21.5</p>
+                <div class="colourSelect"><a href="javascript:void(0)" class="colour1"></a><a href="javascript:void(0)" class="colour2"></a>
+                </div>
+              </section>
+              <section class="chifonFloral collectionUnit">
+                <div class="imgHolder">
+                  <div class="imgShader">
+                        <div class="addToCartButton"><a href="javascript:void(0)" class="button">
+                            <div class="button">
+                              <div class="slash"></div>
+                              <p class="text">Add to Cart</p>
+                            </div></a></div>
+                  </div>
+                </div>
+                <h3>Chifon &amp; Floral Dress</h3>
+                <p class="price">$22.5</p>
+                <div class="colourSelect"><a href="javascript:void(0)" class="colour1"></a><a href="javascript:void(0)" class="colour2"></a>
+                </div>
+              </section>
+              <section class="camiStrap collectionUnit">
+                <div class="imgHolder">
+                  <div class="imgShader">
+                        <div class="addToCartButton"><a href="javascript:void(0)" class="button">
+                            <div class="button">
+                              <div class="slash"></div>
+                              <p class="text">Add to Cart</p>
+                            </div></a></div>
+                  </div>
+                </div>
+                <h3>Cami Strap Dress</h3>
+                <p class="price">$23.5</p>
+                <div class="colourSelect"><a href="javascript:void(0)" class="colour1"></a><a href="javascript:void(0)" class="colour2"></a>
+                </div>
+              </section>
+              <section class="flareStrap collectionUnit">
+                <div class="imgHolder">
+                  <div class="imgShader">
+                        <div class="addToCartButton"><a href="javascript:void(0)" class="button">
+                            <div class="button">
+                              <div class="slash"></div>
+                              <p class="text">Add to Cart</p>
+                            </div></a></div>
+                  </div>
+                </div>
+                <h3>Flare Strap Dress</h3>
+                <p class="price">$19.0</p>
+                <div class="colourSelect"><a href="javascript:void(0)" class="colour1"></a><a href="javascript:void(0)" class="colour2"></a>
+                </div>
+              </section>
+              <section class="abstractDDress collectionUnit">
+                <div class="imgHolder">
+                  <div class="imgShader">
+                        <div class="addToCartButton"><a href="javascript:void(0)" class="button">
+                            <div class="button">
+                              <div class="slash"></div>
+                              <p class="text">Add to Cart</p>
+                            </div></a></div>
+                  </div>
+                </div>
+                <h3>Abstract Dooted Dress</h3>
+                <p class="price">$21.5</p>
+                <div class="colourSelect"><a href="javascript:void(0)" class="colour1"></a><a href="javascript:void(0)" class="colour2"></a>
+                </div>
+              </section>
+        </section>
+      </div>
+    </section>
+    <!-- END DRESS COLLECTION SECTION -------------------------------------------------->
+    <!--//////////////////////////////////////////-->
+    <!--//////////////////////////////////////////-->
+    <!-- 		TESTIMONIALS-->
+    <!--///////////////////////////////////////-->
+    <section class="testimonials">
+      <div class="wrapper">
+        <p class="leadIn">What does the fox say?</p>
+        <h2>Happy Customers</h2>
+            <aside class="companyLogo">
+              <div class="bar">
+                <div class="slash"></div>
+                <div class="extraShader"></div>
+              </div>
+            </aside>
+        <!-- TESTIMONIALS  -------------------------------------------------->
+        <!-- use either a jQuery slider plugin or custom code it-->
+        <ul class="testimonialList">
+          <li id="testimonial1">
+                <section class="testimonial1 testimonialEntry">
+                  <div class="entryText">
+                    <!-- for the slanted slash-->
+                    <div class="slash"></div>
+                    <!-- the best way to get the right background setup to blot out the slash behind it is to make cite a child of blockquote and apply a margin top to cite-->
+                    <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad quidem repudiandae, sequi ea delectus ut.
+                      <cite>Kyle James</cite></blockquote>
+                  </div>
+                </section>
+          </li>
+          <li id="testimonial2">
+                <section class="testimonial2 testimonialEntry">
+                  <div class="entryText">
+                    <!-- for the slanted slash-->
+                    <div class="slash"></div>
+                    <!-- the best way to get the right background setup to blot out the slash behind it is to make cite a child of blockquote and apply a margin top to cite-->
+                    <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad quidem repudiandae, sequi ea delectus ut.
+                      <cite>Mary Jane</cite></blockquote>
+                  </div>
+                </section>
+          </li>
+          <li id="testimonial3">
+                <section class="testimonial3 testimonialEntry">
+                  <div class="entryText">
+                    <!-- for the slanted slash-->
+                    <div class="slash"></div>
+                    <!-- the best way to get the right background setup to blot out the slash behind it is to make cite a child of blockquote and apply a margin top to cite-->
+                    <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad quidem repudiandae, sequi ea delectus ut.
+                      <cite>Peter Parker</cite></blockquote>
+                  </div>
+                </section>
+          </li>
+        </ul>
+        <!-- END TESTIMONIALS -------------------------------------------------->
+        <!-- TESTIMONIAL SELECTOR NAV  -------------------------------------------------->
+        <ul class="selectorNav">
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+        <!-- END TESTIMONIAL SELECTOR NAV -------------------------------------------------->
+      </div>
+    </section>
+    <!--//////////////////////////////////////////-->
+    <!--//////////////////////////////////////////-->
+    <!-- 		FEATURED ITEMS-->
+    <!--///////////////////////////////////////-->
+    <section class="featurePanel">
+      <div class="wrapper">
+        <section class="newIn">
+              <!-- NEW IN ENTRY PRODUCT  -------------------------------------------------->
+              <section class="featureEntry">
+                <h2>New-In</h2>
+                <div class="topBar">
+                  <div class="logo">
+                        <aside class="companyLogo">
+                          <div class="bar">
+                            <div class="slash"></div>
+                            <div class="extraShader"></div>
+                          </div>
+                        </aside>
+                  </div>
+                  <nav><span class="fa fa-angle-left"></span><span class="fa fa-angle-right"></span></nav>
+                </div>
+                <div class="selections">
+                      <section class="selectEntry">
+                        <div class="image"><img src="http://lorempixel.com/51/86" alt="Lorem Placeholder"/></div>
+                        <div class="meta">
+                          <h3>Abstract Dooted Dress</h3>
+                          <p class="price">$21.5</p>
+                          <div class="colourSelect"><a href="#" class="colour1"></a><a href="#" class="colour2"></a>
+                          </div>
+                        </div>
+                      </section>
+                      <section class="selectEntry">
+                        <div class="image"><img src="http://lorempixel.com/51/86" alt="Lorem Placeholder"/></div>
+                        <div class="meta">
+                          <h3>Flair Trap Dress</h3>
+                          <p class="price">$22.5</p>
+                          <div class="colourSelect"><a href="#" class="colour1"></a><a href="#" class="colour2"></a>
+                          </div>
+                        </div>
+                      </section>
+                      <section class="selectEntry">
+                        <div class="image"><img src="http://lorempixel.com/51/86" alt="Lorem Placeholder"/></div>
+                        <div class="meta">
+                          <h3>Chipon &amp; Floral Dress</h3>
+                          <p class="price">$23.5</p>
+                          <div class="colourSelect"><a href="#" class="colour1"></a><a href="#" class="colour2"></a>
+                          </div>
+                        </div>
+                      </section>
+                </div>
+              </section>
+              <!-- END NEW IN ENTRY PRODUCT -------------------------------------------------->
+              
+        </section>
+        <section class="featured">
+              <!-- FEATURED ENTRY PRODUCT  -------------------------------------------------->
+              <section class="featureEntry">
+                <h2>Featured</h2>
+                <div class="topBar">
+                  <div class="logo">
+                        <aside class="companyLogo">
+                          <div class="bar">
+                            <div class="slash"></div>
+                            <div class="extraShader"></div>
+                          </div>
+                        </aside>
+                  </div>
+                  <nav><span class="fa fa-angle-left"></span><span class="fa fa-angle-right"></span></nav>
+                </div>
+                <div class="selections">
+                      <section class="selectEntry">
+                        <div class="image"><img src="http://lorempixel.com/51/86" alt="Lorem Placeholder"/></div>
+                        <div class="meta">
+                          <h3>Teenager Dress</h3>
+                          <p class="price">$22.5</p>
+                          <div class="colourSelect"><a href="#" class="colour1"></a><a href="#" class="colour2"></a>
+                          </div>
+                        </div>
+                      </section>
+                      <section class="selectEntry">
+                        <div class="image"><img src="http://lorempixel.com/51/86" alt="Lorem Placeholder"/></div>
+                        <div class="meta">
+                          <h3>Warm Dress</h3>
+                          <p class="price">$25.5</p>
+                          <div class="colourSelect"><a href="#" class="colour1"></a><a href="#" class="colour2"></a>
+                          </div>
+                        </div>
+                      </section>
+                      <section class="selectEntry">
+                        <div class="image"><img src="http://lorempixel.com/51/86" alt="Lorem Placeholder"/></div>
+                        <div class="meta">
+                          <h3>Dotted Mosaic Dress</h3>
+                          <p class="price">$21.5</p>
+                          <div class="colourSelect"><a href="#" class="colour1"></a><a href="#" class="colour2"></a>
+                          </div>
+                        </div>
+                      </section>
+                </div>
+              </section>
+              <!-- END FEATURED ENTRY PRODUCT -------------------------------------------------->
+        </section>
+        <section class="top">
+              <!-- TOP PICK ENTRY PRODUCT  -------------------------------------------------->
+              <section class="featureEntry">
+                <h2>Top</h2>
+                <div class="topBar">
+                  <div class="logo">
+                        <aside class="companyLogo">
+                          <div class="bar">
+                            <div class="slash"></div>
+                            <div class="extraShader"></div>
+                          </div>
+                        </aside>
+                  </div>
+                  <nav><span class="fa fa-angle-left"></span><span class="fa fa-angle-right"></span></nav>
+                </div>
+                <div class="selections">
+                      <section class="selectEntry">
+                        <div class="image"><img src="http://lorempixel.com/51/86" alt="Lorem Placeholder"/></div>
+                        <div class="meta">
+                          <h3>Abstract Dooted Dress</h3>
+                          <p class="price">$21.5</p>
+                          <div class="colourSelect"><a href="#" class="colour1"></a><a href="#" class="colour2"></a>
+                          </div>
+                        </div>
+                      </section>
+                      <section class="selectEntry">
+                        <div class="image"><img src="http://lorempixel.com/51/86" alt="Lorem Placeholder"/></div>
+                        <div class="meta">
+                          <h3>Flair Trap Dress</h3>
+                          <p class="price">$22.5</p>
+                          <div class="colourSelect"><a href="#" class="colour1"></a><a href="#" class="colour2"></a>
+                          </div>
+                        </div>
+                      </section>
+                      <section class="selectEntry">
+                        <div class="image"><img src="http://lorempixel.com/51/86" alt="Lorem Placeholder"/></div>
+                        <div class="meta">
+                          <h3>Chipon &amp; Floral Dress</h3>
+                          <p class="price">$23.5</p>
+                          <div class="colourSelect"><a href="#" class="colour1"></a><a href="#" class="colour2"></a>
+                          </div>
+                        </div>
+                      </section>
+                </div>
+              </section>
+              <!-- END TOP PICK ENTRY PRODUCT -------------------------------------------------->
+        </section>
+      </div>
+    </section>
+    <!--//////////////////////////////////////////-->
+    <!--//////////////////////////////////////////-->
+    <!-- 		NEWSLETTER-->
+    <!--///////////////////////////////////////-->
+    <section class="newsletter">
+      <div class="wrapper">
+        <p class="leadIn">Get latest news and coupons from lady</p>
+        <h2>Subscribe</h2>
+            <aside class="companyLogo">
+              <div class="bar">
+                <div class="slash"></div>
+                <div class="extraShader"></div>
+              </div>
+            </aside>
+        <!-- FORM  -------------------------------------------------->
+        <form id="newsletter1" method="" action=""><span>
+            <input type="email" name="email" placeholder="Your Email Address"/></span></form>
+        <!-- END FORM -------------------------------------------------->
+      </div>
+    </section>
+    <!--//////////////////////////////////////////-->
+    <!--//////////////////////////////////////////-->
+    <!-- 		FOOTER-->
+    <!--///////////////////////////////////////-->
+    <section class="footer">
+      <div class="wrapper">
+        <!-- QUICK LINK  -------------------------------------------------->
+        <section class="quickLink">
+          <h2>Quick-Link</h2>
+              <aside class="companyLogo">
+                <div class="bar">
+                  <div class="slash"></div>
+                  <div class="extraShader"></div>
+                </div>
+              </aside>
+          <div class="linkbox"><a href="#">My Account</a><a href="#">Contact Us</a><a href="#">Store Location</a><a href="#">Size Guide</a><a href="#">Shipping Info</a></div>
+        </section>
+        <!-- END QUICK LINK -------------------------------------------------->
+        <!-- RECENT BLOGS  -------------------------------------------------->
+        <section class="recentBlogs">
+          <h2>Recent Blogs</h2>
+              <aside class="companyLogo">
+                <div class="bar">
+                  <div class="slash"></div>
+                  <div class="extraShader"></div>
+                </div>
+              </aside>
+              <aside class="blogHeadline">
+                <div class="image"><img src="http://lorempixel.com/52/43" alt="Lorem Placeholder Image"/>
+                </div>
+                <div class="meta">
+                  <h4>Top 10 Trending Dresses</h4><a href="http://" target="_blank" class="readMore">Read More</a>
+                </div>
+              </aside>
+              <aside class="blogHeadline">
+                <div class="image"><img src="http://lorempixel.com/52/43" alt="Lorem Placeholder Image"/>
+                </div>
+                <div class="meta">
+                  <h4>The Awesome V-Line</h4><a href="http://" target="_blank" class="readMore">Read More</a>
+                </div>
+              </aside>
+              <aside class="blogHeadline">
+                <div class="image"><img src="http://lorempixel.com/52/43" alt="Lorem Placeholder Image"/>
+                </div>
+                <div class="meta">
+                  <h4>News About Opening Hours of the Store</h4><a href="http://" target="_blank" class="readMore">Read More</a>
+                </div>
+              </aside>
+        </section>
+        <!-- END RECENT BLOGS -------------------------------------------------->
+        <!-- TAGS  -------------------------------------------------->
+        <section class="tags">
+          <h2>Tags</h2>
+              <aside class="companyLogo">
+                <div class="bar">
+                  <div class="slash"></div>
+                  <div class="extraShader"></div>
+                </div>
+              </aside>
+          <div class="tagBox"><a href="#">Dress</a><a href="#">Lips</a><a href="#">Dotted</a><a href="#">Accessories</a><a href="#">Cami</a><a href="#">Cross</a><a href="#">Abstract</a><a href="#">Babydoll</a><a href="#">Saleoff</a><a href="#">Floral</a></div>
+        </section>
+        <!-- END TAGS -------------------------------------------------->
+        <!-- CONTACT US  -------------------------------------------------->
+        <section class="contactinfo">
+          <h2>Find Us On</h2>
+              <aside class="companyLogo">
+                <div class="bar">
+                  <div class="slash"></div>
+                  <div class="extraShader"></div>
+                </div>
+              </aside>
+          <aside class="socialIcons"><a href="#"><span class="fa-facebook fa"></span></a><a href="#"><span class="fa-twitter fa"></span></a><a href="#"><span class="fa-pinterest fa"></span></a><a href="#"><span class="fa-instagram fa"></span></a><a href="#"><span class="fa-google-plus fa"></span></a>
+          </aside>
+          <aside class="twitterFeed">
+                <aside class="twitterEntry">
+                  <div class="text">
+                    <h2>@Kyles</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  </div>
+                  <div class="time">
+                    <p>5h</p>
+                  </div>
+                </aside>
+                <aside class="twitterEntry">
+                  <div class="text">
+                    <h2>@James</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  </div>
+                  <div class="time">
+                    <p>6h</p>
+                  </div>
+                </aside>
+          </aside>
+        </section>
+        <!-- END CONTACT US -------------------------------------------------->
+      </div>
+    </section>
+    <!-- COPYRIGHT  -------------------------------------------------->
+    <section class="copyright">
+      <div class="wrapper">
+        <div class="copyright">
+          <p>Copyright 2015 By Lady Store . All rights reserved</p>
+        </div>
+        <nav class="menu"><a href="#">Home Page</a><a href="#">About Us</a><a href="#">Payment</a><a href="#">Shipping</a>
+        </nav>
+        <div class="credits">
+          <p>Photo Credits: <a href="http://www.clubmonaco.com/">Club Monaco</a>, <a href="https://us.aritzia.com/">Aritzia</a>, <a href="http://www.ca.allsaints.com/">All Saints</a>, <a href="https://www.pinterest.com/">Pinterest</a></p>
+        </div>
+      </div>
+    </section>
+    <!-- END COPYRIGHT -------------------------------------------------->
+    
+    
+    <!--//////////////////////////////////////////-->
+  </body>
+</html>
