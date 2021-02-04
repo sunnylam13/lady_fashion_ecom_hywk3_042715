@@ -2,16 +2,16 @@
 //- 		README FOR INDEX.JADE
 //- ===================================
 
-//- index.jade is derived from a site-wide master template known as index.layout.030215.1.jade
+//- index.pug is derived from a site-wide master template known as index.layout.030215.1.pug
 //- the custom content to build this page is located in the ./includes/ folder... 
 //- each partial is imported below and represents a different segment of the page
 //- please reference these partials for the jade code
 //- otherwise to see the final compiled html, see index.html
 
 //- Additional files to reference include...
-//- variables.global.jade [contains global variables]
-//- mixins.universal.jade [contains commonly used jade mixins for many of my multiple projects]
-//- mixins.project.jade [contains project specific mixins that I want available for all later partials and jade code]
+//- variables.global.pug [contains global variables]
+//- mixins.universal.pug [contains commonly used jade mixins for many of my multiple projects]
+//- mixins.project.pug [contains project specific mixins that I want available for all later partials and jade code]
 
 //- END README FOR INDEX.JADE
 
@@ -21,7 +21,7 @@
 
 //- for use if multiple web pages are added later on or as practice for a larger size
 
-extends index.layout.030215.1.jade
+extends index.layout.030215.1.pug
 
 //- END EXTEND FROM MASTER TEMPLATE
 
@@ -31,49 +31,49 @@ extends index.layout.030215.1.jade
 //- 		PRIMARY NAVIGATION MENU
 //- ===================================
 
-//- the primary navigation menu is located in the index.layout.jade file in its own partial
-//- please see nav.042715.1.jade or a similarly named file where the end part 042715 represents month/day/year...  see latest version
+//- the primary navigation menu is located in the index.layout.pug file in its own partial
+//- please see nav.042715.1.pug or a similarly named file where the end part 042715 represents month/day/year...  see latest version
 
 //- END PRIMARY NAVIGATION MENU
 
 block content
-	//- include ./includes/heroBlock.042715.1.jade
-	//- include ./includes/products.042715.1.jade
-	//- include ./includes/testimonials.042715.1.jade
-	//- include ./includes/featured.042715.1.jade
-	//- include ./includes/newsletter.042715.1.jade
+	//- include ./includes/heroBlock.042715.1.pug
+	//- include ./includes/products.042715.1.pug
+	//- include ./includes/testimonials.042715.1.pug
+	//- include ./includes/featured.042715.1.pug
+	//- include ./includes/newsletter.042715.1.pug
 	
-	// SLIDE OUT SHOPPING CART  ------------------------------------------------
-	////////////////////////////////////////////
-	// 		SLIDE OUT SHOPPING CART
-	//////////////////////////////////////////
+	//- SLIDE OUT SHOPPING CART  ------------------------------------------------
+	//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-
+	//- 		SLIDE OUT SHOPPING CART
+	//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-
 	
-	// see mixins.project.jade for the html markup in Jade
-	// the body will need to be set to position relative
+	//- see mixins.project.pug for the html markup in Jade
+	//- the body will need to be set to position relative
 	
-	// DISPLAY STATUS
-	// where display: none is default and it is revealed using jQuery Waypoints
-	// display: none;
+	//- DISPLAY STATUS
+	//- where display: none is default and it is revealed using jQuery Waypoints
+	//- display: none;
 	
 	+slideOutShoppingCart1
-	////////////////////////////////////////////
-	// END SLIDE OUT SHOPPING CART ------------------------------------------------
+	//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-
+	//- END SLIDE OUT SHOPPING CART ------------------------------------------------
 
-	////////////////////////////////////////////
-	// 		HERO BLOCK
-	/////////////////////////////////////////
+	//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-
+	//- 		HERO BLOCK
+	//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-/
 
 	section.heroBlock.heroBlock042715
 		//- use a background image
-		// IMAGE SHADER  ------------------------------------------------
-		// the image shader is used for placeholder images and prevents the image from obscuring the text
+		//- IMAGE SHADER  ------------------------------------------------
+		//- the image shader is used for placeholder images and prevents the image from obscuring the text
 		.imageshader
 			//- this is for lightening the background cover
-		// END IMAGE SHADER ------------------------------------------------
+		//- END IMAGE SHADER ------------------------------------------------
 		
 		.wrapper
 
-			// COPY TEXT  ------------------------------------------------
+			//- COPY TEXT  ------------------------------------------------
 			.copy
 				h1 Lady
 				p Rethink your swim wear and take it to the street
@@ -90,24 +90,24 @@ block content
 						//- the div will hold the before element
 						p View the Lookbook
 						//- div.slash
-			// END COPY TEXT ------------------------------------------------
+			//- END COPY TEXT ------------------------------------------------
 			
-			// FILL SPACE  ------------------------------------------------
-			// this div is used to fill space and force the .copy text to be aligned around the vertical axis at the 50% mark
+			//- FILL SPACE  ------------------------------------------------
+			//- this div is used to fill space and force the .copy text to be aligned around the vertical axis at the 50% mark
 			.fillspace
-			// END FILL SPACE ------------------------------------------------
+			//- END FILL SPACE ------------------------------------------------
 			
 
-	////////////////////////////////////////////
+	//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-
 
-	////////////////////////////////////////////
-	// 		PRODUCTS DISPLAY
-	/////////////////////////////////////////
+	//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-
+	//- 		PRODUCTS DISPLAY
+	//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-/
 
-	// display the products like a storefront
+	//- display the products like a storefront
 
-	// NEW ARRIVALS SECTION  ------------------------------------------------
-	// this is the New Arrivals section of the page
+	//- NEW ARRIVALS SECTION  ------------------------------------------------
+	//- this is the New Arrivals section of the page
 	section.newArrivals
 		.wrapper
 			p.introHead The New Arrivals
@@ -117,49 +117,49 @@ block content
 			
 			p.subhead Define your wardrobe with accessories
 
-			// WARDROBE DISPLAY SECTION
+			//- WARDROBE DISPLAY SECTION
 			section.wardrobeDisplay
 				//- the images may require a transparent background
 				//- the background colour will have to be set
 				//- little boxes are 211x211px
 				
-				// LEFT  ------------------------------------------------
+				//- LEFT  ------------------------------------------------
 				div.left
-					// LEFT TOP  ------------------------------------------------
+					//- LEFT TOP  ------------------------------------------------
 					div.top
-						// LEFT TOP LEFT  ------------------------------------------------
+						//- LEFT TOP LEFT  ------------------------------------------------
 						div.left.wardrobeDrag
 							//- dimensions 211x420px
 							h3 Sweater
 							p.copy Bring our style
 							p.price $125
 							+purchaseShader1
-						// END LEFT TOP LEFT ------------------------------------------------
+						//- END LEFT TOP LEFT ------------------------------------------------
 						
-						// LEFT TOP RIGHT  ------------------------------------------------
+						//- LEFT TOP RIGHT  ------------------------------------------------
 						div.right
 							div.top.wardrobeDrag
 								+purchaseShader1
 							div.bottom.wardrobeDrag
 								+purchaseShader1
-						// END LEFT TOP RIGHT ------------------------------------------------
+						//- END LEFT TOP RIGHT ------------------------------------------------
 						
-					// END LEFT TOP ------------------------------------------------
+					//- END LEFT TOP ------------------------------------------------
 					
-					// LEFT BOTTOM  ------------------------------------------------
+					//- LEFT BOTTOM  ------------------------------------------------
 					div.bottom
 						div.left.wardrobeDrag
 							+purchaseShader1
 						div.right.wardrobeDrag
 							+purchaseShader1
-					// END LEFT BOTTOM ------------------------------------------------
+					//- END LEFT BOTTOM ------------------------------------------------
 					
-				// END LEFT ------------------------------------------------
+				//- END LEFT ------------------------------------------------
 				
 				//- it appears that certain classes have already been used from the left side (i.e. top,bottom,left,right) so unique names need to be assigned
-				// RIGHT  ------------------------------------------------
+				//- RIGHT  ------------------------------------------------
 				div.right
-					// RIGHT TOP  ------------------------------------------------
+					//- RIGHT TOP  ------------------------------------------------
 					div.top
 						//- div.left.wardrobeDrag
 						//- 	+purchaseShader1
@@ -173,9 +173,9 @@ block content
 						//- 	+purchaseShader1
 						//- section.right.specialDressDrag
 						//- 	+purchaseShader1
-					// END RIGHT TOP ------------------------------------------------
+					//- END RIGHT TOP ------------------------------------------------
 					
-					// RIGHT BOTTOM  ------------------------------------------------
+					//- RIGHT BOTTOM  ------------------------------------------------
 					div.bottom
 						//- div.left.wardrobeDrag.specialDressDrag
 						//- 	//- dimensions 420x420px
@@ -200,15 +200,15 @@ block content
 								+purchaseShader1
 						div.right.specialDressDrag
 							+purchaseShader1
-					// END RIGHT BOTTOM ------------------------------------------------
+					//- END RIGHT BOTTOM ------------------------------------------------
 					
-				// END RIGHT ------------------------------------------------
+				//- END RIGHT ------------------------------------------------
 				
-	// END NEW ARRIVALS SECTION ------------------------------------------------
+	//- END NEW ARRIVALS SECTION ------------------------------------------------
 
 
-	// DRESS COLLECTION SECTION  ------------------------------------------------
-	// this is the Dress Collection section of the page
+	//- DRESS COLLECTION SECTION  ------------------------------------------------
+	//- this is the Dress Collection section of the page
 	section.dressCollection
 		.wrapper
 			p.introHead Dress Collection
@@ -229,7 +229,7 @@ block content
 
 			+companyLogo1(companyLogoEnabled)
 			
-			// COLLECTION DISPLAY SECTION
+			//- COLLECTION DISPLAY SECTION
 
 			//- ===================================
 			//- 		COLLECTION DISPLAY
@@ -246,12 +246,12 @@ block content
 				+collectionUnit2('abstractDDress','Abstract Dooted Dress','$21.5')
 
 			//- END COLLECTION DISPLAY
-	// END DRESS COLLECTION SECTION ------------------------------------------------
-	////////////////////////////////////////////
+	//- END DRESS COLLECTION SECTION ------------------------------------------------
+	//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-
 
-	////////////////////////////////////////////
-	// 		TESTIMONIALS
-	/////////////////////////////////////////
+	//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-
+	//- 		TESTIMONIALS
+	//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-/
 
 	section.testimonials
 		.wrapper
@@ -267,8 +267,8 @@ block content
 			//- to use any of the sliders like bxSlider or flickity you'll have to insert the entries within a ul li
 			//- you'll have to re-style the slider buttons and remove the previous/next arrows
 
-			// TESTIMONIALS  ------------------------------------------------
-			// use either a jQuery slider plugin or custom code it
+			//- TESTIMONIALS  ------------------------------------------------
+			//- use either a jQuery slider plugin or custom code it
 			//- ul.testimonialList
 			//- 	li
 			//- 		+testimonialEntry1('Kyle James','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad quidem repudiandae, sequi ea delectus ut.')
@@ -285,10 +285,10 @@ block content
 				li#testimonial3
 					+testimonialEntry1('Peter Parker','Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad quidem repudiandae, sequi ea delectus ut.','testimonial3')
 
-			// END TESTIMONIALS ------------------------------------------------
+			//- END TESTIMONIALS ------------------------------------------------
 			
 			
-			// TESTIMONIAL SELECTOR NAV  ------------------------------------------------
+			//- TESTIMONIAL SELECTOR NAV  ------------------------------------------------
 			//- testimonial slider selector nav
 			//- each is a square button and when pressed it turns from base white to yellow
 			//- I could have used divs however this works as well
@@ -296,18 +296,18 @@ block content
 				li
 				li
 				li
-			// END TESTIMONIAL SELECTOR NAV ------------------------------------------------
+			//- END TESTIMONIAL SELECTOR NAV ------------------------------------------------
 			
 
 			//- ===================================
 
 		//- END HEADING
 
-	////////////////////////////////////////////
+	//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-
 
-	////////////////////////////////////////////
-	// 		FEATURED ITEMS
-	/////////////////////////////////////////
+	//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-
+	//- 		FEATURED ITEMS
+	//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-/
 
 	//- each press of the previous/next buttons should display a new div
 	//- you could use jQuery to construct a random selection?
@@ -321,11 +321,11 @@ block content
 			section.top
 				+topPickEntry1
 
-	////////////////////////////////////////////
+	//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-
 
-	////////////////////////////////////////////
-	// 		NEWSLETTER
-	/////////////////////////////////////////
+	//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-
+	//- 		NEWSLETTER
+	//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-/
 
 	section.newsletter
 		.wrapper
@@ -333,20 +333,20 @@ block content
 			h2 Subscribe
 			+companyLogo1(companyLogoEnabled)
 			
-			// FORM  ------------------------------------------------
+			//- FORM  ------------------------------------------------
 			form(id="newsletter1", method="", action="")
 				span
 					//- a FA icon of a paper airplane must be placed ::before the input and/or absolutely positioned
 					input(type='email', name='email', placeholder='Your Email Address')
-			// END FORM ------------------------------------------------
+			//- END FORM ------------------------------------------------
 
-	////////////////////////////////////////////
+	//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-
 
 //- ===================================
 //- 		FOOTER
 //- ===================================
 
-//- the footer is located in the index.layout.jade file in its own partial
-//- please see footer.042715.1.jade or a similarly named file where the end part 042715 represents month/day/year...  see latest version
+//- the footer is located in the index.layout.pug file in its own partial
+//- please see footer.042715.1.pug or a similarly named file where the end part 042715 represents month/day/year...  see latest version
 
 //- END FOOTER
